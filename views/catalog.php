@@ -4,7 +4,7 @@
         <div class="row justify-content-center">
             <div class="col-12 col-lg-7">
                 <div class="text-center text-light">
-                    <h1 class="title-lilita mb-3">Les produits du moment</h1>
+                    <h1 class="title-lilita mb-3 display-5">Les produits du moment</h1>
                     <p class="fs-5">Les stars de la saison, soigneusement choisies pour vous !</p>
                 </div>
             </div>
@@ -83,18 +83,18 @@
 
         <!-- Catalogue produits -->
         <div class="py-4">
-            <div class="row g-3">
+            <div class="row g-3" data-aos="fade-up">
                 <!-- Card produit -->
                 <div class="col-6 col-md-4 col-lg-3">
-                    <div class="card rounded-3 h-100">
+                    <div class="card rounded-3 h-100 bg-card">
                         <a href="/controllers/product-sheet-ctrl.php" class="text-decoration-none">
                         <div class="img-hover-zoom rounded-3">
                             <img src="/public/assets/img/pomme-off.jpg" class="img-cover-card-product object-fit-cover rounded-3" alt="This zooms-in really well and smooth">
                         </div>
                         <div class="card-body text-success text-center pb-0">
                             <h5 class="fw-bolder mb-1 fs-6">Nom du produit <span class="badge rounded-pill text-bg-success">BIO</span></h5>
-                            <p class="small fw-light opacity-75 mb-0">500g</p>
-                            <p class="small fw-light opacity-75">Nom du producteur</p>
+                            <p class="small fw-light  mb-0">500g</p>
+                            <p class="small fw-light ">Nom du producteur</p>
                             <h6 class="card-title fs-5 fw-bolder mb-0">0,00 <sup>€</sup></h6>
                         </div>
                         </a>
@@ -106,7 +106,7 @@
                     </div>
                 </div>
                 <div class="col-6 col-md-4 col-lg-3">
-                    <div class="card rounded-3 h-100">
+                    <div class="card rounded-3 h-100 bg-card">
                         <a href="/controllers/product-sheet-ctrl.php" class="text-decoration-none">
                         <div class="img-hover-zoom rounded-3">
                             <img src="/public/assets/img/salade-off.jpg" class="img-cover-card-product object-fit-cover rounded-3" alt="This zooms-in really well and smooth">
@@ -126,33 +126,41 @@
                     </div>
                 </div>
                 <div class="col-6 col-md-4 col-lg-3">
-                    <div class="card rounded-3 h-100">
-                        <img src="/public/assets/img/pomme-off.jpg" class="img-cover-card-product object-fit-cover rounded-3" alt="Photo de Shelley Pauls">
+                    <div class="card rounded-3 h-100 bg-card">
+                        <a href="/controllers/product-sheet-ctrl.php" class="text-decoration-none">
+                        <div class="img-hover-zoom rounded-3">
+                            <img src="/public/assets/img/legumes-hiver.jpg" class="img-cover-card-product object-fit-cover rounded-3" alt="This zooms-in really well and smooth">
+                        </div>
                         <div class="card-body text-success text-center pb-0">
-                            <h5 class="fw-bolder mb-1 fs-6"><a href="" class="link-success text-decoration-none">Nom du produit sur 2 lignes <span class="badge rounded-pill text-bg-success">BIO</span></a></h5>
+                            <h5 class="fw-bolder mb-1 fs-6">Nom du produit <span class="badge rounded-pill text-bg-success">BIO</span></h5>
                             <p class="small fw-light opacity-75 mb-0">500g</p>
                             <p class="small fw-light opacity-75">Nom du producteur</p>
                             <h6 class="card-title fs-5 fw-bolder mb-0">0,00 <sup>€</sup></h6>
                         </div>
+                        </a>
                         <div class="card-footer border-0 bg-transparent pb-3">
                             <div class="d-grid">
-                                <button class="btn btn-sm btn-warning rounded-5" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottomPrice" aria-controls="offcanvasBottomPrice">Ajouter au panier</button>
+                                <button class="btn btn-sm btn-warning " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottomPrice" aria-controls="offcanvasBottomPrice">Ajouter au panier</button>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-6 col-md-4 col-lg-3">
-                    <div class="card rounded-3 h-100">
-                        <img src="/public/assets/img/salade-off.jpg" class="img-cover-card-product object-fit-cover rounded-3" alt="Photo de Shelley Pauls">
+                    <div class="card rounded-3 h-100 bg-card">
+                        <a href="/controllers/product-sheet-ctrl.php" class="text-decoration-none">
+                        <div class="img-hover-zoom rounded-3">
+                            <img src="/public/assets/img/salade-off.jpg" class="img-cover-card-product object-fit-cover rounded-3" alt="This zooms-in really well and smooth">
+                        </div>
                         <div class="card-body text-success text-center pb-0">
-                            <h5 class="fw-bolder mb-1 fs-6"><a href="" class="link-success text-decoration-none">Nom du produit sur 2 lignes <span class="badge rounded-pill text-bg-success">BIO</span></a></h5>
+                            <h5 class="fw-bolder mb-1 fs-6">Nom du produit <span class="badge rounded-pill text-bg-success">BIO</span></h5>
                             <p class="small fw-light opacity-75 mb-0">500g</p>
                             <p class="small fw-light opacity-75">Nom du producteur</p>
                             <h6 class="card-title fs-5 fw-bolder mb-0">0,00 <sup>€</sup></h6>
                         </div>
+                        </a>
                         <div class="card-footer border-0 bg-transparent pb-3">
                             <div class="d-grid">
-                                <button class="btn btn-sm btn-warning rounded-5" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottomPrice" aria-controls="offcanvasBottomPrice">Ajouter au panier</button>
+                                <button class="btn btn-sm btn-warning " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottomPrice" aria-controls="offcanvasBottomPrice">Ajouter au panier</button>
                             </div>
                         </div>
                     </div>

@@ -62,28 +62,6 @@
     </div>
 </section><!-- FIN section "Comment ça fonctionne ?" -->
 <!-- section "Fruit, légume" renvoie sur le catalogue -->
-<section class="my-6 py-6 text-center bg-warning">
-    <div class="container">
-        <h2 class="title-lilita fs-1 mb-4">Fruits, légumes, fromages...</h2>
-        <h5 class="mb-4">Choisissez parmi plus une grande sélection de produits et faites toutes vos courses, en direct de petites fermes situées à moins de 30km</h5>
-        <div>
-            <a class="btn btn-success icon-link icon-link-hover my-1" href="#">
-                Commencer mon marché
-                <i class="bi bi-chevron-right mb-2"></i>
-            </a>
-        </div>
-    </div>
-</section><!-- FIN section "Fruit, légume" -->
+<?php include __DIR__.'/../views/templates/baner-shop.php' ?>
 <!-- section "Abonnez-vous" -->
-<section class="my-6 text-center">
-    <div class="container">
-        <h2 class="title-lilita fs-1 mb-4"><span class="bg-warning p-1">Abonnez-vous</span> aux frais !</h2>
-        <h5 class="mb-4">Venez retirer votre panier de produits frais et de saison chaque semaine ou seulement de temps en temps.</h5>
-        <div>
-            <a class="btn btn-success icon-link icon-link-hover my-1" href="#">
-                En savoir plus
-                <i class="bi bi-chevron-right mb-2"></i>
-            </a>
-        </div>
-    </div>
-</section><!-- FIN section "Abonnez-vous" -->
+<?php include __DIR__.'/../views/templates/baner-subscription.php' ?>

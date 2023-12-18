@@ -24,7 +24,7 @@
                     <a class="nav-link" href="/controllers/catalog-ctrl.php">Catalogue</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Abonnement</a>
+                    <a class="nav-link" href="/controllers/subscription-ctrl.php">Abonnement</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Lieu de retrait</a>
