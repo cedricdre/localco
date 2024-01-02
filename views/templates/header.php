@@ -16,7 +16,8 @@
     <link rel="stylesheet" href="/public/assets/css/style.css">
     <title>Localco</title>
 </head>
-<body class="body-img">
+<body>
+
 <!-- header -->
 <header>
     <!-- navbar -->
@@ -24,5 +25,9 @@
     include __DIR__.'/navbar.php';
     ?>
 </header><!-- FIN header -->
+<div class="fixed top-50 start-50 translate-middle d-flex justify-content-center">
+        <div class="bg-shape bg-yellow bg-opacity-50 bg-blur">333</div>
+        <div class="bg-shape bg-red bg-opacity-50 bg-blur">test</div>
+    </div>
 <!-- main -->
 <main>

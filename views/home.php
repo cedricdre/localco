@@ -1,7 +1,7 @@
 <!-- Section Entête -->
 <section class="bg-success">
     <div class="container py-6 text-light">
-        <div class="row">
+        <div class="row align-items-center">
             <div class="col-12 col-lg-7">
                 <h1 class="d-none">Localco</h1>
                 <h3 class="fs-1 fw-bolder mb-4 lh-base">Explorez une nouvelle façon de consommer des <span class="text-bg-warning fw-bolder p-1">produits de saison !</span></h3>
@@ -19,7 +19,8 @@
                 </div>
             </div>
             <div class="col-12 col-lg-5">
-                (image à venir)
+                <img src="/public/assets/img/fuit-set.svg" class="position-set" alt="Logo Localco">
+                <img src="/public/assets/img/legumes-hiver.jpg" class="img-baner object-fit-cover" alt="This zooms-in really well and smooth">
             </div>
         </div>
     </div>

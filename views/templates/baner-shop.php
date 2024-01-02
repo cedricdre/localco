@@ -15,7 +15,7 @@
                 </div>
             </div>
             <div class="col-xl-6">
-                <img src="/public/assets/img/legumes-hiver.jpg" class="img-baner-shop object-fit-cover rounded-5" alt="This zooms-in really well and smooth">
+                <img src="/public/assets/img/legumes-hiver.jpg" class="img-baner-shop object-fit-cover" alt="This zooms-in really well and smooth">
             </div>
         </div>
     </div>
