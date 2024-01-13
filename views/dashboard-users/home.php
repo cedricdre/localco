@@ -31,7 +31,7 @@
                     <div class="d-grid gap-3">                    
                         <a class="btn btn-success btn-lg" href="/controllers/dashboard-users/products/list-ctrl.php" role="button">Mes produits</a>
                         <a class="btn btn-success btn-lg position-relative" href="/controllers/dashboard-users/products/list-ctrl.php" role="button">Mes commandes à préparer <span class="ms-2 badge bg-danger">4</span></a>
-                        <a class="btn btn-success btn-lg" href="/controllers/dashboard-users/producers-profiles/list-ctrl.php" role="button">Ma fiche producteur</a>
+                        <a class="btn btn-success btn-lg" href="/controllers/dashboard-users/producers-profiles/update-ctrl.php" role="button">Ma fiche producteur</a>
                     </div>
                 </div>
                 <div class="mt-5">

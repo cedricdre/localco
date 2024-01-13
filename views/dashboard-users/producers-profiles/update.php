@@ -16,11 +16,11 @@
             <div class="text-center mb-4">
                 <nav aria-label="breadcrumb mb-5">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="/controllers/dashboard-producer/dashboard-producer-home-ctrl.php">Tableau de bord</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Créer ou Modifier ma fiche</li>
+                        <li class="breadcrumb-item"><a href="/controllers/dashboard-users/home-ctrl.php">Tableau de bord</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Ma fiche producteur</li>
                     </ol>
                 </nav>
-                <h4 class="title-lilita">Créer ou Modifier ma fiche</h4>
+                <h4 class="title-lilita">Ma fiche producteur</h4>
             </div>
             <div class="row justify-content-center">
                 <div class="col-lg-6">
@@ -100,8 +100,7 @@
                             </div>
                         </div>        
 
-
-                        <div class="mb-3">
+                        <!-- <div class="mb-3">
                             <p class="mb-1">Mettre en ligne*</p>
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" id="" value="">
@@ -111,11 +110,9 @@
                                 <input class="form-check-input" type="radio" id="" value="">
                                 <label class="form-check-label" for="">Non</label>
                             </div>
-                            <div class="alert alert-warning my-3" role="alert">
-                                <b><i class="bi bi-info-circle-fill"></i> Info :</b> La plateforme Localco vérifiera votre fiche avant de la publier en ligne.
-                            </div>
-                        </div>
-                        <div class="d-grid">
+                        </div> -->
+
+                        <div class="d-grid mt-3">
                             <button type="submit" class="btn btn-lg btn-success mb-3">Je valide ma fiche</button>
                         </div>
                         <small class="text-center">*Champs obligatoires</small>

@@ -1,6 +1,6 @@
 <?php
-require_once __DIR__ . '/../../config/regex.php';
-require_once __DIR__ . '/../../config/constants.php';
+require_once __DIR__ . '/../../../config/regex.php';
+require_once __DIR__ . '/../../../config/constants.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
@@ -129,7 +129,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
 // include VIEWS
-include __DIR__.'/../../views/templates/header.php';
-include __DIR__.'/../../views/dashboard-producer/dashboard-producer-add-products.php';
-include __DIR__.'/../../views/templates/shop-hover.php';
-include __DIR__.'/../../views/templates/footer.php';
+include __DIR__.'/../../../views/templates/header.php';
+include __DIR__.'/../../../views/dashboard-users/products/add.php';
+include __DIR__.'/../../../views/templates/shop-hover.php';
+include __DIR__.'/../../../views/templates/footer.php';

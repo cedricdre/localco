@@ -16,7 +16,7 @@
         <div class="text-center mb-4">
             <nav aria-label="breadcrumb mb-5">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="/controllers/dashboard-producer/dashboard-producer-home-ctrl.php">Tableau de bord</a></li>
+                    <li class="breadcrumb-item"><a href="/controllers/dashboard-users/home-ctrl.php">Tableau de bord</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Mes produits</li>
                 </ol>
             </nav>
@@ -25,7 +25,7 @@
         <div class="row justify-content-center">
             <div class="col-lg-6">
                 <div class="d-grid mb-4">
-                    <a class="btn btn-warning" href="/controllers/dashboard-producer/dashboard-producer-add-products-ctrl.php" role="button">Ajouter un produit<i class="bi bi-plus-circle-fill ms-2"></i></a>
+                    <a class="btn btn-warning" href="/controllers/dashboard-users/products/add-ctrl.php" role="button">Ajouter un produit<i class="bi bi-plus-circle-fill ms-2"></i></a>
                 </div>
                 <div class="table-responsive">
                     <table class="table table-striped align-middle" id="table-producer-products">
