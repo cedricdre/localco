@@ -39,19 +39,19 @@
                                 <form class="text-start" method="POST">
                                     <div class="row g-2">
                                         <div class="col-12">
-                                            <label for="emailGuest" class="form-label">Votre adresse email*</label>
-                                            <input type="email" class="form-control" id="emailGuest" name="emailGuest" placeholder="email@exemple.com" value="<?= $emailGuest ?? '' ?>" required>
-                                            <small class="form-text text-danger"><?= $error['emailGuest'] ?? '' ?></small>
+                                            <label for="email" class="form-label">Votre adresse email*</label>
+                                            <input type="email" class="form-control" id="email" name="email" placeholder="email@exemple.com" value="<?= $email ?? '' ?>" required>
+                                            <small class="form-text text-danger"><?= $error['email'] ?? '' ?></small>
                                         </div>
                                         <div class="col-xl-6">
-                                            <label for="passwordNewAccountGuest" class="form-label">Votre mot de passe*</label>
-                                            <input type="password" class="form-control" id="passwordNewAccountGuest" name="passwordNewAccountGuest" placeholder="Entrez un mot de passe" pattern="<?= REGEX_PASSWORD ?>" required>
-                                            <small class="form-text text-danger"><?= $error['passwordNewAccountGuest'] ?? '' ?></small>
+                                            <label for="password" class="form-label">Votre mot de passe*</label>
+                                            <input type="password" class="form-control" id="password" name="password" placeholder="Entrez un mot de passe" pattern="<?= REGEX_PASSWORD ?>" required>
+                                            <small class="form-text text-danger"><?= $error['password'] ?? '' ?></small>
                                         </div>
                                         <div class="col-xl-6 text-truncate">
-                                            <label for="passwordConfirmNewAccountGuest" class="form-label">Confirmation du mot de passe*</label>
-                                            <input type="password" class="form-control" id="passwordConfirmNewAccountGuest" name="passwordConfirmNewAccountGuest" placeholder="Confirmez votre mot de passe" pattern="<?= REGEX_PASSWORD ?>" required>
-                                            <small class="form-text text-danger"><?= $error['passwordConfirmNewAccountGuest'] ?? '' ?></small>
+                                            <label for="passwordConfirm" class="form-label">Confirmation du mot de passe*</label>
+                                            <input type="password" class="form-control" id="passwordConfirm" name="passwordConfirm" placeholder="Confirmez votre mot de passe" pattern="<?= REGEX_PASSWORD ?>" required>
+                                            <small class="form-text text-danger"><?= $error['passwordConfirm'] ?? '' ?></small>
                                         </div>
                                         <small id="pwdSecurity" class="d-none"><span class="badge bg-danger">Mot de passe Faible</span> Doit contenir au moins 8 caractères : une minuscule, une majuscule, un chiffre et un caractère spécial.</small>
                                         <small id="pwdSecurityLow" class="d-none"><span class="badge bg-danger">Mot de passe Faible</span> Ajouter au moins un chiffre.</small>
@@ -59,26 +59,14 @@
                                         <small id="pwdSecurityStrong" class="d-none"><span class="badge bg-success">Mot de passe Fort</span></small>
                                         <small id="pwdMessageError" class="form-text d-none text-danger">Merci de renseigner 2 mots de passe identique</small>
                                         <div class="col-xl-6">
-                                            <label for="firstnameNewAccountGuest" class="form-label">Prénom*</label>
-                                            <input type="text" class="form-control" id="firstnameNewAccountGuest" name="firstnameNewAccountGuest" placeholder="Entrez un prénom" pattern="<?= REGEX_NAME ?>" value="<?= $firstnameNewAccountGuest ?? '' ?>" required>
-                                            <small class="form-text text-danger"><?= $error['firstnameNewAccountGuest'] ?? '' ?></small>
+                                            <label for="firstname" class="form-label">Prénom*</label>
+                                            <input type="text" class="form-control" id="firstname" name="firstname" placeholder="Entrez un prénom" pattern="<?= REGEX_NAME ?>" value="<?= $firstname ?? '' ?>" required>
+                                            <small class="form-text text-danger"><?= $error['firstname'] ?? '' ?></small>
                                         </div>
                                         <div class="col-xl-6">
-                                            <label for="lastnameNewAccountGuest" class="form-label">Nom*</label>
-                                            <input type="text" class="form-control" id="lastnameNewAccountGuest" name="lastnameNewAccountGuest" placeholder="Entrez un nom" pattern="<?= REGEX_NAME ?>" value="<?= $lastnameNewAccountGuest ?? '' ?>" required>
-                                            <small class="form-text text-danger"><?= $error['lastnameNewAccountGuest'] ?? '' ?></small>
-                                        </div>
-                                        <div class="col-12">
-                                            <label for="dietNewAccountGuest" class="form-label">Régime alimentaires <small>(Option)</small></label>
-                                            <select id="dietNewAccountGuest" name="dietNewAccountGuest" class="form-select mb-lg-2">
-                                                <option value="">Sélectionnez votre régime alimentaire</option>
-                                                <?php
-                                                foreach (DIETS as $diet) { ?>
-                                                    <option value="<?= $diet ?>" <?= (isset($dietNewAccountGuest) && $dietNewAccountGuest == $diet) ? 'selected' : '' ?>><?= $diet ?></option>
-                                                <?php }
-                                                ?>
-                                            </select>
-                                            <small class="form-text text-danger"><?= $error['dietNewAccountGuest'] ?? '' ?></small>
+                                            <label for="lastname" class="form-label">Nom*</label>
+                                            <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Entrez un nom" pattern="<?= REGEX_NAME ?>" value="<?= $lastname ?? '' ?>" required>
+                                            <small class="form-text text-danger"><?= $error['lastname'] ?? '' ?></small>
                                         </div>
                                         <div class="col-12 mb-3 form-check">
                                             <input type="checkbox" class="form-check-input" id="privacyPolicy" name="privacyPolicy" required>

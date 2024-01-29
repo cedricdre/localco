@@ -1,9 +1,9 @@
 /////////////////////// Mot de passe identique USER
 
 // Mes Sélécteurs
-const passwordProducer = document.getElementById('passwordProducer');
-const passwordConfirmProducer = document.getElementById('passwordConfirmProducer');
-const pwdMessageErrorProducer = document.getElementById('pwdMessageErrorProducer');
+const passwordProducer = document.getElementById('password');
+const passwordConfirmProducer = document.getElementById('passwordConfirm');
+const pwdMessageErrorProducer = document.getElementById('pwdMessageError');
 
 // Fonction fléchée vérif mot de passe identique USER
 const updatePasswordsProducer = () => {
@@ -26,5 +26,3 @@ const updatePasswordsProducer = () => {
 // Resultat
 passwordProducer.addEventListener('input', updatePasswordsProducer);
 passwordConfirmProducer.addEventListener('input', updatePasswordsProducer);
-
-console.log('test');
