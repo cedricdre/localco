@@ -1,15 +1,4 @@
-<!-- Section Entête -->
-<section class="bg-success">
-    <div class="container py-4 py-lg-5">
-        <div class="row justify-content-center">
-            <div class="col-12 col-lg-7">
-                <div class="text-center text-light">
-                    <h1 class="title-lilita mb-0">Mon tableau de bord</h1>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+<?php include __DIR__.'/../../../views/templates/baner-dashboard-users.php' ?>
 <!-- section Catalogue -->
 <section class="py-4 py-lg-5">
     <div class="container">
@@ -40,19 +29,19 @@
                         <tbody>
                             <tr>
                                 <th scope="row">Produit 1</th>
-                                <td><a class="btn btn-outline-success btn-sm" href="#" role="button">Modifier</a></td>
+                                <td><a class="btn btn-outline-success btn-sm" href="/controllers/dashboard-users/products/add-ctrl.php" role="button">Modifier</a></td>
                                 <td><span class="badge rounded-pill text-bg-warning">En attente de validation</span></td>
                                 <td><a href="" class="text-danger"><i class="bi bi-trash3-fill"></i></a></td>
                             </tr>
                             <tr>
                                 <th scope="row">Produit 2</th>
-                                <td><a class="btn btn-outline-success btn-sm" href="#" role="button">Modifier</a></td>
+                                <td><a class="btn btn-outline-success btn-sm" href="/controllers/dashboard-users/products/add-ctrl.php" role="button">Modifier</a></td>
                                 <td><span><i class="bi bi-link me-1"></i>En ligne</span></td>
                                 <td><a href="" class="text-danger"><i class="bi bi-trash3-fill"></i></a></td>
                             </tr>
                             <tr>
                                 <th scope="row">Produit 3</th>
-                                <td><a class="btn btn-outline-success btn-sm" href="#" role="button">Modifier</a></td>
+                                <td><a class="btn btn-outline-success btn-sm" href="/controllers/dashboard-users/products/add-ctrl.php" role="button">Modifier</a></td>
                                 <td><span class="text-danger"><i class="bi bi-link me-1"></i>Hors ligne</span></td>
                                 <td><a href="" class="text-danger"><i class="bi bi-trash3-fill"></i></a></td>
                             </tr>

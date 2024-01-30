@@ -1,15 +1,4 @@
-<!-- Section Entête -->
-<section class="bg-success">
-    <div class="container py-4 py-lg-5">
-        <div class="row justify-content-center">
-            <div class="col-12 col-lg-7">
-                <div class="text-center text-light">
-                    <h1 class="title-lilita mb-0">Mon tableau de bord</h1>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+<?php include __DIR__.'/../../../views/templates/baner-dashboard-users.php' ?>
 <!-- section Mon tableau de bord -->
 <section class="py-4 py-lg-5">
     <div class="container">
@@ -142,9 +131,6 @@
                         <button type="submit" class="btn btn-lg btn-success">Valider le produit</button>
                     </div>
                 </form>
-                <div class="d-grid">
-                    <a class="btn btn-outline-danger" href="#" role="button">Supprimer le produit</a>
-                </div>
                 <div class="text-center mt-4">
                 <small>*Champs obligatoires</small>
                 </div>
