@@ -2,7 +2,7 @@
 require_once __DIR__ . '/../../../models/Type.php';
 
 try {
-    $title = 'Liste des types de produits';
+    $title = 'Types de produits';
 
     $types = Type::getAll();
 

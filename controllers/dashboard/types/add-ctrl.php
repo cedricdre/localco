@@ -3,7 +3,7 @@ require_once __DIR__ . '/../../../config/regex.php';
 require_once __DIR__ . '/../../../models/Type.php';
 
 try {
-    $title = 'Ajout type de produits';
+    $title = 'Ajouter un type de produits';
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $error = []; 

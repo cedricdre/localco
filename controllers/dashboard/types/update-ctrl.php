@@ -33,7 +33,7 @@ try {
             $isOk = $typeObj->update();
             
             if($isOk){
-                $message = 'Catégorie modifiée avec succés';
+                $message = 'Modifié avec succés !';
             }
         }
     }

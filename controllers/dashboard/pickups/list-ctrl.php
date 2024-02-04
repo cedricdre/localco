@@ -1,10 +1,10 @@
 <?php
-require_once __DIR__ . '/../../../models/Type.php';
+require_once __DIR__ . '/../../../models/Pickup.php';
 
 try {
-    $title = 'Liste des types de produits';
+    $title = 'Lieux de retrait';
 
-    $types = Type::getAll();
+    $pickups = Pickup::getAll();
 
 } catch (\Throwable $th) {
     $error = $th->getMessage();
@@ -15,5 +15,5 @@ try {
 }
 
 include __DIR__ . '/../../../views/dashboard/templates/header-dashboard.php';
-include __DIR__ . '/../../../views/dashboard/types/list.php';
+include __DIR__ . '/../../../views/dashboard/pickups/list.php';
 include __DIR__ . '/../../../views/dashboard/templates/footer-dashboard.php';

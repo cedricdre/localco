@@ -1,4 +1,4 @@
-<h2 class="my-4 fw-bold"><?= $title ?></h2>
+<h2 class="my-4 fw-bold"><i class="bi bi-list-ul text-primary me-2"></i><?= $title ?></h2>
 
 <section>
     <a class="btn btn-primary mb-3" href="/controllers/dashboard/types/add-ctrl.php" role="button"><i class="bi bi-plus-circle me-2"></i>Créer un type</a>

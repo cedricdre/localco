@@ -6,15 +6,19 @@ class Pickup
     private ?int $id_pickup;
     private string $pickup_name;
     private string $adress;
+    private string $zip;
+    private string $city;
     private string $opening_hours;
     private ?string $created_at;
     private ?string $updated_at;
     private ?string $deleted_at;
 
-    public function __construct(string $pickup_name = '', string $adress = '', string $opening_hours = '', ?string $created_at = null, ?string $updated_at = null, ?string $deleted_at = null, ?int $id_pickup = null)
+    public function __construct(string $pickup_name = '', string $adress = '', string $zip = '', string $city = '', string $opening_hours = '', ?string $created_at = null, ?string $updated_at = null, ?string $deleted_at = null, ?int $id_pickup = null)
     {
         $this->setPickupName($pickup_name);
         $this->setAdress($adress);
+        $this->setZip($zip);
+        $this->setCity($city);
         $this->setOpeningHours($opening_hours);
         $this->setCreatedAt($created_at);
         $this->setUpdatedAt($updated_at);
@@ -45,7 +49,7 @@ class Pickup
 
     public function setAdress(string $adress)
     {
-        $this->pickup_name = $adress;
+        $this->adress = $adress;
     }
 
     public function getAdress(): string
@@ -53,9 +57,29 @@ class Pickup
         return $this->adress;
     }
 
+    public function setZip(string $zip)
+    {
+        $this->zip = $zip;
+    }
+
+    public function getZip(): string
+    {
+        return $this->zip;
+    }
+
+    public function setCity(string $city)
+    {
+        $this->city = $city;
+    }
+
+    public function getCity(): string
+    {
+        return $this->city;
+    }
+
     public function setOpeningHours(string $opening_hours)
     {
-        $this->pickup_name = $opening_hours;
+        $this->opening_hours = $opening_hours;
     }
 
     public function getOpeningHours(): string
@@ -95,7 +119,7 @@ class Pickup
         $result = $sth->fetch(PDO::FETCH_OBJ);
         if (!$result) {
             // Génération d'une exception renvoyant le message en paramètre au catch créé en amont et arrêt du traitement.
-            throw new Exception('Erreur lors de la récupération du Point de vente');
+            throw new Exception('Erreur lors de la récupération du Lieu de retrait');
         } else {
             // Retourne la data dans le cas contraire (tout s'est bien passé)
             return $result;
@@ -116,17 +140,19 @@ class Pickup
     public function insert(): bool
     {
         $pdo = Database::connect();
-        $sql = 'INSERT INTO `pickups` (`pickup_name`,`address`,`opening_hours`) VALUES (:pickup_name, :address, :opening_hours)';
+        $sql = 'INSERT INTO `pickups` (`pickup_name`,`address`,`zip`,`city`,`opening_hours`) VALUES (:pickup_name, :address, :zip, :city, :opening_hours)';
         $sth = $pdo->prepare($sql);
         $sth->bindValue(':pickup_name', $this->getPickupName());
         $sth->bindValue(':address', $this->getAdress());
+        $sth->bindValue(':zip', $this->getZip());
+        $sth->bindValue(':city', $this->getCity());
         $sth->bindValue(':opening_hours', $this->getOpeningHours());
         $sth->execute();
         // Appel à la méthode rowCount permettant de savoir combien d'enregistrements ont été affectés
         // par la dernière requête (fonctionnel uniquement sur insert, update, ou delete. PAS SUR SELECT!!)
         if ($sth->rowCount() <= 0) {
             // Génération d'une exception renvoyant le message en paramètre au catch créé en amont et arrêt du traitement.
-            throw new Exception('Erreur lors de l\'enregistrement du Point de vente');
+            throw new Exception('Erreur lors de l\'enregistrement');
         } else {
             // Retourne true dans le cas contraire (tout s'est bien passé)
             return true;
@@ -138,16 +164,18 @@ class Pickup
         $pdo = Database::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         // Requête mysql pour insérer des données
-        $sql = 'UPDATE `pickups` SET `pickup_name` = :pickup_name, `address` = :address, `opening_hours` = :opening_hours WHERE `id_pickup` = :id_pickup';
+        $sql = 'UPDATE `pickups` SET `pickup_name` = :pickup_name, `address` = :address, `zip` = :zip, `city` = :city, `opening_hours` = :opening_hours WHERE `id_pickup` = :id_pickup';
         $sth = $pdo->prepare($sql);
         $sth->bindValue(':pickup_name', $this->getPickupName());
         $sth->bindValue(':address', $this->getAdress());
+        $sth->bindValue(':zip', $this->getZip());
+        $sth->bindValue(':city', $this->getCity());
         $sth->bindValue(':opening_hours', $this->getOpeningHours());
         $sth->bindValue(':id_pickup', $this->getIdPickup(), PDO::PARAM_INT);
         $sth->execute();
         if ($sth->rowCount() <= 0) {
             // Génération d'une exception renvoyant le message en paramètre au catch créé en amont et arrêt du traitement.
-            throw new Exception('Erreur lors de la mise à jour du Point de vente');
+            throw new Exception('Erreur lors de la mise à jour');
         } else {
             // Retourne true dans le cas contraire (tout s'est bien passé)
             return true;

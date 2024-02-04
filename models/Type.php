@@ -73,7 +73,7 @@ class Type
         // par la dernière requête (fonctionnel uniquement sur insert, update, ou delete. PAS SUR SELECT!!)
         if ($sth->rowCount() <= 0) {
             // Génération d'une exception renvoyant le message en paramètre au catch créé en amont et arrêt du traitement.
-            throw new Exception('Erreur lors de l\'enregistrement du Type');
+            throw new Exception('Erreur lors de l\'enregistrement');
         } else {
             // Retourne true dans le cas contraire (tout s'est bien passé)
             return true;
@@ -92,7 +92,7 @@ class Type
         $sth->execute();
         if ($sth->rowCount() <= 0) {
             // Génération d'une exception renvoyant le message en paramètre au catch créé en amont et arrêt du traitement.
-            throw new Exception('Erreur lors de la mise à jour du Type');
+            throw new Exception('Erreur lors de la mise à jour');
         } else {
             // Retourne true dans le cas contraire (tout s'est bien passé)
             return true;

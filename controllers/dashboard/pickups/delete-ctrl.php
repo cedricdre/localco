@@ -12,7 +12,7 @@ try {
 
     // Si la méthode a retourné "true", alors on redirige vers la liste
     if ($isDelete) {
-        header('location: /controllers/dashboard/types/list-ctrl.php');
+        header('location: /controllers/dashboard/pickups/list-ctrl.php');
         die;
     }
 } catch (\Throwable $th) {

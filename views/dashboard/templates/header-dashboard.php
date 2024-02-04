@@ -36,7 +36,7 @@
                         <ul class="nav flex-column">
                             <li class="nav-item">
                                 <a class="nav-link d-flex align-items-center gap-2" href="#">
-                                    <i class="bi bi-people"></i>
+                                    <i class="bi bi-box-arrow-right"></i>
                                     Site public
                                 </a>
                             </li>
@@ -45,13 +45,13 @@
                         <ul class="nav flex-column">
                             <li class="nav-item">
                                 <a class="nav-link d-flex align-items-center gap-2" href="#">
-                                    <i class="bi bi-house-fill"></i>
+                                    <i class="bi bi-house"></i>
                                     Dashboard
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link d-flex align-items-center gap-2" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                                <i class="bi bi-cart-fill"></i>
+                                <i class="bi bi-cart"></i>
                                     Commandes
                                 </a>
                                 <div class="collapse" id="collapseExample">
@@ -69,20 +69,20 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link d-flex align-items-center gap-2" href="#">
-                                    <i class="bi bi-file-earmark"></i>
+                                    <i class="bi bi-list-ul"></i>
                                     Produits
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link d-flex align-items-center gap-2" href="/controllers/dashboard/types/list-ctrl.php">
-                                    <i class="bi bi-file-earmark"></i>
+                                    <i class="bi bi-list-ul"></i>
                                     Types de Produits
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link d-flex align-items-center gap-2" href="#">
-                                    <i class="bi bi-file-earmark"></i>
-                                    Lieu de retrait
+                                <a class="nav-link d-flex align-items-center gap-2" href="/controllers/dashboard/pickups/list-ctrl.php">
+                                    <i class="bi bi-shop-window"></i>
+                                    Lieux de retrait
                                 </a>
                             </li>
                             <li class="nav-item">
