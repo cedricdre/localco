@@ -1,10 +1,9 @@
-<h2 class="my-4 fw-bold"><i class="bi bi-shop-window text-primary me-2"></i><?= $title ?></h2>
+<span><a class="btn btn-sm btn-outline-primary" href="/controllers/dashboard/pickups/list-ctrl.php" role="button"><i class="bi bi-arrow-left me-2"></i>Retour liste des lieux de retrait</a></span>
+<h2 class="my-4 fw-bold"><i class="bi bi-archive text-primary me-2"></i><?= $title ?></h2>
 
 <section>
     <?php include __DIR__ .'/../templates/message.php'?>
 
-    <a class="btn btn-primary mb-3" href="/controllers/dashboard/pickups/add-ctrl.php" role="button"><i class="bi bi-plus-circle me-2"></i>Créer un lieu de retrait</a>
-    <a class="btn btn-outline-secondary mb-3 ms-2" href="/controllers/dashboard/pickups/archive-ctrl.php" role="button"><i class="bi bi-archive me-2"></i>Lieux archivés</a>
     <div class="table-responsive">
         <table class="table align-middle table-striped">
             <thead>
@@ -25,8 +24,7 @@
                     <th scope="row"><?=$pickup->address?></th>
                     <th scope="row"><?=$pickup->opening_hours?></th>
                     <td class="text-end">
-                        <a class="btn btn-sm btn-outline-secondary me-2" href="/controllers/dashboard/pickups/update-ctrl.php?idpickup=<?=$pickup->id_pickup?>" role="button"><i class="bi bi-pencil-fill me-2"></i>Modifier</a>
-                        <a class="btn btn-sm btn-outline-danger" href="/controllers/dashboard/pickups/list-ctrl.php?idpickup=<?=$pickup->id_pickup?>" role="button"><i class="bi bi-archive-fill me-2"></i>Archiver</a>
+                        <a class="btn btn-sm btn-outline-danger" href="/controllers/dashboard/pickups/archive-ctrl.php?idpickup=<?=$pickup->id_pickup?>" role="button"><i class="bi bi-trash3-fill me-2"></i>Désarchiver</a>
                     </td>
                 </tr>
                 <?php

@@ -126,11 +126,20 @@ class Pickup
         }
     }
 
-    public static function getAll(): array
+    public static function getAll(bool $archive = false): array
     {
         $pdo = Database::connect();
         // Requête mysql pour sélectionner toutes les valeurs dans la table `categories`
-        $sql = 'SELECT * FROM `pickups` ORDER by `pickup_name`';
+        $sql = 'SELECT * FROM `pickups`';
+
+        if ($archive === true) {
+            $sql .= ' WHERE `deleted_at` IS NOT NULL';
+        } else {
+            $sql .= ' WHERE `deleted_at` IS NULL';
+        }
+        
+        $sql .= ' ORDER by `pickup_name`';
+
         $sth = $pdo->query($sql);
         // Retourne un tableau associatif de la table categories
         $result = $sth->fetchAll(PDO::FETCH_OBJ);
@@ -182,25 +191,37 @@ class Pickup
         }
     }
 
-    // public static function archive(int $id) :int | FALSE {
-    //     $pdo = Database::connect();
-    //     // Requête mysql pour sélectionner toutes les valeurs dans la table `vehicles`
-    //     $sql = 'UPDATE `vehicles` SET `deleted_at` = NOW() WHERE `id_vehicle` = :id_vehicle';
-    //     $sth = $pdo->prepare($sql);
-    //     $sth->bindValue(':id_vehicle', $id, PDO::PARAM_INT);
-    //     $result = $sth->execute();
-    //     return $result;
-    // }
+    public static function archive(int $id): int|false {
+        $pdo = Database::connect();
+        // Requête mysql pour sélectionner toutes les valeurs dans la table `vehicles`
+        $sql = 'UPDATE `pickups` SET `deleted_at` = NOW() WHERE `id_pickup` = :id_pickup';
+        $sth = $pdo->prepare($sql);
+        $sth->bindValue(':id_pickup', $id, PDO::PARAM_INT);
+        $sth->execute();
+        if ($sth->rowCount() <= 0) {
+            // Génération d'une exception renvoyant le message en paramètre au catch créé en amont et arrêt du traitement.
+            throw new Exception('Erreur lors de l\'archivage');
+        } else {
+            // Retourne true dans le cas contraire (tout s'est bien passé)
+            return true;
+        }
+    }
 
-    // public static function unarchive(int $id) :int | FALSE {
-    //     $pdo = Database::connect();
-    //     // Requête mysql pour sélectionner toutes les valeurs dans la table `vehicles`
-    //     $sql = 'UPDATE `vehicles` SET `deleted_at` = null WHERE `id_vehicle` = :id_vehicle';
-    //     $sth = $pdo->prepare($sql);
-    //     $sth->bindValue(':id_vehicle', $id, PDO::PARAM_INT);
-    //     $result = $sth->execute();
-    //     return $result;
-    // }
+    public static function unarchive(int $id): int|false {
+        $pdo = Database::connect();
+        // Requête mysql pour sélectionner toutes les valeurs dans la table `vehicles`
+        $sql = 'UPDATE `pickups` SET `deleted_at` = null WHERE `id_pickup` = :id_pickup';
+        $sth = $pdo->prepare($sql);
+        $sth->bindValue(':id_pickup', $id, PDO::PARAM_INT);
+        $sth->execute();
+        if ($sth->rowCount() <= 0) {
+            // Génération d'une exception renvoyant le message en paramètre au catch créé en amont et arrêt du traitement.
+            throw new Exception('Erreur lors de l\'archivage');
+        } else {
+            // Retourne true dans le cas contraire (tout s'est bien passé)
+            return true;
+        }
+    }
 
     public static function delete($id): bool
     {

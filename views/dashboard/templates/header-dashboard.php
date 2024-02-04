@@ -12,7 +12,7 @@
 
 <body>
     <header class="navbar sticky-top bg-dark flex-md-nowrap p-0 shadow">
-        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6" href="#">
+        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6" href="/controllers/dashboard/home-ctrl.php">
             <img src="/public/assets/img/logo-localco-white.svg" alt="Logo Localco" height="30">
         </a>
         <ul class="navbar-nav flex-row d-md-none">
@@ -44,7 +44,7 @@
                         <hr class="my-3">
                         <ul class="nav flex-column">
                             <li class="nav-item">
-                                <a class="nav-link d-flex align-items-center gap-2" href="#">
+                                <a class="nav-link d-flex align-items-center gap-2" href="/controllers/dashboard/home-ctrl.php">
                                     <i class="bi bi-house"></i>
                                     Dashboard
                                 </a>
@@ -76,7 +76,7 @@
                             <li class="nav-item">
                                 <a class="nav-link d-flex align-items-center gap-2" href="/controllers/dashboard/types/list-ctrl.php">
                                     <i class="bi bi-list-ul"></i>
-                                    Types de Produits
+                                    Types de produits
                                 </a>
                             </li>
                             <li class="nav-item">
@@ -86,9 +86,15 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link d-flex align-items-center gap-2" href="#">
+                                <a class="nav-link d-flex align-items-center gap-2" href="/controllers/dashboard/producers/list-ctrl.php">
                                     <i class="bi bi-people"></i>
                                     Producteurs
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link d-flex align-items-center gap-2" href="/controllers/dashboard/subscriptions/list-ctrl.php">
+                                    <i class="bi bi-calendar-range"></i>
+                                    Abonnements
                                 </a>
                             </li>
                             <li class="nav-item">

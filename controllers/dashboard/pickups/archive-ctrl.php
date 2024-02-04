@@ -2,9 +2,9 @@
 require_once __DIR__ . '/../../../models/Pickup.php';
 
 try {
-    $title = 'Lieux de retrait';
+    $title = 'Archives des lieux de retrait';
 
-    $pickups = Pickup::getAll();
+    $pickups = Pickup::getAll(archive: true);
 
 
     // Archive
@@ -13,10 +13,10 @@ try {
 
     if ($id_pickup) {
         // Archive/Ajoute une date à 'delete_at' l'insertion en BD
-        $isArchive = Pickup::archive($id_pickup);
+        $isArchive = Pickup::unarchive($id_pickup);
 
         if($isArchive){
-            $message = 'La donnée a été archivé !';
+            $message = 'La donnée a été désarchivé !';
             header('location: /controllers/dashboard/pickups/list-ctrl.php');
             die;
         }
@@ -31,5 +31,5 @@ try {
 }
 
 include __DIR__ . '/../../../views/dashboard/templates/header-dashboard.php';
-include __DIR__ . '/../../../views/dashboard/pickups/list.php';
+include __DIR__ . '/../../../views/dashboard/pickups/archive.php';
 include __DIR__ . '/../../../views/dashboard/templates/footer-dashboard.php';
