@@ -1,3 +1,4 @@
+<span><a class="btn btn-sm btn-outline-primary" href="/controllers/dashboard/pickups/list-ctrl.php" role="button"><i class="bi bi-arrow-left me-2"></i>Retour liste des lieux de retrait</a></span>
 
 <h2 class="fw-bold my-4"><i class="bi bi-people text-primary me-2"></i><?= $title ?></h2>
 <a class="btn btn-outline-secondary mb-3" href="/controllers/dashboard/producers/archive-ctrl.php" role="button"><i class="bi bi-archive me-2"></i>Producteurs archivés</a>

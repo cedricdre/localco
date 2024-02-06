@@ -1,14 +1,14 @@
 <?php
-require_once __DIR__ . '/../../../models/Type.php';
+require_once __DIR__ . '/../../../models/Pickup.php';
 
 try {
     // Récupération du paramètre d'URL correspondant à l'id de la catégorie cliquée
-    $id_type = intval(filter_input(INPUT_GET, 'idtype', FILTER_SANITIZE_NUMBER_INT));
+    $id_pickup = intval(filter_input(INPUT_GET, 'idpickup', FILTER_SANITIZE_NUMBER_INT));
 
-    $type = Type::get($id_type);
+    $pickup = Pickup::get($id_pickup);
 
     // Appel de la méthode delete
-    $isDelete = Type::delete($id_type);
+    $isDelete = Pickup::delete($id_pickup);
 
     // Si la méthode a retourné "true", alors on redirige vers la liste
     if ($isDelete) {

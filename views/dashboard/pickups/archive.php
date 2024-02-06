@@ -24,7 +24,8 @@
                     <th scope="row"><?=$pickup->address?></th>
                     <th scope="row"><?=$pickup->opening_hours?></th>
                     <td class="text-end">
-                        <a class="btn btn-sm btn-outline-danger" href="/controllers/dashboard/pickups/archive-ctrl.php?idpickup=<?=$pickup->id_pickup?>" role="button"><i class="bi bi-trash3-fill me-2"></i>Désarchiver</a>
+                        <a class="btn btn-sm btn-outline-secondary" href="/controllers/dashboard/pickups/archive-ctrl.php?idpickup=<?=$pickup->id_pickup?>" role="button"><i class="bi bi-archive-fill me-2"></i>Désarchiver</a>
+                        <a class="btn btn-sm btn-outline-danger" href="/controllers/dashboard/pickups/delete-ctrl.php?idpickup=<?=$pickup->id_pickup?>" role="button"><i class="bi bi-trash3-fill me-2"></i>Supp.</a>
                     </td>
                 </tr>
                 <?php
