@@ -6,6 +6,7 @@ require_once __DIR__ . '/../../models/Pickup.php';
 
 try {
     $title = 'Inscription utilisateur';
+    $listPickups = Pickup::getAll();
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
@@ -66,28 +67,38 @@ try {
                 $error['lastname'] = 'Votre nom doit contenir que des caractères majuscules et/ou minuscules';
             }
         }
+        // pickups
+        $pickups = intval(filter_input(INPUT_POST, 'pickups', FILTER_SANITIZE_SPECIAL_CHARS));
+        if (empty($pickups)) {
+            $error['pickups'] = 'Le point de retrait n\'est pas renseigné';
+        } else {
+            $listIdPickups = array_column($listPickups, 'id_pickup');
+            if (!in_array($pickups, $listIdPickups)) {
+                $error['pickups'] =  "Le point de retrait sélectionné n'est pas valide.";
+            }
+        }
         // INPUT "privacyPolicy" Nettoyage et validation
         $privacyPolicy = filter_input(INPUT_POST, 'privacyPolicy', FILTER_SANITIZE_SPECIAL_CHARS);
         if (empty($privacyPolicy)) {
             $error['privacyPolicy'] = "Vous n'avez cocher la case !";
         }
 
-        if (Pickup::isExist($pickup_name)) {
-            $error['pickup_name'] = 'Ce lieu de retrait existe déjà !';
+        $producer = 0;
+
+        if (User::isExist($email)) {
+            $error['email'] = 'Cet email existe déjà !';
         }
 
         if (empty($error)) {
             $user = new User();
-            $user->setIdUser($id_user);
             $user->setFirstname($firstname);
             $user->setLastname($lastname);
             $user->setEmail($email);
-            $user->setPassword($password);
+            $user->setPassword($hashPassword);
             $user->setProducer($producer);
+            $user->setIdPickup($pickups);
 
-            $user->setIdPickup($id_pickup);
-
-            $result = $user->insert();
+            $user->insert();
 
             // Si la méthode a retourné "true", alors on redirige vers la liste
             // if ($result) {

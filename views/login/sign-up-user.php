@@ -1,20 +1,3 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- icon bootstrap -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    <!-- Typo -->
-    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
-    <!-- Styles css -->
-    <link rel="stylesheet" href="/public/assets/css/style.css">
-    <title>Localco - Inscription Membre</title>
-</head>
-<body>
-<!-- main -->
-<main>
     <!-- Section connexion -->
     <section>
         <div class="row align-items-center">
@@ -68,6 +51,18 @@
                                             <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Entrez un nom" pattern="<?= REGEX_NAME ?>" value="<?= $lastname ?? '' ?>" required>
                                             <small class="form-text text-danger"><?= $error['lastname'] ?? '' ?></small>
                                         </div>
+                                        <div class="col-xl-12">
+                                            <label for="pickups" class="form-label">Point de retrait*</label>
+                                            <select id="pickups" name="pickups" class="form-select mb-lg-2" required>
+                                                <option value="">Sélectionnez un point de retrait</option>
+                                                <?php
+                                                foreach ($listPickups as $pickup) { ?>
+                                                    <option value="<?= $pickup->id_pickup ?>" <?= (isset($pickups) && $pickups == $pickup->pickup_name) ? 'selected' : '' ?>><?= $pickup->pickup_name ?></option>
+                                                <?php }
+                                                ?>
+                                            </select>
+                                            <div class="form-text text-danger"><?= $error['categories'] ?? '' ?></div>
+                                        </div>
                                         <div class="col-12 mb-3 form-check">
                                             <input type="checkbox" class="form-check-input" id="privacyPolicy" name="privacyPolicy" required>
                                             <label for="privacyPolicy">J'accepte la <a href="#" target="_blank">Politique de confidentialité</a>*</label>
@@ -89,11 +84,3 @@
             </div>
         </div>
     </section><!-- FIN Section connexion -->
-</main><!-- FIN main -->
-
-    <!-- script mot de passe -->
-    <script src="/public/assets/js/script-mdp-user.js"></script>
-    <!-- JS Bootstrap -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-</body>
-</html>

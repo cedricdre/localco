@@ -1,8 +1,10 @@
 <?php
-// require_once __DIR__ . '/../../../models/Pickup.php';
+require_once __DIR__ . '/../../../models/User.php';
 
 try {
     $title = 'Les Producteurs';
+
+    $producers = User::getAll(order: true, producer: true);
 
 
 } catch (\Throwable $th) {
