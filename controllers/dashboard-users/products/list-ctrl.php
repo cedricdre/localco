@@ -1,4 +1,7 @@
 <?php
+require_once __DIR__ . '/../../../config/init.php';
+
+SessionAuth::producer();
 
 // include VIEWS
 include __DIR__.'/../../../views/templates/header.php';

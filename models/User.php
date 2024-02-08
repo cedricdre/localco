@@ -20,9 +20,14 @@ class User
     private ?string $created_at;
     private ?string $updated_at;
     private ?string $deleted_at;
+    private ?string $confirmed_at;
     private ?int $id_pickup;
 
-    public function __construct(?int $id_user = null, string $firstname = '', string $lastname = '', string $email = '', string $password = '', int $producer = 0, string $company_name = '', int $siret = 00000000000000, string $description = '', string $picture = '', string $phone = '', string $adress = '', string $zip = '', string $city = '', ?string $created_at = null, ?string $updated_at = null, ?string $deleted_at = null, ?int $id_pickup = null)
+
+    // Mettre les valeurs à NULL par default !!!!!!!!!!!!!!!!!!
+    // Mettre les valeurs à NULL par default !!!!!!!!!!!!!!!!!!
+    // Mettre les valeurs à NULL par default !!!!!!!!!!!!!!!!!!
+    public function __construct(?int $id_user = null, string $firstname = '', string $lastname = '', string $email = '', string $password = '', int $producer = 0, string $company_name = '', int $siret = 00000000000000, string $description = '', string $picture = '', string $phone = '', string $adress = '', string $zip = '', string $city = '', ?string $created_at = null, ?string $updated_at = null, ?string $deleted_at = null, ?string $confirmed_at = null, ?int $id_pickup = null)
     {
         $this->setIdUser($id_user);
         $this->setFirstname($firstname);
@@ -41,6 +46,7 @@ class User
         $this->setCreatedAt($created_at);
         $this->setUpdatedAt($updated_at);
         $this->setDeletedAt($deleted_at);
+        $this->setComfirmedAt($confirmed_at);
         $this->setIdPickup($id_pickup);
     }
 
@@ -212,6 +218,15 @@ class User
         return $this->deleted_at;
     }
 
+    public function setComfirmedAt(?string $confirmed_at)
+    {
+        $this->confirmed_at = $confirmed_at;
+    }
+    public function getComfirmedAt(): ?string
+    {
+        return $this->confirmed_at;
+    }
+
     public function setIdPickup(?int $id_pickup)
     {
         $this->id_pickup = $id_pickup;
@@ -337,37 +352,37 @@ class User
     //     }
     // }
 
-    // public static function archive(int $id): int|false {
-    //     $pdo = Database::connect();
-    //     // Requête mysql pour sélectionner toutes les valeurs dans la table `vehicles`
-    //     $sql = 'UPDATE `pickups` SET `deleted_at` = NOW() WHERE `id_pickup` = :id_pickup';
-    //     $sth = $pdo->prepare($sql);
-    //     $sth->bindValue(':id_pickup', $id, PDO::PARAM_INT);
-    //     $sth->execute();
-    //     if ($sth->rowCount() <= 0) {
-    //         // Génération d'une exception renvoyant le message en paramètre au catch créé en amont et arrêt du traitement.
-    //         throw new Exception('Erreur lors de l\'archivage');
-    //     } else {
-    //         // Retourne true dans le cas contraire (tout s'est bien passé)
-    //         return true;
-    //     }
-    // }
+    public static function archive(int $id): int|false {
+        $pdo = Database::connect();
+        // Requête mysql pour sélectionner toutes les valeurs dans la table `vehicles`
+        $sql = 'UPDATE `users` SET `deleted_at` = NOW() WHERE `id_user` = :id_user';
+        $sth = $pdo->prepare($sql);
+        $sth->bindValue(':id_user', $id, PDO::PARAM_INT);
+        $sth->execute();
+        if ($sth->rowCount() <= 0) {
+            // Génération d'une exception renvoyant le message en paramètre au catch créé en amont et arrêt du traitement.
+            throw new Exception('Erreur lors de l\'archivage');
+        } else {
+            // Retourne true dans le cas contraire (tout s'est bien passé)
+            return true;
+        }
+    }
 
-    // public static function unarchive(int $id): int|false {
-    //     $pdo = Database::connect();
-    //     // Requête mysql pour sélectionner toutes les valeurs dans la table `vehicles`
-    //     $sql = 'UPDATE `pickups` SET `deleted_at` = null WHERE `id_pickup` = :id_pickup';
-    //     $sth = $pdo->prepare($sql);
-    //     $sth->bindValue(':id_pickup', $id, PDO::PARAM_INT);
-    //     $sth->execute();
-    //     if ($sth->rowCount() <= 0) {
-    //         // Génération d'une exception renvoyant le message en paramètre au catch créé en amont et arrêt du traitement.
-    //         throw new Exception('Erreur lors de l\'archivage');
-    //     } else {
-    //         // Retourne true dans le cas contraire (tout s'est bien passé)
-    //         return true;
-    //     }
-    // }
+    public static function unarchive(int $id): int|false {
+        $pdo = Database::connect();
+        // Requête mysql pour sélectionner toutes les valeurs dans la table `vehicles`
+        $sql = 'UPDATE `users` SET `deleted_at` = null WHERE `id_user` = :id_user';
+        $sth = $pdo->prepare($sql);
+        $sth->bindValue(':id_user', $id, PDO::PARAM_INT);
+        $sth->execute();
+        if ($sth->rowCount() <= 0) {
+            // Génération d'une exception renvoyant le message en paramètre au catch créé en amont et arrêt du traitement.
+            throw new Exception('Erreur lors de l\'archivage');
+        } else {
+            // Retourne true dans le cas contraire (tout s'est bien passé)
+            return true;
+        }
+    }
 
     public static function delete($id): bool
     {
@@ -395,4 +410,31 @@ class User
         // Si le nombre de lignes correspondantes est supérieur à zéro, la valeur existe
         return $rowCount > 0;
     }
+
+    public static function getByMail(string $email): object|false
+    {
+        $pdo = Database::connect();
+        $sql = 'SELECT * FROM `users` WHERE `email` = :email';
+        $sth = $pdo->prepare($sql);
+        $sth->bindValue(':email', $email);
+        $sth->execute();
+        return $sth->fetch(PDO::FETCH_OBJ);
+    }
+
+
+    // public static function confirmMail(?string $email): bool
+    // {
+    //     $pdo = Database::connect();
+    //     $sql = 'UPDATE `users` SET `confirmed_at` = null WHERE `email` = :email';
+    //     $sth = $pdo->prepare($sql);
+    //     $sth->bindValue(':email', $email);
+    //     $sth->execute();
+    //     if ($sth->rowCount() <= 0) {
+    //         throw new Exception('Erreur lors de la confirmation');
+    //     } else {
+    //         return true;
+    //     }
+    // }
+
+
 }

@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 // include VIEWS
 include __DIR__.'/../views/templates/header.php';

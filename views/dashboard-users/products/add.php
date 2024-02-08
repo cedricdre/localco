@@ -21,12 +21,12 @@
                         <small class="form-text text-danger"><?= $error['productName'] ?? '' ?></small>
                     </div>
                     <div class="mb-3">
-                        <label for="productType" class="form-label">Type de produit*</label>
-                        <select id="productType" name="productType" class="form-select mb-lg-2" required>
+                        <label for="type" class="form-label">Type de produit*</label>
+                        <select id="type" name="type" class="form-select mb-lg-2" required>
                             <option value="">Sélectionner un type de produit</option>
                             <?php
-                            foreach (PRODUCT_TYPES as $type) { ?>
-                                <option value="<?= $type ?>" <?= (isset($productType) && $productType == $type) ? 'selected' : '' ?>><?= $type ?></option>
+                            foreach ($listTypes as $type) { ?>
+                                <option value="<?= $type->id_type ?>" <?= (isset($type) && $type == $type->type_name) ? 'selected' : '' ?>><?= $type->type_name ?></option>
                             <?php }
                             ?>
                         </select>
@@ -41,45 +41,45 @@
                             <label class="form-label">Production Bio</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" id="noBio" name="productBio" value="0" <?= (isset($productBio) && $productBio == 0) ? 'checked' : '' ?> >
+                            <input class="form-check-input" type="radio" id="noBio" name="bioProduction" value="0" <?= (isset($bioProduction) && $bioProduction == 0) ? 'checked' : '' ?> >
                             <label class="form-check-label" for="noBio">Non</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" id="yesBio" name="productBio" value="1" <?= (isset($productBio) && $productBio == 1) ? 'checked' : '' ?> >
+                            <input class="form-check-input" type="radio" id="yesBio" name="bioProduction" value="1" <?= (isset($bioProduction) && $bioProduction == 1) ? 'checked' : '' ?> >
                             <label class="form-check-label" for="yesBio">Oui</label>
                         </div>
-                        <small class="form-text text-danger"><?= $error['productBio'] ?? '' ?></small>
+                        <small class="form-text text-danger"><?= $error['bioProduction'] ?? '' ?></small>
                     </div>
                     <div class="mb-3">
-                        <label for="productCertification" class="form-label">Certification</label>
-                        <select id="productCertification" name="productCertification" class="form-select mb-lg-2" required>
+                        <label for="certification" class="form-label">Certification</label>
+                        <select id="certification" name="certification" class="form-select mb-lg-2" required>
                             <option value="">Sélectionner une certification</option>
                             <?php
                             foreach (CERTIFICATIONS as $certif) { ?>
-                                <option value="<?= $certif ?>" <?= (isset($productCertification) && $productCertification == $certif) ? 'selected' : '' ?>><?= $certif ?></option>
+                                <option value="<?= $certif ?>" <?= (isset($certification) && $certification == $certif) ? 'selected' : '' ?>><?= $certif ?></option>
                             <?php }
                             ?>
                         </select>
-                        <small class="form-text text-danger"><?= $error['productCertification'] ?? '' ?></small>
+                        <small class="form-text text-danger"><?= $error['certification'] ?? '' ?></small>
                     </div>
                     <div class="mb-3">
                         <div class="row">
                             <div class="col-md-6">
-                                <label for="productWeight" class="form-label">Poids du produit*</label>
-                                <input type="text" inputmode="numeric" class="form-control" id="productWeight" name="productWeight" placeholder="ex : 100" pattern="<?= REGEX_WEIGHT ?>" value="<?= $productWeight ?? '' ?>" required>
-                                <small class="form-text text-danger"><?= $error['productWeight'] ?? '' ?></small>
+                                <label for="weight" class="form-label">Poids du produit*</label>
+                                <input type="text" inputmode="numeric" class="form-control" id="weight" name="weight" placeholder="ex : 100" pattern="<?= REGEX_WEIGHT ?>" value="<?= $weight ?? '' ?>" required>
+                                <small class="form-text text-danger"><?= $error['weight'] ?? '' ?></small>
                             </div>
                             <div class="col-md-6">
-                                <label for="productUnit" class="form-label">Unités de mesure*</label>
-                                <select id="productUnit" name="productUnit" class="form-select" required>
+                                <label for="weightUnit" class="form-label">Unités de mesure*</label>
+                                <select id="weightUnit" name="weightUnit" class="form-select" required>
                                     <option value="">Sélectionner une unité</option>
                                     <?php
                                     foreach (UNITS_MEASURE as $unit) { ?>
-                                        <option value="<?= $unit ?>" <?= (isset($productUnit) && $productUnit == $unit) ? 'selected' : '' ?>><?= $unit ?></option>
+                                        <option value="<?= $unit ?>" <?= (isset($weightUnit) && $weightUnit == $unit) ? 'selected' : '' ?>><?= $unit ?></option>
                                     <?php }
                                     ?>
                                 </select>
-                                <small class="form-text text-danger"><?= $error['productUnit'] ?? '' ?></small>
+                                <small class="form-text text-danger"><?= $error['weightUnit'] ?? '' ?></small>
                             </div>
                         </div>
                     </div>
@@ -91,38 +91,38 @@
                                 <small class="form-text text-danger"><?= $error['productPrice'] ?? '' ?></small>
                             </div>
                             <div class="col-md-6">
-                                <label for="tva" class="form-label">TVA à appliquer en %*</label>
-                                <select id="tva" name="tva" class="form-select" required>
+                                <label for="productTva" class="form-label">TVA à appliquer en %*</label>
+                                <select id="productTva" name="productTva" class="form-select" required>
                                     <option value="">Sélectionner une unité</option>
                                     <?php
                                     foreach (TVA as $unit) { ?>
-                                        <option value="<?= $unit ?>" <?= (isset($tva) && $tva == $unit) ? 'selected' : '' ?>><?= $unit ?></option>
+                                        <option value="<?= $unit ?>" <?= (isset($productTva) && $productTva == $unit) ? 'selected' : '' ?>><?= $unit ?></option>
                                     <?php }
                                     ?>
                                 </select>
-                                <small class="form-text text-danger"><?= $error['tva'] ?? '' ?></small>
+                                <small class="form-text text-danger"><?= $error['productTva'] ?? '' ?></small>
                             </div>
                         </div>        
                     </div>
 
                     <div class="mb-3">
-                        <label for="productFile" class="form-label">Ajouter une photo</label>
-                        <input class="form-control" type="file" id="productFile" name="productFile" accept="image/png, image/jpeg" value="<?= $productFile ?? '' ?>" required>
-                        <small class="form-text text-danger"><?= $error['productFile'] ?? '' ?></small>
+                        <label for="picture" class="form-label">Ajouter une photo</label>
+                        <input class="form-control" type="file" id="picture" name="picture" accept="image/png, image/jpeg" value="<?= $picture ?? '' ?>" required>
+                        <small class="form-text text-danger"><?= $error['picture'] ?? '' ?></small>
                     </div>
                     <div class="mb-3">
                         <div class="form-check-inline">
                             <label class="form-label">Mettre en ligne</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" id="yes" name="productLine" value="0" <?= (isset($productLine) && $productLine == 'yes') ? 'checked' : '' ?> required>
+                            <input class="form-check-input" type="radio" id="yes" name="online" value="0" <?= (isset($online) && $online == 'yes') ? 'checked' : '' ?> required>
                             <label class="form-check-label" for="yes">Oui</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" id="no" name="productLine" value="1" <?= (isset($productLine) && $productLine == 'no') ? 'checked' : '' ?> required>
+                            <input class="form-check-input" type="radio" id="no" name="online" value="1" <?= (isset($online) && $online == 'no') ? 'checked' : '' ?> required>
                             <label class="form-check-label" for="no">Non</label>
                         </div>
-                        <small class="form-text text-danger"><?= $error['productLine'] ?? '' ?></small>
+                        <small class="form-text text-danger"><?= $error['online'] ?? '' ?></small>
                     </div>
                     <div class="alert alert-warning my-3" role="alert">
                         <b><i class="bi bi-info-circle-fill"></i> Info :</b> La plateforme Localco vérifiera votre fiche produit avant de la publier en ligne.

@@ -1,6 +1,8 @@
 <?php
+require_once __DIR__ . '/../../../config/init.php';
 require_once __DIR__ . '/../../../models/User.php';
 
+SessionAuth::admin();
 try {
     $title = 'Liste des clients';
 

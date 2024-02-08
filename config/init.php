@@ -1,9 +1,9 @@
 <?php
-// $host = 'localhost';
-// $dbname = 'localco';
-// $username = 'cedric_localco';
-// $password = 'rNHJCWWHqZ]bQj)]';
+session_start();
 
-define('DSN', 'mysql:dbname=localco;host=localhost');
-define('USER', 'cedric_localco');
-define('PASSWORD', 'rNHJCWWHqZ]bQj)]');
+require_once __DIR__ . '/regex.php';
+require_once __DIR__ . '/constants.php';
+require_once __DIR__ . '/../helpers/FlashMessage.php';
+require_once __DIR__ . '/../helpers/dd.php';
+require_once __DIR__ . '/../helpers/CheckDatas.php';
+require_once __DIR__ . '/../helpers/SessionAuth.php';

@@ -1,6 +1,6 @@
 <?php
-require_once __DIR__ . '/../../config/regex.php';
-require_once __DIR__ . '/../../config/constants.php';
+require_once __DIR__ . '/../../config/init.php';
+
 require_once __DIR__ . '/../../models/User.php';
 require_once __DIR__ . '/../../models/Pickup.php';
 
@@ -100,11 +100,18 @@ try {
 
             $user->insert();
 
-            // Si la méthode a retourné "true", alors on redirige vers la liste
-            // if ($result) {
-            //     header('location: /controllers/dashboard/list-ctrl.php');
-            //     die;
+            // $isInsert = $user->insert();
+            // if ($isInsert) {
+            //     $to = $email;
+            //     $subject = 'Sujet';
+            //     $jwt = JWT::set(); // base64encode
+            //     $message = 'le lien à cliquer';
+            //     mail($to, $subject, $message);
+            //     // message : de confirmation à mettre dans la vie
+            //     // Dans le href à envoyer : SERVEUR[resquest_scheme // et http host]
             // }
+
+
         }
     }
 } catch (\Throwable $th) {

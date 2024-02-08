@@ -3,7 +3,7 @@
 <section class="py-4 py-lg-6">
     <div class="container">
         <div class="text-center mb-4">
-            <h4 class="title-lilita">Bonjour, Prénom !</h4>
+            <h4 class="title-lilita">Bonjour, <?=$_SESSION['user']->firstname?> <?=$_SESSION['user']->id_user?> !</h4>
         </div>
         <div class="row justify-content-center">
             <div class="col-lg-6">
@@ -12,6 +12,8 @@
                     <a class="btn btn-warning btn-lg" href="/controllers/dashboard-users/users/update-users-ctrl.php" role="button">Informations personnelles</a>
                     <a class="btn btn-warning btn-lg" href="/controllers/dashboard-users/subscriptions/list-ctrl.php" role="button">Mon abonnement</a>
                 </div>
+                <?php 
+                if (empty($_SESSION['user']->producer != 1)) { ?>
                 <div class="border border-1 border-success p-4 mt-5">
                     <div class="text-center">
                         <h5 class="">Espace Pro</h5>
@@ -23,7 +25,13 @@
                         <a class="btn btn-success btn-lg" href="/controllers/dashboard-users/producers-profiles/update-ctrl.php" role="button">Ma fiche producteur</a>
                     </div>
                 </div>
-
+                <?php
+                } else { ?>
+                    <div class="text-center mt-5">
+                        <a class="btn btn-sm btn-outline-success" href="" role="button">Devenir Revendeur ?</a>
+                    </div>
+                <?php
+                } ?>
             </div>
         </div>
     </div>

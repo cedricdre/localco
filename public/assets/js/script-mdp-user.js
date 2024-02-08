@@ -27,55 +27,55 @@ const updatePasswords = () => {
 inputPassword.addEventListener('input', updatePasswords);
 inputPasswordConfirm.addEventListener('input', updatePasswords);
 
-/////////////////////// Force du mot de passe USER
+// /////////////////////// Force du mot de passe USER
 
-// Mes Sélécteurs
-const pwdSecurity = document.getElementById('pwdSecurity');
-const pwdSecurityLow = document.getElementById('pwdSecurityLow');
-const pwdSecurityMedium = document.getElementById('pwdSecurityMedium');
-const pwdSecurityStrong = document.getElementById('pwdSecurityStrong');
+// // Mes Sélécteurs
+// const pwdSecurity = document.getElementById('pwdSecurity');
+// const pwdSecurityLow = document.getElementById('pwdSecurityLow');
+// const pwdSecurityMedium = document.getElementById('pwdSecurityMedium');
+// const pwdSecurityStrong = document.getElementById('pwdSecurityStrong');
 
-// Regex
-const pwdRegex = /^[a-z].{0,}$/;
-const pwdLowRegex = /^(?=.*[A-Z]).{8,}$/
-const pwdMediumRegex = /^(?=.*[A-Z])(?=.*[0-9]).{8,}$/
-const pwdStrongRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*\W)[A-Za-z\d\W]{8,}$/
+// // Regex
+// const pwdRegex = /^[a-z].{0,}$/;
+// const pwdLowRegex = /^(?=.*[A-Z]).{8,}$/
+// const pwdMediumRegex = /^(?=.*[A-Z])(?=.*[0-9]).{8,}$/
+// const pwdStrongRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*\W)[A-Za-z\d\W]{8,}$/
 
 
-// fonction sécurité
-const checkSecurite = () => {
-    // On réinitialise 
-    pwdSecurity.classList.add('d-none');
-    pwdSecurityLow.classList.add('d-none');
-    pwdSecurityMedium.classList.add('d-none');
-    pwdSecurityStrong.classList.add('d-none');
-    // Si champs vide, on sort de la fonction
-    if (inputPassword.value == '') {
-        return;
-    }
-    result = pwdRegex.test(inputPassword.value)
-    if (result) { 
-        pwdSecurity.classList.remove('d-none');
-    }     
-    resultLow = pwdLowRegex.test(inputPassword.value)
-    if (resultLow) { 
-        pwdSecurityLow.classList.remove('d-none');
-        pwdSecurity.classList.add('d-none');
-    } 
-    resultMedium = pwdMediumRegex.test(inputPassword.value)
-    if (resultMedium) { 
-        pwdSecurityMedium.classList.remove('d-none');
-        pwdSecurityLow.classList.add('d-none');
-        pwdSecurity.classList.add('d-none');
-    }    
-    resultStrong = pwdStrongRegex.test(inputPassword.value)
-    if (resultStrong) { 
-        pwdSecurityStrong.classList.remove('d-none');
-        pwdSecurityMedium.classList.add('d-none');
-        pwdSecurityLow.classList.add('d-none');
-        pwdSecurity.classList.add('d-none');
-    }
-}
+// // fonction sécurité
+// const checkSecurite = () => {
+//     // On réinitialise 
+//     pwdSecurity.classList.add('d-none');
+//     pwdSecurityLow.classList.add('d-none');
+//     pwdSecurityMedium.classList.add('d-none');
+//     pwdSecurityStrong.classList.add('d-none');
+//     // Si champs vide, on sort de la fonction
+//     if (inputPassword.value == '') {
+//         return;
+//     }
+//     result = pwdRegex.test(inputPassword.value)
+//     if (result) { 
+//         pwdSecurity.classList.remove('d-none');
+//     }     
+//     resultLow = pwdLowRegex.test(inputPassword.value)
+//     if (resultLow) { 
+//         pwdSecurityLow.classList.remove('d-none');
+//         pwdSecurity.classList.add('d-none');
+//     } 
+//     resultMedium = pwdMediumRegex.test(inputPassword.value)
+//     if (resultMedium) { 
+//         pwdSecurityMedium.classList.remove('d-none');
+//         pwdSecurityLow.classList.add('d-none');
+//         pwdSecurity.classList.add('d-none');
+//     }    
+//     resultStrong = pwdStrongRegex.test(inputPassword.value)
+//     if (resultStrong) { 
+//         pwdSecurityStrong.classList.remove('d-none');
+//         pwdSecurityMedium.classList.add('d-none');
+//         pwdSecurityLow.classList.add('d-none');
+//         pwdSecurity.classList.add('d-none');
+//     }
+// }
 
-// Resultat
-inputPassword.addEventListener('input', checkSecurite);
+// // Resultat
+// inputPassword.addEventListener('input', checkSecurite);

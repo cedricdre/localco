@@ -1,5 +1,8 @@
 <?php
+require_once __DIR__ . '/../../../config/init.php';
 require_once __DIR__ . '/../../../models/Type.php';
+
+SessionAuth::admin();
 
 try {
     // Récupération du paramètre d'URL correspondant à l'id de la catégorie cliquée

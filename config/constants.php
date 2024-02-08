@@ -1,4 +1,8 @@
 <?php
+define('DSN', 'mysql:dbname=localco;host=localhost');
+define('USER', 'cedric_localco');
+define('PASSWORD', 'rNHJCWWHqZ]bQj)]');
+
 // CONSTANTS Formulaire d'inscription
 define('DIETS', ['Végétarien', 'Végétalien', 'Pescétarien', 'Flexitarien', 'Sans gluten', 'Sans lactose']);
 define('PRODUCT_TYPES', [
@@ -41,5 +45,8 @@ define('TVA', [
 ]);
 define('TYPES_MIME', ['image/jpeg','image/png']);
 define('MAX_SIZE', ['2*1024*1024']);
+
+define('ERROR', 0);
+define('SUCCESS', 1);
 
 ?>

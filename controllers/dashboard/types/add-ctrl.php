@@ -1,6 +1,8 @@
 <?php
-require_once __DIR__ . '/../../../config/regex.php';
+require_once __DIR__ . '/../../../config/init.php';
 require_once __DIR__ . '/../../../models/Type.php';
+
+SessionAuth::admin();
 
 try {
     $title = 'Ajouter un type de produits';

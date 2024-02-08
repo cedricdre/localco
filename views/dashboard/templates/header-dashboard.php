@@ -35,7 +35,7 @@
                     <div class="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
                         <ul class="nav flex-column">
                             <li class="nav-item">
-                                <a class="nav-link d-flex align-items-center gap-2" href="#">
+                                <a class="nav-link d-flex align-items-center gap-2" href="/index.php">
                                     <i class="bi bi-box-arrow-right"></i>
                                     Site public
                                 </a>
@@ -106,8 +106,14 @@
                         </ul>
                         <hr class="my-3">
                         <ul class="nav flex-column">
+                        <li class="nav-item">
+                                <a class="nav-link d-flex align-items-center gap-2 text-secondary" active>
+                                    <i class="bi bi-person"></i>
+                                    Compte : <?=$_SESSION['user']->firstname?>
+                                </a>
+                            </li>
                             <li class="nav-item">
-                                <a class="nav-link d-flex align-items-center gap-2" href="#">
+                                <a class="nav-link d-flex align-items-center gap-2" href="/controllers/login/logout-ctrl.php">
                                     <i class="bi bi-door-closed"></i>
                                     Déconnexion
                                 </a>
@@ -118,9 +124,9 @@
             </div>
 
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-5 py-md-4">
-                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <div class="d-flex flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <h1 class="h2">Dashboard</h1>
-                    <div class="btn-toolbar mb-2 mb-md-0">
+                    <div class="btn-toolbar mb-2 mb-md-0 ms-auto">
                         <select class="form-select form-select-sm" id="themeSelector" onchange="changeTheme()">
                             <option value="dark">Dark</option>
                             <option value="light">Light</option>

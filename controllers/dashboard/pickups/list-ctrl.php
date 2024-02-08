@@ -1,5 +1,8 @@
 <?php
+require_once __DIR__ . '/../../../config/init.php';
 require_once __DIR__ . '/../../../models/Pickup.php';
+
+SessionAuth::admin();
 
 try {
     $title = 'Lieux de retrait';
