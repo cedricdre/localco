@@ -39,9 +39,9 @@ define('UNITS_MEASURE', [
     'L' 
 ]);
 define('TVA', [
-    5.5, 
-    10, 
-    20
+    '5.5', 
+    '10', 
+    '20'
 ]);
 define('TYPES_MIME', ['image/jpeg','image/png']);
 define('MAX_SIZE', ['2*1024*1024']);

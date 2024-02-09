@@ -10,7 +10,7 @@ class Product
     private ?string $certification;
     private float $weight;
     private string $weight_unit;
-    private float $product_price;
+    private ?string $product_price;
     private ?string $product_tva;
     private ?string $picture;
     private int $online;
@@ -28,8 +28,8 @@ class Product
         int $bio_production = 0,
         float $weight = 0,
         string $weight_unit = '',
-        float $product_price = 0,
-        string $product_tva = '',
+        ?string $product_price = '',
+        ?string $product_tva = '',
         ?string $picture = null,
         int $online = 0,
         ?string $created_at = null,
@@ -137,12 +137,12 @@ class Product
     }
 
     // product_price
-    public function setProductPrice(float $product_price)
+    public function setProductPrice(?string $product_price)
     {
         $this->product_price = $product_price;
     }
 
-    public function getProductPrice(): float
+    public function getProductPrice(): ?string
     {
         return $this->product_price;
     }
@@ -259,7 +259,9 @@ class Product
         `product_price`,
         `product_tva`,
         `picture`,
-        `online`)
+        `online`,
+        `id_user`,
+        `id_type`)
         VALUES (
         :product_name,
         :description,
@@ -270,7 +272,9 @@ class Product
         :product_price,
         :product_tva,
         :picture,
-        :online
+        :online,
+        :id_user,
+        :id_type
     )';
     $sth = $pdo->prepare($sql);
     $sth->bindValue(':product_name', $this->getProductName());
@@ -283,6 +287,8 @@ class Product
     $sth->bindValue(':product_tva', $this->getProductTva());
     $sth->bindValue(':picture', $this->getPicture());
     $sth->bindValue(':online', $this->getOnline(), PDO::PARAM_INT);
+    $sth->bindValue(':id_user', $this->getIdUser(), PDO::PARAM_INT);
+    $sth->bindValue(':id_type', $this->getIdType(), PDO::PARAM_INT);
     $sth->execute();
     // Appel à la méthode rowCount permettant de savoir combien d'enregistrements ont été affectés
     if ($sth->rowCount() <= 0) {
@@ -291,7 +297,30 @@ class Product
     } else {
         return true;
     }
-}
+    
+    }
+
+    public static function getAll(bool $order = false, bool $archive = false): array
+    {
+        $pdo = Database::connect();
+        // Requête mysql pour sélectionner toutes les valeurs dans la table `categories`
+        $sql = 'SELECT * FROM `products` WHERE 1 = 1';
+
+        if ($archive === true) {
+            $sql .= ' AND `deleted_at` IS NOT NULL';
+        } else {
+            $sql .= ' AND `deleted_at` IS NULL';
+        }
+        // if ($order === true) {
+        //     $sql .= ' ORDER by `company_name`';
+        // } else {
+        //     $sql .= ' ORDER by `lastname`';
+        // }
+        $sth = $pdo->query($sql);
+        // Retourne un tableau associatif de la table categories
+        $result = $sth->fetchAll(PDO::FETCH_OBJ);
+        return $result;
+    }
 
 
 }

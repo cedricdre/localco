@@ -54,7 +54,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="certification" class="form-label">Certification</label>
-                        <select id="certification" name="certification" class="form-select mb-lg-2" required>
+                        <select id="certification" name="certification" class="form-select mb-lg-2">
                             <option value="">Sélectionner une certification</option>
                             <?php
                             foreach (CERTIFICATIONS as $certif) { ?>
@@ -89,7 +89,7 @@
                     <div class="row">
                             <div class="col-md-6">
                                 <label for="productPrice" class="form-label">Prix unitaire en € HT*</label>
-                                <input type="text" inputmode="numeric" class="form-control" id="productPrice" name="productPrice" placeholder="ex : 3,95" pattern="<?= REGEX_PRICE ?>" value="<?= $productPrice ?? '' ?>" required>
+                                <input type="text" class="form-control" id="productPrice" name="productPrice" placeholder="ex : 3,95" pattern="<?= REGEX_PRICE ?>" value="<?= $productPrice ?? '' ?>" required>
                                 <small class="form-text text-danger"><?= $error['productPrice'] ?? '' ?></small>
                             </div>
                             <div class="col-md-6">

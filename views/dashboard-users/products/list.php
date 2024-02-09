@@ -27,24 +27,32 @@
                             </tr>
                         </thead>
                         <tbody>
+                        <?php
+                            foreach($products as $product){ ?>
                             <tr>
-                                <th scope="row">Produit 1</th>
-                                <td><a class="btn btn-outline-success btn-sm" href="/controllers/dashboard-users/products/add-ctrl.php" role="button">Modifier</a></td>
-                                <td><span class="badge rounded-pill text-bg-warning">En attente de validation</span></td>
-                                <td><a href="" class="text-danger"><i class="bi bi-trash3-fill"></i></a></td>
+                                <th scope="row"><?=$product->product_name?></th>
+                                <th><a class="btn btn-outline-success btn-sm" href="/controllers/dashboard/product/update-ctrl.php?idpickup=<?=$product->id_product?>" role="button"><i class="bi bi-pencil-fill me-2"></i>Modifier</a></th>
+                                <th>
+                                    <?php
+                                        if ($product->valid_at == NULL) { ?>
+                                            <span class="badge rounded-pill text-bg-warning">En attente de validation</span>
+                                    <?php
+                                    } ?>
+                                    <?php
+                                        if ($product->valid_at != NULL && $product->online == 1) { ?>
+                                            <span><i class="bi bi-link me-1"></i>En ligne</span>
+                                    <?php
+                                    } ?>
+                                    <?php
+                                        if ($product->valid_at != NULL && $product->online == 0) { ?>
+                                            <span class="text-danger"><i class="bi bi-link me-1"></i>Hors ligne</span>
+                                    <?php
+                                    } ?>
+                                </th>
+                                <th scope="row"><a href="/controllers/dashboard/pickups/list-ctrl.php?idpickup=<?=$product->id_product?>" class="text-danger"><i class="bi bi-trash3-fill"></i></a></th>
                             </tr>
-                            <tr>
-                                <th scope="row">Produit 2</th>
-                                <td><a class="btn btn-outline-success btn-sm" href="/controllers/dashboard-users/products/add-ctrl.php" role="button">Modifier</a></td>
-                                <td><span><i class="bi bi-link me-1"></i>En ligne</span></td>
-                                <td><a href="" class="text-danger"><i class="bi bi-trash3-fill"></i></a></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Produit 3</th>
-                                <td><a class="btn btn-outline-success btn-sm" href="/controllers/dashboard-users/products/add-ctrl.php" role="button">Modifier</a></td>
-                                <td><span class="text-danger"><i class="bi bi-link me-1"></i>Hors ligne</span></td>
-                                <td><a href="" class="text-danger"><i class="bi bi-trash3-fill"></i></a></td>
-                            </tr>
+                            <?php
+                            } ?>
                         </tbody>
                     </table>
                 </div>

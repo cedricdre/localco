@@ -6,11 +6,9 @@ require_once __DIR__ . '/../../../models/Product.php';
 SessionAuth::producer();
 
 try {
-    $title = 'Ajouter un lieu de retrait';
+    $title = 'Ajouter un produit';
 
     $types = Type::getAll(); 
-    $idUser = $_SESSION['user']->id_user;
-
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         
@@ -72,7 +70,7 @@ try {
         }
 
         // INPUT "Prix" Nettoyage et validation
-        $productPrice = filter_input(INPUT_POST, 'productPrice', FILTER_SANITIZE_NUMBER_FLOAT);
+        $productPrice = filter_input(INPUT_POST, 'productPrice', FILTER_SANITIZE_SPECIAL_CHARS);
         if (empty($productPrice)) {
             $error['productPrice'] = 'Votre prix n\'est pas renseigné !';
         } else {
@@ -81,8 +79,11 @@ try {
                 $error['productPrice'] = "Votre prix n'est pas valide, seuls les chiffres et une virgule sont autorisés";
             }
         }
+        // Remplacer les virgules par des points
+        $productPrice = str_replace(',', '.', $productPrice);
+
         // INPUT "Unités de mesure" Nettoyage et validation
-        $productTva = filter_input(INPUT_POST, 'productTva', FILTER_SANITIZE_NUMBER_FLOAT);
+        $productTva = filter_input(INPUT_POST, 'productTva', FILTER_SANITIZE_SPECIAL_CHARS);
         if (empty($productTva)) {
             $error['productTva'] = 'Votre tva n\'est pas renseigné !';
         } else {
@@ -143,6 +144,7 @@ try {
                 $error['online'] = "La valeur sélectionnée n'est pas valide.";
             }
         }
+        $idUser = $_SESSION['user']->id_user;
 
         if (empty($error)) {
             $product = new Product();
@@ -160,14 +162,12 @@ try {
             $product->setIdType($type);
 
             $result = $product->insert();
-            dd($result);
-
 
             // Si la méthode a retourné "true", alors on redirige vers la liste
-            // if ($result) {
-            //     header('location: dashboard-users/products/list-ctrl.php');
-            //     die;
-            // }
+            if ($result) {
+                header('location: /controllers/dashboard-users/products/list-ctrl.php');
+                die;
+            }
         }
     }
 } catch (\Throwable $th) {
