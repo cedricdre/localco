@@ -24,17 +24,19 @@
                         <label for="type" class="form-label">Type de produit*</label>
                         <select id="type" name="type" class="form-select mb-lg-2" required>
                             <option value="">Sélectionner un type de produit</option>
+
                             <?php
-                            foreach ($listTypes as $type) { ?>
-                                <option value="<?= $type->id_type ?>" <?= (isset($type) && $type == $type->type_name) ? 'selected' : '' ?>><?= $type->type_name ?></option>
-                            <?php }
+                            foreach ($types as $key => $type) {
+                                $isSelected = ($type->id_type == $id_category) ? 'selected ' : '';
+                                echo '<option ' . $isSelected . ' value="' . $type->id_type . '">' . $type->type_name . '</option>';
+                            }
                             ?>
                         </select>
                         <small class="form-text text-danger"><?= $error['productType'] ?? '' ?></small>
                     </div>
                     <div class="mb-3">
-                        <label for="productDescription" class="form-label">Description du produit</label>
-                        <textarea class="form-control" id="productDescription" name="productDescription" rows="4" maxlength="1000" placeholder="Entrez votre description"><?= $productDescription ?? '' ?></textarea>
+                        <label for="description" class="form-label">Description du produit</label>
+                        <textarea class="form-control" id="description" name="description" rows="4" maxlength="1000" placeholder="Entrez votre description"><?= $description ?? '' ?></textarea>
                     </div>
                     <div class="mb-3">
                         <div class="form-check-inline">
@@ -107,19 +109,19 @@
 
                     <div class="mb-3">
                         <label for="picture" class="form-label">Ajouter une photo</label>
-                        <input class="form-control" type="file" id="picture" name="picture" accept="image/png, image/jpeg" value="<?= $picture ?? '' ?>" required>
+                        <input class="form-control" type="file" id="picture" name="picture" accept="image/png, image/jpeg" value="<?= $picture ?? '' ?>">
                         <small class="form-text text-danger"><?= $error['picture'] ?? '' ?></small>
                     </div>
                     <div class="mb-3">
                         <div class="form-check-inline">
                             <label class="form-label">Mettre en ligne</label>
                         </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" id="yes" name="online" value="0" <?= (isset($online) && $online == 'yes') ? 'checked' : '' ?> required>
+                        <div class="form-check form-check-inline"> 
+                            <input class="form-check-input" type="radio" id="yes" name="online" value="1" <?= (isset($online) && $online == 1) ? 'checked' : '' ?>>
                             <label class="form-check-label" for="yes">Oui</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" id="no" name="online" value="1" <?= (isset($online) && $online == 'no') ? 'checked' : '' ?> required>
+                            <input class="form-check-input" type="radio" id="no" name="online" value="0" <?= (isset($online) && $online == 0) ? 'checked' : '' ?>>
                             <label class="form-check-label" for="no">Non</label>
                         </div>
                         <small class="form-text text-danger"><?= $error['online'] ?? '' ?></small>

@@ -11,7 +11,7 @@ class Product
     private float $weight;
     private string $weight_unit;
     private float $product_price;
-    private float $product_tva;
+    private ?string $product_tva;
     private ?string $picture;
     private int $online;
     private ?string $created_at;
@@ -23,15 +23,15 @@ class Product
 
     // __Constructeur
     public function __construct(
-        ?string $product_name = null,
-        ?string $description = null,
-        ?int $bio_production = null,
-        ?float $weight = null,
-        ?string $weight_unit = null,
-        ?float $product_price = null,
-        ?float $product_tva = null,
+        string $product_name = '',
+        string $description = '',
+        int $bio_production = 0,
+        float $weight = 0,
+        string $weight_unit = '',
+        float $product_price = 0,
+        string $product_tva = '',
         ?string $picture = null,
-        ?int $online = null,
+        int $online = 0,
         ?string $created_at = null,
         ?string $updated_at = null,
         ?string $deleted_at = null,
@@ -57,7 +57,6 @@ class Product
         $this->setIdUser($id_user);
         $this->setIdType($id_type);
     }
-
 
     // Methods SET GET
     // id_product
@@ -149,12 +148,12 @@ class Product
     }
 
     // product_tva
-    public function setProductTva(float $product_tva)
+    public function setProductTva(?string $product_tva)
     {
         $this->product_tva = $product_tva;
     }
 
-    public function getProductTva(): float
+    public function getProductTva(): ?string
     {
         return $this->product_tva;
     }

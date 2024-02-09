@@ -8,7 +8,9 @@ SessionAuth::producer();
 try {
     $title = 'Ajouter un lieu de retrait';
 
-    $listTypes = Type::getAll(); 
+    $types = Type::getAll(); 
+    $idUser = $_SESSION['user']->id_user;
+
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         
@@ -33,15 +35,24 @@ try {
             }
         }
 
-        // INPUT "Type de produit" Nettoyage et validation
-        // $type = filter_input(INPUT_POST, 'type', FILTER_SANITIZE_SPECIAL_CHARS);
+        // type
+        // $type = intval(filter_input(INPUT_POST, 'type', FILTER_SANITIZE_SPECIAL_CHARS));
         // if (empty($type)) {
-        //     $error['type'] = 'Votre type de produit n\'est pas renseigné !';
+        //     $error['type'] = 'Le type n\'est pas renseignée';
         // } else {
-        //     if (!in_array($type, PRODUCT_TYPES)) {
-        //         $error['type'] =  "La valeur sélectionnée n'est pas valide.";
+        //     $listIdTypes = array_column($listTypes, 'id_product');
+        //     if (!in_array($type, $listIdTypes)) {
+        //         $error['type'] =  "Le type sélectionnée n'est pas valide.";
         //     }
         // }
+        $type = intval(filter_input(INPUT_POST, 'type', FILTER_SANITIZE_NUMBER_INT));
+        if (!$type) {
+            $error['type'] = 'Ce champ est obligatoire!';
+        } else {
+            if (!Type::get($type)) {
+                $error['type'] = 'Cette catégorie est inconnue!';
+            }
+        }
 
         // INPUT "Production Bio"
         $bioProduction = intval(filter_input(INPUT_POST, 'bioProduction', FILTER_SANITIZE_NUMBER_INT));
@@ -61,7 +72,7 @@ try {
         }
 
         // INPUT "Prix" Nettoyage et validation
-        $productPrice = filter_input(INPUT_POST, 'productPrice', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        $productPrice = filter_input(INPUT_POST, 'productPrice', FILTER_SANITIZE_NUMBER_FLOAT);
         if (empty($productPrice)) {
             $error['productPrice'] = 'Votre prix n\'est pas renseigné !';
         } else {
@@ -75,7 +86,7 @@ try {
         if (empty($productTva)) {
             $error['productTva'] = 'Votre tva n\'est pas renseigné !';
         } else {
-            if (!in_array($productTva, UNITS_MEASURE)) {
+            if (!in_array($productTva, TVA)) {
                 $error['productTva'] =  "La tva sélectionnée n'est pas valide !";
             }
         }
@@ -134,20 +145,29 @@ try {
         }
 
         if (empty($error)) {
-            $pickup = new Product();
-            $pickup->setPickupName($pickup_name);
-            $pickup->setAdress($address);
-            $pickup->setZip($zip);
-            $pickup->setCity($city);
-            $pickup->setOpeningHours($opening_hours);
+            $product = new Product();
+            $product->setProductName($productName);
+            $product->setDescription($description);
+            $product->setBioProduction($bioProduction);
+            $product->setCertification($certification);
+            $product->setWeight($weight);
+            $product->setWeightUnit($weightUnit);
+            $product->setProductPrice($productPrice);
+            $product->setProductTva($productTva);
+            $product->setPicture($picture);
+            $product->setOnline($online);
+            $product->setIdUser($idUser);
+            $product->setIdType($type);
 
-            $result = $pickup->insert();
+            $result = $product->insert();
+            dd($result);
+
 
             // Si la méthode a retourné "true", alors on redirige vers la liste
-            if ($result) {
-                header('location: /controllers/dashboard/pickups/list-ctrl.php');
-                die;
-            }
+            // if ($result) {
+            //     header('location: dashboard-users/products/list-ctrl.php');
+            //     die;
+            // }
         }
     }
 } catch (\Throwable $th) {
