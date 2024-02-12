@@ -7,7 +7,10 @@ SessionAuth::producer();
 try {
     $title = 'Liste des produits';
 
-    $products = Product::getAll(); 
+    $id_producer = $_SESSION['user']->id_user;
+    $products = Product::getAllProductsProducers($id_producer);
+
+    // $products = Product::getAll(); 
 
 } catch (\Throwable $th) {
     $error = $th->getMessage();

@@ -7,8 +7,8 @@ SessionAuth::producer();
 try {
     $title = 'Modifier ma fiche producteur';
 
-    // Récupération du paramètre d'URL correspondant à l'id
-    $id_producer = intval(filter_input(INPUT_GET, 'idproducer', FILTER_SANITIZE_NUMBER_INT));
+    // $id_producer = intval(filter_input(INPUT_GET, 'idproducer', FILTER_SANITIZE_NUMBER_INT));
+    $id_producer = $_SESSION['user']->id_user;
     $producer = User::get($id_producer);
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {

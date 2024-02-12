@@ -408,6 +408,31 @@ class Product
         return $result;
     }
 
+    public static function getAllProductsProducers(int $id, bool $archive = false): array
+    {
+        $pdo = Database::connect();
+        // Requête mysql pour sélectionner toutes les valeurs dans la table `categories`
+        $sql = 'SELECT * FROM `products`
+                INNER JOIN `types` ON `products`.`id_type` = `types`.`id_type`
+                INNER JOIN `users` ON `products`.`id_user` = `users`.`id_user`
+                WHERE `products`.`id_user` = :id_user';
+
+        if ($archive === true) {
+            $sql .= ' AND `products`.`deleted_at` IS NOT NULL';
+        } else {
+            $sql .= ' AND `products`.`deleted_at` IS NULL';
+        }
+
+        $sql .= ' ORDER by `products`.`valid_at`';
+
+        $sth = $pdo->prepare($sql);
+        $sth->bindValue(':id_user', $id, PDO::PARAM_INT);
+        $sth->execute();
+        // Retourne un tableau associatif de la table categories
+        $result = $sth->fetchAll(PDO::FETCH_OBJ);
+        return $result;
+    }
+
     public static function getAllbyPublic(?int $id_type = 0, ?string $certification = '', ?int $producer = 0, ?string $search = '', bool $valid = false, bool $online = false, int $page = 1): array
     {
 

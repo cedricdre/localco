@@ -34,7 +34,7 @@
                     $prix_ttc = number_format($prix_ttc, 2, '.', ' ');
                     ?>
                 <tr>
-                    <th scope="row"><?=$product->picture?></th>
+                    <th scope="row"><img src="<?= '/public/uploads/product-sheet/' . $product->picture ?>" class="object-fit-cover img-thumbnail" width="60"></th>
                     <th scope="row"><?=$product->product_name?></th>
                     <th scope="row"><?=$product->type_name?></th>
                     <th scope="row"><?=$product->company_name?></th>

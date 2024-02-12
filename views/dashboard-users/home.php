@@ -3,7 +3,7 @@
 <section class="py-4 py-lg-6">
     <div class="container">
         <div class="text-center mb-4">
-            <h4 class="title-lilita">Bonjour, <?=$_SESSION['user']->firstname?> <?=$_SESSION['user']->id_user?> !</h4>
+            <h4 class="title-lilita">Bonjour, <?=$_SESSION['user']->firstname?> !</h4>
         </div>
         <div class="row justify-content-center">
             <div class="col-lg-6">
@@ -17,12 +17,12 @@
                 <div class="border border-1 border-success p-4 mt-5">
                     <div class="text-center">
                         <h5 class="">Espace Pro</h5>
-                        <h4 class="title-lilita mb-3">Mon entreprise</h4>
+                        <h4 class="title-lilita mb-3"><?=$_SESSION['user']->company_name?></h4>
                     </div>
                     <div class="d-grid gap-3">                    
                         <a class="btn btn-success btn-lg" href="/controllers/dashboard-users/products/list-ctrl.php" role="button">Mes produits</a>
                         <a class="btn btn-success btn-lg position-relative" href="#" role="button">Mes commandes à préparer <span class="ms-2 badge bg-danger">4</span></a>
-                        <a class="btn btn-success btn-lg" href="/controllers/dashboard-users/producers-profiles/update-ctrl.php?idproducer=<?=$_SESSION['user']->id_user?>" role="button">Ma fiche producteur</a>
+                        <a class="btn btn-success btn-lg" href="/controllers/dashboard-users/producers-profiles/update-ctrl.php" role="button">Ma fiche producteur</a>
                     </div>
                 </div>
                 <?php
