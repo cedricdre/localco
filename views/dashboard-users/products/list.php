@@ -31,7 +31,7 @@
                             foreach($products as $product){ ?>
                             <tr>
                                 <th scope="row"><?=$product->product_name?></th>
-                                <th><a class="btn btn-outline-success btn-sm" href="/controllers/dashboard/product/update-ctrl.php?idpickup=<?=$product->id_product?>" role="button"><i class="bi bi-pencil-fill me-2"></i>Modifier</a></th>
+                                <th><a class="btn btn-outline-success btn-sm" href="/controllers/dashboard-users/products/update-ctrl.php?idproduct=<?=$product->id_product?>" role="button"><i class="bi bi-pencil-fill me-2"></i>Modifier</a></th>
                                 <th>
                                     <?php
                                         if ($product->valid_at == NULL) { ?>
@@ -49,7 +49,7 @@
                                     <?php
                                     } ?>
                                 </th>
-                                <th scope="row"><a href="/controllers/dashboard/pickups/list-ctrl.php?idpickup=<?=$product->id_product?>" class="text-danger"><i class="bi bi-trash3-fill"></i></a></th>
+                                <th scope="row"><a href="/controllers/dashboard-users/products/delete-ctrl.php?idproduct=<?=$product->id_product?>" class="text-danger"><i class="bi bi-trash3-fill"></i></a></th>
                             </tr>
                             <?php
                             } ?>

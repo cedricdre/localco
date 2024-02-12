@@ -13,7 +13,7 @@
             <div class="card text-bg-success mb-4">
                 <div class="card-header">Produits</div>
                 <div class="card-body">
-                    <h5 class="card-title">0 Produits à valider</h5>
+                    <h5 class="card-title">? Produits à valider</h5>
                     <p class="card-text">Total de produits en ligne : </p>
                 </div>
             </div>
@@ -24,7 +24,7 @@
         <div class="col-md-3">
             <div class="card mb-4">
                 <div class="card-body">
-                    <h5 class="card-title mb-3"><i class="bi bi-people text-primary me-2"></i>0 Producteurs</h5>
+                    <h5 class="card-title mb-3"><i class="bi bi-people text-primary me-2"></i>? Producteurs</h5>
                     <a class="btn btn-sm btn-outline-secondary" href="/controllers/dashboard/producers/list-ctrl.php" role="button">Consulter la liste</a>
                 </div>
             </div>
@@ -48,7 +48,7 @@
         <div class="col-md-3">
             <div class="card mb-4">
                 <div class="card-body">
-                    <h5 class="card-title mb-3"><i class="bi bi-calendar-range text-primary me-2"></i>0 Abonnements</h5>
+                    <h5 class="card-title mb-3"><i class="bi bi-calendar-range text-primary me-2"></i>? Abonnements</h5>
                     <a class="btn btn-sm btn-outline-secondary" href="/controllers/dashboard/subscriptions/list-ctrl.php" role="button">Consulter la liste</a>
                 </div>
             </div>

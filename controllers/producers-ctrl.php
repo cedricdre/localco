@@ -1,13 +1,11 @@
 <?php
 require_once __DIR__ . '/../config/init.php';
-require_once __DIR__ . '/../models/Product.php';
+require_once __DIR__ . '/../models/User.php';
 
 try {
-    // Récupération du paramètre d'URL correspondant à l'id
-    $id_product = intval(filter_input(INPUT_GET, 'idproduct', FILTER_SANITIZE_NUMBER_INT));
-    $product = Product::get($id_product);
-    
-    $title = $product->product_name;
+    $title = 'Les Producteurs';
+
+    $producers = User::getAllbyProducer();
 
 } catch (\Throwable $th) {
     $error = $th->getMessage();
@@ -18,6 +16,6 @@ try {
 }
 
 include __DIR__.'/../views/templates/header.php';
-include __DIR__.'/../views/product-sheet.php';
+include __DIR__.'/../views/producers.php';
 include __DIR__.'/../views/templates/shop-hover.php';
 include __DIR__.'/../views/templates/footer.php';

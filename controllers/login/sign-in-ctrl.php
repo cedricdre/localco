@@ -24,7 +24,6 @@ try {
             $user = User::getByMail($datas["email"]);
 
             if (!$user) {
-                // FlashMessage::set("Identifiant ou mot de passe incorrect. Veuillez réessayer.", ERROR);
                 $errors['email'] = 'Identifiant ou mot de passe incorrect. Veuillez réessayer.';
                 $message = 'Identifiant ou mot de passe incorrect. Veuillez réessayer.';
             } else {

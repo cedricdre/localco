@@ -17,90 +17,73 @@
                     <div class="row">
                         <div class="col-xl-6">
                             <div class="mb-3">
-                                <label for="namebusinessProducer" class="form-label">Nom de l’entreprise*</label>
-                                <input type="text" class="form-control" id="namebusinessProducer" name="namebusinessProducer" placeholder="Entrez le nom de votre entreprise" pattern="<?= REGEX_NAME ?>" value="<?= $namebusinessProducer ?? '' ?>" required>
-                                <small class="form-text text-danger"><?= $error['namebusinessProducer'] ?? '' ?></small>
+                                <label for="companyName" class="form-label">Nom de l’entreprise*</label>
+                                <input type="text" class="form-control" id="companyName" name="companyName" placeholder="Entrez le nom de votre entreprise" pattern="<?= REGEX_NAME ?>" value="<?= $producer->company_name ?? '' ?>" required>
+                                <small class="form-text text-danger"><?= $error['companyName'] ?? '' ?></small>
                             </div>
                         </div>
                         <div class="col-xl-6">
                             <div class="mb-3">
-                                <label for="siretProducer" class="form-label">Siret/Siren</label>
-                                <input type="text" inputmode="numeric" class="form-control" id="siretProducer" name="siretProducer" placeholder="ex : 12345678901234" pattern="<?= REGEX_SIRET ?>" value="<?= $siretProducer ?? '' ?>">
-                                <small class="form-text text-danger"><?= $error['siretProducer'] ?? '' ?></small>
+                                <label for="siret" class="form-label">Siret/Siren</label>
+                                <input type="text" inputmode="numeric" class="form-control" id="siret" name="siret" placeholder="ex : 12345678901234" pattern="<?= REGEX_SIRET ?>" value="<?= $producer->siret ?? '' ?>">
+                                <small class="form-text text-danger"><?= $error['siret'] ?? '' ?></small>
                             </div>
                         </div>
                         <div class="col-xl-6">
                             <div class="mb-3">
-                                <label for="firstnameProducer" class="form-label">Prénom*</label>
-                                <input type="text" class="form-control" id="firstnameProducer" name="firstnameProducer" placeholder="Entrez un prénom" pattern="<?= REGEX_NAME ?>" value="<?= $firstnameProducer ?? '' ?>" required>
-                                <small class="form-text text-danger"><?= $error['firstnameProducer'] ?? '' ?></small>
+                                <label for="firstname" class="form-label">Prénom*</label>
+                                <input type="text" class="form-control" id="firstname" name="firstname" placeholder="Entrez un prénom" pattern="<?= REGEX_NAME ?>" value="<?= $producer->firstname ?? '' ?>" required>
+                                <small class="form-text text-danger"><?= $error['firstname'] ?? '' ?></small>
                             </div>
                         </div>
                         <div class="col-xl-6">
                             <div class="mb-3">
-                                <label for="lastnameProducer" class="form-label">Nom*</label>
-                                <input type="text" class="form-control" id="lastnameProducer" name="lastnameProducer" placeholder="Entrez un nom" pattern="<?= REGEX_NAME ?>" value="<?= $lastnameProducer ?? '' ?>" required>
-                                <small class="form-text text-danger"><?= $error['lastnameProducer'] ?? '' ?></small>
+                                <label for="lastname" class="form-label">Nom*</label>
+                                <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Entrez un nom" pattern="<?= REGEX_NAME ?>" value="<?= $producer->lastname ?? '' ?>" required>
+                                <small class="form-text text-danger"><?= $error['lastname'] ?? '' ?></small>
                             </div>
                         </div>
                     </div>
                     <div class="mb-3">
-                        <label for="" class="form-label">Description de l'entreprise</label>
-                        <textarea class="form-control" id="" rows="4"></textarea>
+                        <label for="description" class="form-label">Description de l'entreprise</label>
+                        <textarea class="form-control" id="description" name="description" rows="4" placeholder="Entrez du texte"><?= $producer->description ?? '' ?></textarea>
                     </div>
                     <div class="mb-3">
-                        <label for="formFile" class="form-label">Ajouter un logo</label>
-                        <input class="form-control mb-2" type="file" id="formFile">
-                        <p class="mb-0 fw-bold">Nom du fichier<a class="btn btn-outline-danger btn-sm ms-2" href="#" role="button">Supprimer</a></p>
-                    </div>
-                    <div class="mb-3">
-                        <label for="formFile" class="form-label">Ajouter une photo de couverture</label>
-                        <input class="form-control mb-2" type="file" id="formFile">
-                        <p class="mb-0 fw-bold">Nom du fichier<a class="btn btn-outline-danger btn-sm ms-2" href="#" role="button">Supprimer</a></p>
+                        <label for="picture" class="form-label">Ajouter une photo</label>
+                        <input class="form-control" type="file" id="picture" name="picture" accept="image/png, image/jpeg">
+                        <small class="form-text text-danger"><?= $error['picture'] ?? '' ?></small>
+                        <p class="my-1 fw-bold">Nom du fichier<a class="btn btn-outline-danger btn-sm ms-2" href="#" role="button">Supprimer</a></p>
                     </div>
                     <div class="row">
                         <div class="col-xl-6">
                             <div class="mb-3">
-                                <label for="phoneProducer" class="form-label">Numéro de téléphone</label>
-                                <input type="tel" class="form-control" id="phoneProducer" name="phoneProducer" placeholder="Entrez un numéro" pattern="<?= REGEX_PHONE ?>" value="<?= $phoneProducer ?? '' ?>">
-                                <small class="form-text text-danger"><?= $error['phoneProducer'] ?? '' ?></small>
+                                <label for="phone" class="form-label">Numéro de téléphone</label>
+                                <input type="tel" class="form-control" id="phone" name="phone" placeholder="Entrez un numéro" pattern="<?= REGEX_PHONE ?>" value="<?= $producer->phone ?? '' ?>">
+                                <small class="form-text text-danger"><?= $error['phone'] ?? '' ?></small>
                             </div>
                         </div>
                         <div class="col-xl-12">    
                             <div class="mb-3">
-                                <label for="adressProducer" class="form-label">Adresse postal*</label>
-                                <input type="text" class="form-control" id="adressProducer" name="adressProducer" placeholder="ex : 1 rue des Champs" pattern="<?= REGEX_ADRESS ?>" value="<?= $adressProducer ?? '' ?>" required>
-                                <small class="form-text text-danger"><?= $error['adressProducer'] ?? '' ?></small>
+                                <label for="adress" class="form-label">Adresse postal*</label>
+                                <input type="text" class="form-control" id="adress" name="adress" placeholder="ex : 1 rue des Champs" pattern="<?= REGEX_ADRESS ?>" value="<?= $producer->address ?? '' ?>" required>
+                                <small class="form-text text-danger"><?= $error['adress'] ?? '' ?></small>
                             </div>
                         </div>
                         <div class="col-xl-4">
                             <div class="mb-3">
-                                <label for="zipProducer" class="form-label">Code postal*</label>
-                                <input type="text" inputmode="numeric" class="form-control" id="zipProducer" name="zipProducer" placeholder="ex : 80000" pattern="<?= REGEX_POSTAL_CODE ?>" value="<?= $zipProducer ?? '' ?>" required>
-                                <small class="form-text text-danger"><?= $error['zipProducer'] ?? '' ?></small>
+                                <label for="zip" class="form-label">Code postal*</label>
+                                <input type="text" inputmode="numeric" class="form-control" id="zip" name="zip" placeholder="ex : 80000" pattern="<?= REGEX_POSTAL_CODE ?>" value="<?= $producer->zip ?? '' ?>" required>
+                                <small class="form-text text-danger"><?= $error['zip'] ?? '' ?></small>
                             </div>
                         </div>
                         <div class="col-xl-8"> 
                             <div class="mb-3">
-                                <label for="cityProducer" class="form-label">Ville*</label>
-                                <input type="text" class="form-control" id="cityProducer" name="cityProducer" placeholder="ex : Amiens" pattern="<?= REGEX_CITY ?>" value="<?= $cityProducer ?? '' ?>" required>
-                                <small class="form-text text-danger"><?= $error['cityProducer'] ?? '' ?></small>
+                                <label for="city" class="form-label">Ville*</label>
+                                <input type="text" class="form-control" id="city" name="city" placeholder="ex : Amiens" pattern="<?= REGEX_CITY ?>" value="<?= $producer->city ?? '' ?>" required>
+                                <small class="form-text text-danger"><?= $error['city'] ?? '' ?></small>
                             </div>
                         </div>
                     </div>        
-
-                    <!-- <div class="mb-3">
-                        <p class="mb-1">Mettre en ligne*</p>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" id="" value="">
-                            <label class="form-check-label" for="">Oui</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" id="" value="">
-                            <label class="form-check-label" for="">Non</label>
-                        </div>
-                    </div> -->
-
                     <div class="d-grid mt-3">
                         <button type="submit" class="btn btn-lg btn-success mb-3">Je valide ma fiche</button>
                     </div>

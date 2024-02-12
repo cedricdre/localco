@@ -23,7 +23,7 @@
                         <li><a class="dropdown-item" href="/controllers/dashboard-users/home-ctrl.php"><i class="bi bi-person-fill me-1"></i>Mon compte</a></li>
                         <?php 
                         if (!empty($_SESSION['user']) && $_SESSION['user']->admin == 1) { ?>
-                            <li><a class="dropdown-item" href="/controllers/dashboard/home-ctrl.php"><i class="bi bi-person-fill me-1"></i>dashboard</a></li>
+                            <li><a class="dropdown-item" href="/controllers/dashboard/home-ctrl.php"><i class="bi bi-gear-fill me-1"></i>dashboard</a></li>
                         <?php
                         } ?>
                         <li><hr class="dropdown-divider"></li>
@@ -32,12 +32,6 @@
                 </div>
             <?php
             } ?>
-            
-
-
-
-
-
             <button class="navbar-toggler border-0 pe-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -54,10 +48,10 @@
                     <a class="nav-link" href="/controllers/subscription-ctrl.php">Abonnement</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Lieu de retrait</a>
+                    <a class="nav-link" href="/controllers/pickups-ctrl.php">Lieu de retrait</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Les Producteurs</a>
+                    <a class="nav-link" href="/controllers/producers-ctrl.php">Les Producteurs</a>
                 </li>
                 <!-- <li class="nav-item">
                     <a class="nav-link" href="#">Le Blog</a>

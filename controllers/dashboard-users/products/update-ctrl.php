@@ -6,12 +6,15 @@ require_once __DIR__ . '/../../../models/Product.php';
 SessionAuth::producer();
 
 try {
-    $title = 'Ajouter un produit';
+    $title = 'Modifier un produit';
 
     $types = Type::getAll(); 
 
+    // Récupération du paramètre d'URL correspondant à l'id
+    $id_product = intval(filter_input(INPUT_GET, 'idproduct', FILTER_SANITIZE_NUMBER_INT));
+    $product = Product::get($id_product);
+
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        
         $error = [];
 
         // INPUT "Nom du produit" Nettoyage et validation
@@ -34,15 +37,6 @@ try {
         }
 
         // type
-        // $type = intval(filter_input(INPUT_POST, 'type', FILTER_SANITIZE_SPECIAL_CHARS));
-        // if (empty($type)) {
-        //     $error['type'] = 'Le type n\'est pas renseignée';
-        // } else {
-        //     $listIdTypes = array_column($listTypes, 'id_product');
-        //     if (!in_array($type, $listIdTypes)) {
-        //         $error['type'] =  "Le type sélectionnée n'est pas valide.";
-        //     }
-        // }
         $type = intval(filter_input(INPUT_POST, 'type', FILTER_SANITIZE_NUMBER_INT));
         if (!$type) {
             $error['type'] = 'Ce champ est obligatoire!';
@@ -147,21 +141,23 @@ try {
         $idUser = $_SESSION['user']->id_user;
 
         if (empty($error)) {
-            $product = new Product();
-            $product->setProductName($productName);
-            $product->setDescription($description);
-            $product->setBioProduction($bioProduction);
-            $product->setCertification($certification);
-            $product->setWeight($weight);
-            $product->setWeightUnit($weightUnit);
-            $product->setProductPrice($productPrice);
-            $product->setProductTva($productTva);
-            $product->setPicture($picture);
-            $product->setOnline($online);
-            $product->setIdUser($idUser);
-            $product->setIdType($type);
+            $productObj = new Product();
 
-            $result = $product->insert();
+            $productObj->setIdProduct($id_product);
+            $productObj->setProductName($productName);
+            $productObj->setDescription($description);
+            $productObj->setBioProduction($bioProduction);
+            $productObj->setCertification($certification);
+            $productObj->setWeight($weight);
+            $productObj->setWeightUnit($weightUnit);
+            $productObj->setProductPrice($productPrice);
+            $productObj->setProductTva($productTva);
+            $productObj->setPicture($picture);
+            $productObj->setOnline($online);
+            $productObj->setIdUser($idUser);
+            $productObj->setIdType($type);
+            
+            $result = $productObj->update();
 
             // Si la méthode a retourné "true", alors on redirige vers la liste
             if ($result) {
@@ -179,6 +175,6 @@ try {
 }
 
 include __DIR__ . '/../../../views/templates/header.php';
-include __DIR__ . '/../../../views/dashboard-users/products/add.php';
+include __DIR__ . '/../../../views/dashboard-users/products/update.php';
 include __DIR__ . '/../../../views/templates/shop-hover.php';
 include __DIR__ . '/../../../views/templates/footer.php';

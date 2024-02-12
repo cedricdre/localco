@@ -1,28 +1,80 @@
 <!-- section Fiche produit -->
 <section class="py-4 py-lg-6">
     <div class="container">
-        <div class="row">
+        <div class="row g-lg-5">
             <div class="col-12 col-lg-5">
-                <img src="/public/assets/img/pomme-off.jpg" class="img-fluid rounded-3" alt="Photo de Shelley Pauls">
+                <?php
+                if ($product->picture != null) { ?>
+                    <img src="<?= '/public/uploads/product-sheet/' . $product->picture ?>" class="img-fluid rounded-3 mb-4" alt="<?=$product->product_name?>">
+                <?php
+                } else { ?>
+                    <img src="/public/assets/img/img-off.jpg" class="img-fluid rounded-3 mb-4" alt="Photo de Localco">
+                <?php
+                } ?>
             </div>
             <div class="col-12 col-lg-7">
-                <h1>Nom du produits</h1>
-                <p class="small fw-light opacity-75">500g</p>
+                <div class="d-flex align-items-center">
+                    <h1><?=$product->product_name?></h1>
+                    <?php
+                    if ($product->bio_production === 1) { ?>
+                        <h5 class="mb-0"><span class="ms-2 badge rounded-pill text-bg-success">BIO</span></h5>
+                    <?php
+                    } ?>
+                    <?php
+                    $product_price = $product->product_price;
+                    $product_tva = $product->product_tva;
+                    // Calculer la TVA
+                    $tva = $product_price * ($product_tva / 100);
+                    // Calculer le prix TTC
+                    $prix_ttc = $product_price + $tva;
+                    $prix_ttc = number_format($prix_ttc, 2, ',', ' ');
+                    ?>
+                    <h3 class="ms-auto"><?=$prix_ttc?> <sup>€</sup></h3>
+                </div>
+                
+                <p class="fw-light"><?=$product->weight?> <?=$product->weight_unit?></p>
                 <div class="d-grid mb-4">
-                    <button class="btn btn-warning" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottomPrice" aria-controls="offcanvasBottomPrice">Ajouter au panier</button>
+                    <button class="btn btn-warning btn-lg" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottomPrice" aria-controls="offcanvasBottomPrice">Ajouter au panier</button>
                 </div>
                 <h5>Description</h5>
-                <p>Nihil morati post haec militares avidi saepe turbarum adorti sunt Montium primum, qui divertebat in proximo, levi corpore senem atque morbosum, et hirsutis resticulis cruribus eius innexis divaricaturn sine spiramento ullo ad usque praetorium traxere praefecti.</p>
+                <p><?=$product->description?></p>
                 <h5>Origine</h5>
-                <p>Produit à <span class="fw-bolder">00</span> km, <span class="fw-bolder">Nom de la ville</span></p>
-                <!-- A afficher si seulement le cas -->
-                <h5>Méthode de production</h5>
-                <button class="btn btn-sm btn-outline-success" disabled>BIO</button>
+                <p>Produit à <span class="fw-bolder"><?=$product->city?></span></p>
+                <?php
+                if ($product->certification) { ?>
+                    <h5>Certification</h5>
+                    <button class="btn btn-sm btn-outline-success" disabled><?=$product->certification?></button>
+                <?php
+                } ?>
+                
+                <div class="card bg-success-subtle rounded-3 border-0 my-4">
+                    <div class="row g-0">
+                        <div class="col-md-6">
+                            <div class="card-body p-lg-5">
+                                <h4 class="card-title title-lilita">Le Producteur</h4>
+                                <p class="card-text mb-0"><?=$product->firstname?> <?=$product->lastname?></p>
+                                <p class="card-text"><?=$product->company_name?></p>
+                                <a href="/controllers/producer-sheet-ctrl.php?idproduct=<?=$product->id_user?>" class="btn btn-sm btn-success">En savoir plus</a>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                        <?php
+                        if ($product->company_picture != null) { ?>
+                            <img src="<?= '/public/uploads/producers/' . $product->company_picture ?>" class="img-fluid rounded-3" alt="<?=$product->company_name?>">
+                        <?php
+                        } else { ?>
+                            <img src="/public/assets/img/img-off.jpg" class="img-fluid rounded-3" alt="Photo de Localco">
+                        <?php
+                        } ?>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
 
         <!-- A découvrir également -->
-        <div class="py-6">
+        <div class="py-6 mt-lg-3">
             <div class="row g-3">
                 <h2 class="text-center title-lilita fs-1 mb-4">À <span class="bg-warning p-1">découvrir</span> également</h2>
 

@@ -12,8 +12,8 @@ class User
     private string $company_name;
     private int $siret;
     private string $description;
-    private string $picture;
-    private string $phone;
+    private ?string $company_picture;
+    private ?string $phone;
     private string $adress;
     private string $zip;
     private string $city;
@@ -27,7 +27,7 @@ class User
     // Mettre les valeurs à NULL par default !!!!!!!!!!!!!!!!!!
     // Mettre les valeurs à NULL par default !!!!!!!!!!!!!!!!!!
     // Mettre les valeurs à NULL par default !!!!!!!!!!!!!!!!!!
-    public function __construct(?int $id_user = null, string $firstname = '', string $lastname = '', string $email = '', string $password = '', int $producer = 0, string $company_name = '', int $siret = 00000000000000, string $description = '', string $picture = '', string $phone = '', string $adress = '', string $zip = '', string $city = '', ?string $created_at = null, ?string $updated_at = null, ?string $deleted_at = null, ?string $confirmed_at = null, ?int $id_pickup = null)
+    public function __construct(?int $id_user = null, string $firstname = '', string $lastname = '', string $email = '', string $password = '', int $producer = 0, string $company_name = '', int $siret = 00000000000000, string $description = '', ?string $company_picture = NULL, ?string $phone = '', string $adress = '', string $zip = '', string $city = '', ?string $created_at = null, ?string $updated_at = null, ?string $deleted_at = null, ?string $confirmed_at = null, ?int $id_pickup = null)
     {
         $this->setIdUser($id_user);
         $this->setFirstname($firstname);
@@ -38,7 +38,7 @@ class User
         $this->setCompanyName($company_name);
         $this->setSiret($siret);
         $this->setDescription($description);
-        $this->setPicture($picture);
+        $this->setCompanyPicture($company_picture);
         $this->setPhone($phone);
         $this->setAdress($adress);
         $this->setZip($zip);
@@ -141,22 +141,22 @@ class User
         return $this->description;
     }
 
-    public function setPicture(string $picture)
+    public function setCompanyPicture(?string $company_picture)
     {
-        $this->picture = $picture;
+        $this->company_picture = $company_picture;
     }
 
-    public function getPicture(): string
+    public function getCompanyPicture(): ?string
     {
-        return $this->picture;
+        return $this->company_picture;
     }
 
-    public function setPhone(string $phone)
+    public function setPhone(?string $phone)
     {
         $this->phone = $phone;
     }
 
-    public function getPhone(): string
+    public function getPhone(): ?string
     {
         return $this->phone;
     }
@@ -297,12 +297,12 @@ class User
             `company_name`,
             `siret`,
             `description`,
-            `picture`,
+            `company_picture`,
             `phone`,
             `address`,
             `zip`,
             `city`)
-            VALUES (:firstname, :lastname, :email, :password, :producer, :id_pickup, :company_name, :siret, :description, :picture, :phone, :address, :zip, :city)';
+            VALUES (:firstname, :lastname, :email, :password, :producer, :id_pickup, :company_name, :siret, :description, :company_picture, :phone, :address, :zip, :city)';
         $sth = $pdo->prepare($sql);
         $sth->bindValue(':firstname', $this->getFirstname());
         $sth->bindValue(':lastname', $this->getLastname());
@@ -313,7 +313,7 @@ class User
         $sth->bindValue(':company_name', $this->getCompanyName());
         $sth->bindValue(':siret', $this->getSiret(), PDO::PARAM_INT);
         $sth->bindValue(':description', $this->getDescription());
-        $sth->bindValue(':picture', $this->getPicture());
+        $sth->bindValue(':company_picture', $this->getCompanyPicture());
         $sth->bindValue(':phone', $this->getPhone());
         $sth->bindValue(':address', $this->getAdress());
         $sth->bindValue(':zip', $this->getZip());
@@ -351,6 +351,46 @@ class User
     //         return true;
     //     }
     // }
+
+        public function updateProducer()
+    {
+        $pdo = Database::connect();
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        // Requête mysql pour insérer des données
+        $sql = 'UPDATE `users`
+                SET
+                `firstname` = :firstname,
+                `lastname` = :lastname,
+                `company_name` = :company_name,
+                `siret` = :siret,
+                `description` = :description,
+                `company_picture` = :company_picture,
+                `phone` = :phone,
+                `address` = :address,
+                `zip` = :zip,
+                `city` = :city
+                WHERE `id_user` = :id_user';
+        $sth = $pdo->prepare($sql);
+        $sth->bindValue(':firstname', $this->getFirstname());
+        $sth->bindValue(':lastname', $this->getLastname());
+        $sth->bindValue(':company_name', $this->getCompanyName());
+        $sth->bindValue(':siret', $this->getSiret(), PDO::PARAM_INT);
+        $sth->bindValue(':description', $this->getDescription());
+        $sth->bindValue(':company_picture', $this->getCompanyPicture());
+        $sth->bindValue(':phone', $this->getPhone());        
+        $sth->bindValue(':address', $this->getAdress());
+        $sth->bindValue(':zip', $this->getZip());
+        $sth->bindValue(':city', $this->getCity());
+        $sth->bindValue(':id_user', $this->getIdUser(), PDO::PARAM_INT);
+        $sth->execute();
+        if ($sth->rowCount() <= 0) {
+            // Génération d'une exception renvoyant le message en paramètre au catch créé en amont et arrêt du traitement.
+            throw new Exception('Erreur lors de la mise à jour');
+        } else {
+            // Retourne true dans le cas contraire (tout s'est bien passé)
+            return true;
+        }
+    }
 
     public static function archive(int $id): int|false {
         $pdo = Database::connect();
@@ -419,6 +459,27 @@ class User
         $sth->bindValue(':email', $email);
         $sth->execute();
         return $sth->fetch(PDO::FETCH_OBJ);
+    }
+
+    public static function getAllbyProducer(): array
+    {
+        $pdo = Database::connect();
+        // Requête mysql pour sélectionner toutes les valeurs dans la table `categories`
+        $sql = 'SELECT
+                `users`.`id_user`,
+                `users`.`company_name`,
+                `users`.`firstname`,
+                `users`.`lastname`,
+                `users`.`description`,
+                `users`.`company_picture`
+                FROM `users`
+                WHERE (`producer` = 1) AND `deleted_at` IS NULL';
+
+        $sql .= ' ORDER by `company_name`';
+        $sth = $pdo->query($sql);
+        // Retourne un tableau associatif de la table categories
+        $result = $sth->fetchAll(PDO::FETCH_OBJ);
+        return $result;
     }
 
 
