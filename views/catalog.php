@@ -114,15 +114,28 @@
                                 <?php
                                 } ?>
                             </h5>
-                            <p class="small fw-light opacity-75 mb-0"><?=$product->weight?> <?=$product->weight_unit?></p>
-                            <p class="small fw-light opacity-75"><?=$product->company_name?></p>
+                            <p class="small fw-light mb-0"><?=$product->weight?> <?=$product->weight_unit?></p>
+                            <p class="small fw-light"><?=$product->company_name?></p>
                             <h6 class="card-title fs-5 fw-bolder mb-0"><?=$prix_ttc?> <sup>€</sup></h6>
                         </div>
                         </a>
                         <div class="card-footer border-0 bg-transparent pb-3">
-                            <div class="d-grid">
-                                <button class="btn btn-sm btn-warning " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottomPrice" aria-controls="offcanvasBottomPrice">Ajouter au panier</button>
+                            <div class="input-group">
+                                <select class="form-select rounded-start-5 border-warning" id="inputSelectQte">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                </select>
+                                <button class="btn btn-warning add-to-cart-btn" 
+                                    type="button" 
+                                    data-product-id="<?= $product->id_product ?>"
+                                    data-product-name="<?= $product->product_name ?>"
+                                    data-product-price="<?= $prix_ttc ?>">Ajouter au panier
+                                </button>
                             </div>
+                            <!-- <div>
+                                <button class="btn w-100 btn-sm btn-warning " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottomPrice" aria-controls="offcanvasBottomPrice">Ajouter au panier</button>
+                            </div> -->
                         </div>
                     </div>
                 </div>
