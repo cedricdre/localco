@@ -49,10 +49,18 @@
                         <textarea class="form-control" id="description" name="description" rows="4" placeholder="Entrez du texte"><?= $producer->description ?? '' ?></textarea>
                     </div>
                     <div class="mb-3">
-                        <label for="picture" class="form-label">Ajouter une photo</label>
-                        <input class="form-control" type="file" id="picture" name="picture" accept="image/png, image/jpeg">
-                        <small class="form-text text-danger"><?= $error['picture'] ?? '' ?></small>
-                        <p class="my-1 fw-bold">Nom du fichier<a class="btn btn-outline-danger btn-sm ms-2" href="#" role="button">Supprimer</a></p>
+                        <?php
+                        if ($producer->company_picture != null) { ?>
+                            <p class="mb-2">Photo du produit</p>
+                            <img class="img-thumbnail" src="/public/uploads/producers/<?=$producer->company_picture?>" width="200">
+                            <span><a class="btn btn-sm btn-outline-danger ms-2" href="/controllers/dashboard-users/producers-profiles/delete-picture-ctrl.php?id=<?=$producer->id_user?>" role="button"><i class="bi bi-trash3-fill me-2"></i>Supprimer l'image</a></span>
+                        <?php
+                        } else { ?>
+                            <label for="picture" class="form-label">Ajouter une photo</label>
+                            <input class="form-control" type="file" id="picture" name="picture" accept="image/png, image/jpeg">
+                            <small class="form-text text-danger"><?= $error['picture'] ?? '' ?></small>
+                        <?php
+                        } ?>
                     </div>
                     <div class="row">
                         <div class="col-xl-6">

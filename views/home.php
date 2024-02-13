@@ -12,7 +12,6 @@
                         En savoir plus
                         <i class="bi bi-chevron-right mb-2"></i>
                     </a>
-
                     <a class="btn btn-outline-light icon-link icon-link-hover my-2" href="#">
                         Commencer mon marché
                         <i class="bi bi-chevron-right mb-2"></i>

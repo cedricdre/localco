@@ -482,6 +482,23 @@ class User
         return $result;
     }
 
+    public static function deletePicture(int $id): int | FALSE {
+        $pdo = Database::connect();
+        $product = self::get($id);
+        $sql = 'UPDATE `users` SET `company_picture` = null WHERE `id_user` = :id_user';
+        $sth = $pdo->prepare($sql);
+        $sth->bindValue(':id_user', $id, PDO::PARAM_INT);
+        $result = $sth->execute();
+        if ($product) {
+            $fileInfo = $product->picture;
+            $filePath = '../../../public/uploads/producers/' . $fileInfo;
+            if (file_exists($filePath)) {
+                unlink($filePath);
+            }
+        }
+        return $result;
+    }
+
 
     // public static function confirmMail(?string $email): bool
     // {

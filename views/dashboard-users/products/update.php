@@ -113,9 +113,18 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="picture" class="form-label">Ajouter une photo</label>
-                        <input class="form-control" type="file" id="picture" name="picture" accept="image/png, image/jpeg" value="<?= $picture ?? '' ?>">
-                        <small class="form-text text-danger"><?= $error['picture'] ?? '' ?></small>
+                        <?php
+                        if ($product->picture != null) { ?>
+                            <p class="mb-2">Photo du produit</p>
+                            <img class="img-thumbnail" src="/public/uploads/product-sheet/<?=$product->picture?>" width="200">
+                            <span><a class="btn btn-sm btn-outline-danger ms-2" href="/controllers/dashboard-users/products/delete-picture-ctrl.php?id=<?=$product->id_product?>" role="button"><i class="bi bi-trash3-fill me-2"></i>Supprimer l'image</a></span>
+                        <?php
+                        } else { ?>
+                            <label for="picture" class="form-label">Ajouter une photo</label>
+                            <input class="form-control" type="file" id="picture" name="picture" accept="image/png, image/jpeg" value="<?= $picture ?? '' ?>">
+                            <small class="form-text text-danger"><?= $error['picture'] ?? '' ?></small>
+                        <?php
+                        } ?>
                     </div>
                     <div class="mb-3">
                         <div class="form-check-inline">

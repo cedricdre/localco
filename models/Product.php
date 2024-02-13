@@ -624,4 +624,65 @@ class Product
         $result = $sth->fetchColumn();
         return $result;
     }
+
+    public static function deletePicture(int $id): int | FALSE {
+        $pdo = Database::connect();
+        $product = self::get($id);
+        $sql = 'UPDATE `products` SET `picture` = null WHERE `id_product` = :id_product';
+        $sth = $pdo->prepare($sql);
+        $sth->bindValue(':id_product', $id, PDO::PARAM_INT);
+        $result = $sth->execute();
+        if ($product) {
+            $fileInfo = $product->picture;
+            $filePath = '../../../public/uploads/product-sheet/' . $fileInfo;
+            if (file_exists($filePath)) {
+                unlink($filePath);
+            }
+        }
+        return $result;
+    }
+
+    public static function getAllbyFour(bool $valid = false, bool $online = false): array
+    {
+        $pdo = Database::connect();
+        // Requête mysql pour sélectionner toutes les valeurs dans la table `categories`
+        $sql = 'SELECT
+                `products`.`id_product`,
+                `products`.`product_name`,
+                `products`.`bio_production`,
+                `products`.`weight`,
+                `products`.`weight_unit`,
+                `products`.`product_price`,
+                `products`.`product_tva`,
+                `products`.`picture`,
+                `products`.`online`,
+                `products`.`updated_at`,
+                `products`.`valid_at`,
+                `products`.`deleted_at`,
+                `products`.`id_user`,
+                `products`.`id_type`,
+                `users`.`company_name`
+                FROM `products`
+                INNER JOIN `types` ON `products`.`id_type` = `types`.`id_type`
+                INNER JOIN `users` ON `products`.`id_user` = `users`.`id_user`
+                WHERE 1 = 1';
+
+        $sql .= ' AND `products`.`deleted_at` IS NULL';
+
+        if ($valid === true) {
+            $sql .= ' AND `products`.`valid_at` IS NOT NULL';
+        }
+        if ($online === true) {
+            $sql .= ' AND (`products`.`online` = 1)';
+        }
+
+        $sql .= ' ORDER by `products`.`updated_at` DESC';
+        $sql .= ' LIMIT 4';
+        $sql .= ' ;';
+
+        $sth = $pdo->query($sql);
+        // Retourne un tableau associatif de la table categories
+        $result = $sth->fetchAll(PDO::FETCH_OBJ);
+        return $result;
+    }
 }
