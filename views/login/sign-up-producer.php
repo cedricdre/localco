@@ -1,5 +1,5 @@
 <section>
-    <div class="container-fluid p-0 w-100">
+    <div class="container">
         <div class="row justify-content-center">
             <div class="col-8 p-5">
                 <div class="text-center mb-4">
@@ -103,6 +103,9 @@
                         <a href="/controllers/login/login-ctrl.php" type="button" id="submitLogin" class="btn btn-outline-success mb-2">J'accède à mon compte.</a>
                         <?php  } ?>
                     </div>
+                </div>
+                <div class="text-center mt-4">
+                    <a href="/controllers/login/sign-in-ctrl.php" class="btn btn-sm btn-outline-success me-lg-2"><i class="bi bi-arrow-left me-1"></i>Retour</a>
                 </div>
             </div>
         </div>

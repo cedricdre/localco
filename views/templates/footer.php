@@ -45,41 +45,39 @@
                     <h5 class="fw-bold mb-3">À propos</h5>
                     <ul class="nav flex-column">
                         <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">Le Projet</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">Le Blog</a></li>
+                        <!-- <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">Le Blog</a></li> -->
                         <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">Support client</a></li>
                     </ul>
                 </div>
                 <div class="col text-light">
                     <h5 class="fw-bold mb-3">Le concept</h5>
                     <ul class="nav flex-column">
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">Catalogue</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">Abonnement</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">Les Producteurs</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">Lieu de retrait</a></li>
+                        <li class="nav-item mb-2"><a href="/controllers/catalog-ctrl.php" class="nav-link p-0 text-light">Catalogue</a></li>
+                        <li class="nav-item mb-2"><a href="/controllers/subscription-ctrl.php" class="nav-link p-0 text-light">Abonnement</a></li>
+                        <li class="nav-item mb-2"><a href="/controllers/producers-ctrl.php" class="nav-link p-0 text-light">Les Producteurs</a></li>
+                        <li class="nav-item mb-2"><a href="/controllers/pickups-ctrl.php" class="nav-link p-0 text-light">Lieu de retrait</a></li>
                     </ul>
                 </div>
                 <div class="col text-light">
                     <h5 class="fw-bold mb-3">Compte</h5>
                     <ul class="nav flex-column">
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">Gérer mon compte</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">Gérer mon abonnement</a></li>
+                        <li class="nav-item mb-2"><a href="/controllers/login/sign-in-ctrl.php" class="nav-link p-0 text-light">Gérer mon compte</a></li>
+                        <li class="nav-item mb-2"><a href="/controllers/login/sign-in-ctrl.php" class="nav-link p-0 text-light">Gérer mon abonnement</a></li>
                     </ul>
                 </div>
                 <div class="col text-light">
                     <h5 class="fw-bold mb-3">Contact</h5>
                     <ul class="nav flex-column">
                         <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">Nous contacter</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">Devenir revendeur</a></li>
+                        <li class="nav-item mb-2"><a href="/controllers/login/sign-up-producer-ctrl.php" class="nav-link p-0 text-light">Devenir revendeur</a></li>
                     </ul>
                 </div>
                 <div class="col text-light">
                     <h5 class="fw-bold mb-3">Réseaux sociaux</h5>
-                    <ul class="nav flex-column">
-                        <div class="nav fs-4">
-                            <a class="link-light mx-2" href="#"><i class="bi bi-facebook"></i></a>
-                            <a class="link-light mx-2" href="#"><i class="bi bi-twitter-x"></i></a>
-                            <a class="link-light mx-2" href="#"><i class="bi bi-instagram"></i></a>
-                        </div>
+                    <ul class="nav">
+                        <li class="nav-item"><a class="link-light mx-2 fs-4" href="#"><i class="bi bi-facebook"></i></a></li>
+                        <li class="nav-item"><a class="link-light mx-2 fs-4" href="#"><i class="bi bi-twitter-x"></i></a></li>
+                        <li class="nav-item"><a class="link-light mx-2 fs-4" href="#"><i class="bi bi-instagram"></i></a></li>
                     </ul>
                 </div>
             </div>

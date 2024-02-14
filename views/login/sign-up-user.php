@@ -79,6 +79,9 @@
                                 <?php  } ?>
                             </div>
                         </div>
+                        <div class="text-center mt-4">
+                            <a href="/controllers/login/sign-in-ctrl.php" class="btn btn-sm btn-outline-success me-lg-2"><i class="bi bi-arrow-left me-1"></i>Retour</a>
+                        </div>
                     </div>
                 </div>
             </div>

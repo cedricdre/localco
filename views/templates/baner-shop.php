@@ -7,7 +7,7 @@
                     <h2 class="title-lilita fs-1 mb-4">Fruits, légumes, fromages...</h2>
                     <h5 class="mb-4">Choisissez parmi plus une grande sélection de produits et faites toutes vos courses, en direct de petites fermes situées à moins de 30km</h5>
                     <div>
-                        <a class="btn btn-success icon-link icon-link-hover my-1" href="#">
+                        <a class="btn btn-success icon-link icon-link-hover my-1" href="/controllers/catalog-ctrl.php">
                             Commencer mon marché
                             <i class="bi bi-chevron-right mb-2"></i>
                         </a>
@@ -15,7 +15,7 @@
                 </div>
             </div>
             <div class="col-xl-6">
-                <img src="/public/assets/img/legumes-hiver.jpg" class="img-baner-shop object-fit-cover" alt="This zooms-in really well and smooth">
+                <img src="/public/assets/img/legumes-hiver.jpg" class="img-baner-shop object-fit-cover" alt="photo Localco de légumes d'hiver">
             </div>
         </div>
     </div>

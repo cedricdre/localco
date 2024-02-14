@@ -107,7 +107,7 @@ try {
         }
 
         // INPUT "Ajout photo" Nettoyage et validation
-        $picture = null;
+        $picture = $product->picture ?? null;
         // INPUT "Picture"
         if (!empty($_FILES['picture']['name'])) {
             try {

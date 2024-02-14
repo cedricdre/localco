@@ -28,6 +28,33 @@ try {
 
     $products = Product::getAllbyPublic(id_type: $selectedType, certification: $selectedCertif, producer: $selectedProducer, search: $search, valid: true, online: true, page: $currentPage);
 
+
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $productId = $_POST['id'];
+        $productName = $_POST['nom'];
+        $productPrice = $_POST['prix'];
+        $quantity = $_POST['quantite'];
+
+        // Ajouter le produit à la session panier
+        $produit = array(
+            'id' => $productId,
+            'nom' => $productName,
+            'prix' => $productPrice,
+            'quantite' => $quantity
+        );
+
+        if (!isset($_SESSION['panier'])) {
+            $_SESSION['panier'] = array();
+        }
+
+        $_SESSION['panier'][] = $produit;
+        header('location: /controllers/catalog-ctrl.php');
+        die;
+    }
+
+    // d($_SESSION['panier']);
+
 } catch (\Throwable $th) {
     $error = $th->getMessage();
     include __DIR__.'/../views/templates/header.php';

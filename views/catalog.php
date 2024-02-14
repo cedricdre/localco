@@ -24,8 +24,8 @@
                 <h5 class="offcanvas-title fs-4 title-lilita" id="offcanvasExampleLabel"><i class="bi bi-sliders me-2"></i>Filtres</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
-            <form>
-                <div class="offcanvas-body">
+            <div class="offcanvas-body">
+                <form>
                     <input class="form-control me-2 rounded-5 mb-3" name="search" type="search" placeholder="Rechercher un produit" value="<?= $search ?? '' ?>" aria-label="Search">
                     <!-- <a class="btn btn-outline-success rounded-5 mb-2" href="#" role="button"><i class="bi bi-grid-fill me-2"></i>Afficher tous les produits</a> -->
                     <div class="mb-2">
@@ -71,12 +71,12 @@
                             Afficher seulement les produits BIO (A faire !)
                         </label>
                     </div>  
-                    <button type="submit" class="btn btn-success rounded-5 icon-link icon-link-hover my-5 me-2" href="#">
+                    <button type="submit" class="btn btn-success rounded-5 icon-link icon-link-hover my-5 me-2">
                         Valider
                         <i class="bi bi-chevron-right mb-2"></i>
                     </button>   
-                </div>
-            </form>
+                </form>
+            </div>
         </div><!-- FIN offcanvas FILTRES -->
 
         <!-- Catalogue produits -->
@@ -141,26 +141,24 @@
                 </div>
                 <?php
                 } ?>
-
+                <!-- Pagination -->
                 <div id="pagination" class="pt-lg-4">
                     <nav aria-label="Page navigation example">
-                    <ul class="pagination justify-content-center">
-
-                        <?php
-                        for ($page=1; $page <= $nbPages; $page++) { 
-                            $isActive = ($currentPage == $page) ? 'active' : '';
-                            ?>
-                            <li class="page-item <?=$isActive?>"><a class="page-link" href="?search=<?=$search?>&type=<?=$selectedType?>&certification=<?=$selectedCertif?>&producer=<?=$selectedProducer?>&page=<?=$page?>"><?=$page?></a></li>
-                        <?php } ?>
-                        
-                    </ul>
+                        <ul class="pagination justify-content-center">
+                            <?php
+                            for ($page=1; $page <= $nbPages; $page++) { 
+                                $isActive = ($currentPage == $page) ? 'active' : '';
+                                ?>
+                                <li class="page-item <?=$isActive?>"><a class="page-link" href="?search=<?=$search?>&type=<?=$selectedType?>&certification=<?=$selectedCertif?>&producer=<?=$selectedProducer?>&page=<?=$page?>"><?=$page?></a></li>
+                            <?php } ?>
+                        </ul>
                     </nav>
                 </div>
 
             </div>
 
             <!-- offcanvas choix quantité -->
-            <div class="offcanvas offcanvas-bottom" data-bs-scroll="true" tabindex="-1" id="offcanvasBottomPrice" aria-labelledby="offcanvasBottomPriceLabel">
+            <!-- <div class="offcanvas offcanvas-bottom" data-bs-scroll="true" tabindex="-1" id="offcanvasBottomPrice" aria-labelledby="offcanvasBottomPriceLabel">
                 <div class="offcanvas-header">
                     <h5 class="offcanvas-title fw-bolder" id="offcanvasBottomLabel"></h5>
                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -184,8 +182,40 @@
                         </div>
                     </div>
                 </div>
-            </div><!-- FIN offcanvas choix quantité -->
+            </div> -->
+            <!-- FIN offcanvas choix quantité -->
         </div>
 
     </div>
 </section><!-- FIN section Catalogue -->
+
+
+<!-- <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var addToCartBtns = document.querySelectorAll('.add-to-cart-btn');
+
+        addToCartBtns.forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                var productId = btn.getAttribute('data-product-id');
+                var productName = btn.getAttribute('data-product-name');
+                var productPrice = btn.getAttribute('data-product-price');
+                var quantity = document.getElementById('inputSelectQte').value;
+
+                // Envoyer les données au serveur via une requête AJAX
+                var xhr = new XMLHttpRequest();
+                xhr.open('POST', '/../../controllers/catalog-ctrl.php', true);
+                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState == 4 && xhr.status == 200) {
+                        // Traitement de la réponse du serveur si nécessaire
+                    }
+                };
+                var data = 'id=' + encodeURIComponent(productId) +
+                        '&nom=' + encodeURIComponent(productName) +
+                        '&prix=' + encodeURIComponent(productPrice) +
+                        '&quantite=' + encodeURIComponent(quantity);
+                xhr.send(data);
+            });
+        });
+    });
+</script> -->

@@ -24,23 +24,23 @@
                     <div class="card bg-success-subtle border-0 rounded-0">
                         <div class="card-body text-center text-success p-4">
                             <h5 class="card-title fw-bold mb-4">Connexion</h5>
-                            <?php include __DIR__ .'/templates/message.php'?>
                             <form class="text-start" method="POST">
                                 <div class="mb-3">
                                     <label for="email" class="form-label">Votre adresse email</label>
                                     <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="email@exemple.com" required>
-                                    <div id="emailHelp" class="form-text text-danger"><?= $errors['email'] ?? '' ?></div>
                                 </div>
                                 <div class="mb-3">
                                     <label for="password" class="form-label">Votre mot de passe</label>
                                     <input type="password" class="form-control" id="password" name="password" placeholder="Entrez votre mot de passe" required>
                                 </div>
+                                <div id="emailHelp" class="form-text text-danger mb-3"><?= $errors['email'] ?? '' ?></div>
                                 <button type="submit" id="submitLogin" class="btn btn-success w-100 mb-2">Connexion</button>
                             </form>
                             <a href="#" class="small link-success">Mot de passe oublié ?</a>
                         </div>
                     </div>
                     <div class="text-center mt-4">
+                        <a href="/" class="btn btn-sm btn-outline-success me-lg-2"><i class="bi bi-arrow-left me-2"></i>Retour site</a>
                         <a href="/controllers/login/sign-up-producer-ctrl.php" class="btn btn-sm btn-outline-success">Devenir revendeur</a>
                     </div>
 

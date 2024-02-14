@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/../helpers/Database.php';
 
-class Type
+class Basket
 {
     private ?int $id_user;
     private ?int $id_product;
@@ -71,6 +71,8 @@ class Type
                 `baskets`.`id_product`,
                 `baskets`.`quantity`,
                 `products`.`product_name`,
+                `products`.`product_price`,
+                `products`.`product_tva`,
                 `users`.`firstname`
                 FROM `baskets`
                 INNER JOIN `products` ON `baskets`.`id_product` = `products`.`id_product`

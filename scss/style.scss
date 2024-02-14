@@ -1,6 +1,7 @@
 $font-family-sans-serif: 'Lato',system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
 
 // Couleurs
+$primary: #1A4E24;
 $success: #1A4E24;
 $warning: #FBBA00;
 $danger: #E73A39;
@@ -34,6 +35,9 @@ $spacers: (
 }
 $form-label-margin-bottom: .25rem;
 
+$pagination-bg: $success;
+
+
 // Typo
 .title-lilita {
     font-family: 'Lilita One', sans-serif;
@@ -66,7 +70,7 @@ $form-label-margin-bottom: .25rem;
     font-weight: 700;
 }
 #navbarNav li a {
-    color: #1A4E24; /* A MODIFIER AVEC SCSS */
+    color: $success;
 }
 /* Navbar Style desktop */
 @media all and (min-width: 992px) {
@@ -80,9 +84,37 @@ $form-label-margin-bottom: .25rem;
         font-weight: 700;
     }   
     #navbarNav li a:hover {
-        color: rgba(26, 78, 36, 0.6); /* A MODIFIER AVEC SCSS */
+        color: rgba(26, 78, 36, 0.6);
     }
 }
+/* Navbar Style mobil */
+#offcanvasMenu ul {
+    padding: 1rem 0;
+}
+#offcanvasMenu li {
+    border-bottom: 1px solid rgba(26, 78, 36, 0.2);
+    font-size: 1.5rem;
+    padding: 0.2rem 0;
+    font-weight: 700;
+}
+#offcanvasMenu li a {
+    color: $success;
+}
+/* Header scroll effect */
+.header-hide {
+    transition: transform .8s ease, background-color .8s ease;
+    transform: translateY(0);
+    background-color: #fff;
+}
+
+.header-show {
+    transform: translateY(-100%);
+}
+
+.margin-top-main {
+    margin-top: 69px;
+}
+
 /* Img banner */
 .img-baner {
     width: 100%;

@@ -3,18 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- icon bootstrap -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <title>Localco - <?= $title ?? 'Abonnez-vous aux frais' ?></title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <meta name="description" content="Abonnez-vous aux frais et explorez une nouvelle manière de consomer des produits frais de saison, tout en soutenant les producteurs locaux.">
+    <meta name="author" content="Localco">
     <!-- Typo -->
     <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
     <link href="/public/assets/css/aos.css" rel="stylesheet">
-
-    <!-- Styles css Bootstrap -->
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"> -->
+    <!-- Icon bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <!-- Styles css -->
     <link rel="stylesheet" href="/public/assets/css/style.css">
-    <title>Localco - <?= $title ?></title>
+    <!-- Meta reseaux sociaux -->
+    <meta property="og:title" content="Localco - <?= $title ?? 'Abonnez-vous aux frais' ?>">
+    <meta property="og:description" content="Abonnez-vous aux frais et explorez une nouvelle manière de consomer des produits frais de saison, tout en soutenant les producteurs locaux.">
 </head>
 <body>
 
@@ -30,4 +33,4 @@
         <div class="bg-shape bg-red bg-opacity-50 bg-blur">test</div>
     </div>
 <!-- main -->
-<main>
+<main class="margin-top-main">

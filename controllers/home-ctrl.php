@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+$title = 'Abonnez-vous aux frais';
+
 
 // include VIEWS
 include __DIR__.'/../views/templates/header.php';

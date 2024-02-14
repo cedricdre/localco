@@ -1,13 +1,15 @@
 <!-- Section Entête -->
 <section class="bg-success">
-    <div class="container py-6 text-light">
+    <div class="container pt-4 pt-lg-0 text-light">
         <div class="row align-items-center">
-            <div class="col-12 col-lg-7">
-                <h1 class="title-lilita mb-3 display-5">Abonnez-vous aux frais !</h1>
-                <p class="mb-4 lh-base fs-3">Venez retirer votre panier de produits frais et de saison <span class="bg-danger fw-bolder p-1">chaque semaine</span> ou <span class="text-bg-warning fw-bolder p-1">seulement de temps en temps.</span></p>
+            <div class="col-12 col-lg-6 col-xl-7">
+                <div class="px-2 px-lg-0 text-center text-lg-start">
+                    <h1 class="title-lilita mb-3 display-5">Abonnez-vous aux frais !</h1>
+                    <p class="mb-4 lh-base fs-3">Venez retirer votre panier de produits frais et de saison <span class="bg-danger fw-bolder p-1">chaque semaine</span> ou <span class="text-bg-warning fw-bolder p-1">seulement de temps en temps.</span></p>
+                </div>
             </div>
-            <div class="col-12 col-lg-5">
-            <img src="/public/assets/img/pomme-off.jpg" class="img-subscription-start object-fit-cover" alt="This zooms-in really well and smooth">
+            <div class="d-none d-lg-block col-lg-6 col-xl-5">
+                <img src="/public/assets/img/cover.png" class="img-fluid" alt="This zooms-in really well and smooth">
             </div>
         </div>
     </div>
