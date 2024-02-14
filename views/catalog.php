@@ -190,36 +190,6 @@
 </section><!-- FIN section Catalogue -->
 
 
-<!-- <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        var addToCartBtns = document.querySelectorAll('.add-to-cart-btn');
-
-        addToCartBtns.forEach(function (btn) {
-            btn.addEventListener('click', function () {
-                var productId = btn.getAttribute('data-product-id');
-                var productName = btn.getAttribute('data-product-name');
-                var productPrice = btn.getAttribute('data-product-price');
-                var quantity = document.getElementById('inputSelectQte').value;
-
-                // Envoyer les données au serveur via une requête AJAX
-                var xhr = new XMLHttpRequest();
-                xhr.open('POST', '/../../controllers/catalog-ctrl.php', true);
-                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-                xhr.onreadystatechange = function () {
-                    if (xhr.readyState == 4 && xhr.status == 200) {
-                        // Traitement de la réponse du serveur si nécessaire
-                    }
-                };
-                var data = 'id=' + encodeURIComponent(productId) +
-                        '&nom=' + encodeURIComponent(productName) +
-                        '&prix=' + encodeURIComponent(productPrice) +
-                        '&quantite=' + encodeURIComponent(quantity);
-                xhr.send(data);
-            });
-        });
-    });
-</script> -->
-
 
 
 <!-- nomdediv.addEventListener('click', () => {

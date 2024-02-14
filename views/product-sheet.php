@@ -68,7 +68,7 @@
                                         <h5 class="card-title title-lilita">Le Producteur</h5>
                                         <p class="card-text mb-0"><?=$product->firstname?> <?=$product->lastname?></p>
                                         <p class="card-text"><?=$product->company_name?></p>
-                                        <a class="btn btn-sm btn-success icon-link icon-link-hover" href="/controllers/producer-sheet-ctrl.php?idproduct=<?=$product->id_user?>">
+                                        <a class="btn btn-sm btn-success icon-link icon-link-hover" href="/controllers/producers/producers-sheet-ctrl.php?id=<?=$product->id_user?>">
                                             En savoir plus
                                             <i class="bi bi-chevron-right mb-2"></i>
                                         </a>

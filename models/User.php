@@ -436,7 +436,8 @@ class User
         $sth->bindValue(':id_user', $id, PDO::PARAM_INT);
         $sth->execute();
         if ($sth->rowCount() <= 0) {
-            return false;
+            // Génération d'une exception renvoyant le message en paramètre au catch créé en amont et arrêt du traitement.
+            throw new Exception('Erreur lors de la suppression');
         } else {
             return true;
         }
@@ -517,6 +518,9 @@ class User
     //         return true;
     //     }
     // }
+
+
+    
 
 
 }

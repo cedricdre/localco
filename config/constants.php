@@ -3,27 +3,6 @@ define('DSN', 'mysql:dbname=localco;host=localhost');
 define('USER', 'cedric_localco');
 define('PASSWORD', 'rNHJCWWHqZ]bQj)]');
 
-// CONSTANTS Formulaire d'inscription
-// define('PRODUCT_TYPES', [
-//     'Fruits et Légumes',
-//     'Produits laitiers',
-//     'Viande et Charcuterie',
-//     'Poisson et Fruits de mer',
-//     'Pain et Pâtisseries',
-//     'Fromages locaux',
-//     'Miel et Produits apicoles',
-//     'Produits artisanaux',
-//     'Épicerie locale',
-//     'Boissons locales (vin, bière, etc.)',
-//     'Plats préparés',
-//     'Plantes et Fleurs',
-//     'Produits de beauté et bien-être',
-//     'Artisanat local',
-//     'Textiles et Vêtements',
-//     'Objets de décoration',
-//     'Produits pour animaux',
-//     'Autres produits locaux'
-// ]);
 define('CERTIFICATIONS', [
     'AOP',
     'AOC',

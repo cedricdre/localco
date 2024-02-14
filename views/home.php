@@ -20,7 +20,7 @@
                 </div>
             </div>
             <div class="col-12 col-lg-6 col-xl-5">
-                <img src="/public/assets/img/cover.png" class="img-fluid" alt="This zooms-in really well and smooth">
+                <img src="/public/assets/img/cover.png" class="img-fluid" alt="Femme avec pannier de légumes">
             </div>
         </div>
     </div>
@@ -30,7 +30,7 @@
     <div class="container">
         <h2 class="title-lilita fs-1">Comment ça fonctionne</h2>
         <p class="text-danger fs-4 fw-bold mb-4">Simple comme bonjour</p>
-        <div class="row g-4">
+        <div class="row g-4" data-aos="fade-up">
             <div class="col-6 col-lg-3">
                 <div>
                     <img src="/public/assets/img/picto-off.svg" class="img-fluid p-lg-5 mb-3 mb-lg-0" alt="picto de ...">

@@ -34,7 +34,7 @@ try {
                 if ($isAuth) {
                     unset($user->password);
                     $_SESSION['user'] = $user;
-                    header('location: /controllers/dashboard-users/home-ctrl.php');
+                    header('location: /controllers/home-ctrl.php');
                     die;
                 } else {
                     $errors['email'] = 'Identifiant ou mot de passe incorrect. Veuillez réessayer.';

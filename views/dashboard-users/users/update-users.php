@@ -79,7 +79,8 @@
                 </form>
                 <div class="mt-5">
                     <div class="text-center">
-                        <p><a class="btn btn-outline-danger" href="/controllers/dashboard-users/users/delete-ctrl.php" role="button">Supprimer mon compte</a></p>
+                        <button type="button" class="btn btn-outline-danger mb-3" data-bs-toggle="modal" data-bs-target="#exampleModal">Supprimer mon compte</button>
+                        <!-- <p><a class="btn btn-outline-danger" href="/controllers/dashboard-users/users/delete-users-ctrl.php" role="button">Supprimer mon compte</a></p> -->
                         <p class="small">Nous sommes navrés de vous voir partir. Après la confirmation de la suppression de votre compte, vous n’aurez plus accès à votre espace et vos commandes.</p>
                     </div>
                 </div>
@@ -87,3 +88,26 @@
         </div>
     </div>
 </section><!-- FIN section Mon tableau de bord -->
+
+
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Suppression du compte</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
