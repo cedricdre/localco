@@ -19,7 +19,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-8">
-                <div class="text-center mb-3 mb-lg-6">
+                <div class="text-center mb-3">
                     <h2 class="title-lilita fs-1">On vous explique</h2>
                     <p class="text-danger fs-4 fw-bold mb-4">Etape par étape</p>
                 </div>
@@ -30,11 +30,11 @@
                             <p class="fs-5">Je sélectionne mes produits et je valide mon panier.</p>
                         </div>
                     </div>
-                    <div class="col-12 col-lg-6 d-none d-lg-block">
-                        <img src="/public/assets/img/pomme-off.jpg" class="img-subscription-end object-fit-cover" alt="This zooms-in really well and smooth">
+                    <div class="col-12 col-lg-6 d-none d-lg-block" data-aos="fade-up">
+                        <img src="/public/assets/img/abonnement1.png" class="img-fluid" alt="Homme fermier avec pannier de légumes">
                     </div>
-                    <div class="col-12 col-lg-6 d-none d-lg-block">
-                        <img src="/public/assets/img/pomme-off.jpg" class="img-subscription-start object-fit-cover" alt="This zooms-in really well and smooth">
+                    <div class="col-12 col-lg-6 d-none d-lg-block" data-aos="fade-up">
+                        <img src="/public/assets/img/abonnement2.png" class="img-fluid" alt="Femme avec pannier de légumes">
                     </div>
                     <div class="col-12 col-lg-6">
                         <div>
@@ -56,11 +56,11 @@
                             <p class="fs-5">Vous récupérez votre commande.</p>
                         </div>
                     </div>
-                    <div class="col-12 col-lg-6 d-none d-lg-block">
-                        <img src="/public/assets/img/pomme-off.jpg" class="img-subscription-end object-fit-cover" alt="This zooms-in really well and smooth">
+                    <div class="col-12 col-lg-6 d-none d-lg-block" data-aos="fade-up">
+                        <img src="/public/assets/img/abonnement1.png" class="img-fluid" alt="Homme fermier avec pannier de légumes">
                     </div>
-                    <div class="col-12 col-lg-6 d-none d-lg-block">
-                        <img src="/public/assets/img/pomme-off.jpg" class="img-subscription-start object-fit-cover" alt="This zooms-in really well and smooth">
+                    <div class="col-12 col-lg-6 d-none d-lg-block" data-aos="fade-up">
+                        <img src="/public/assets/img/abonnement2.png" class="img-fluid" alt="Femme avec pannier de légumes">
                     </div>
                     <div class="col-12 col-lg-6">
                         <div>
