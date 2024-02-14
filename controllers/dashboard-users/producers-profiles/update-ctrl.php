@@ -66,7 +66,7 @@ try {
         }
 
         // INPUT "Ajout photo" Nettoyage et validation
-        $picture = null;
+        $picture = $producer->company_picture ?? null;
         // INPUT "Picture"
         if (!empty($_FILES['picture']['name'])) {
             try {
@@ -139,6 +139,7 @@ try {
             $producerObj->setFirstname($firstname);
             $producerObj->setLastname($lastname);
             $producerObj->setCompanyName($companyName);
+            $producerObj->setSiret($siret);
             $producerObj->setDescription($description);
             $producerObj->setCompanyPicture($picture);
             $producerObj->setPhone($phone);

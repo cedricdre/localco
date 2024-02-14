@@ -20,7 +20,7 @@
             foreach($producers as $producer){ ?>
             <div class="col-6 col-md-4 col-lg-3">
                 <div class="card bg-success-subtle rounded-3 border-0 h-100">
-                    <a href="/controllers/c-sheet-ctrl.php?idproduct=<?=$producer->id_user?>" class="text-decoration-none">
+                    <a href="/controllers/producers/producers-sheet-ctrl.php?id=<?=$producer->id_user?>" class="text-decoration-none">
                     <div class="img-hover-zoom rounded-top-3">
                         <?php
                         if ($producer->company_picture != null) { ?>
@@ -37,7 +37,7 @@
                     </div>
                     </a>
                     <div class="card-footer border-0 bg-transparent pb-4">
-                        <a class="btn btn-sm btn-success icon-link icon-link-hover" href="/controllers/producer-sheet-ctrl.php?idproduct=<?=$producer->id_user?>">
+                        <a class="btn btn-sm btn-success icon-link icon-link-hover" href="/controllers/producers/producers-sheet-ctrl.php?id=<?=$producer->id_user?>">
                             En savoir plus
                             <i class="bi bi-chevron-right mb-2"></i>
                         </a>

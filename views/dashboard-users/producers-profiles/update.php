@@ -13,7 +13,7 @@
         </div>
         <div class="row justify-content-center">
             <div class="col-lg-6">
-                <form class="mb-3" method="POST" enctype='multipart/form-data' novalidate>
+                <form class="mb-3" method="POST" enctype='multipart/form-data'>
                     <div class="row">
                         <div class="col-xl-6">
                             <div class="mb-3">

@@ -219,3 +219,30 @@
         });
     });
 </script> -->
+
+
+
+<!-- nomdediv.addEventListener('click', () => {
+    fetch('ajaxGetDate.php')
+    .then((response) => {
+        return response.json();
+    })
+    .then((data) => {
+        data;
+    })
+})
+
+//php  ajaxGetDate.php
+json_encode('text') -->
+
+<!-- let myForm = new FormData();
+myForm.append('email', email.value)
+
+option {
+    body: myForm,
+    method: 'POST'
+}
+
+fetch('ajaxGetDate.php', option) -->
+
+

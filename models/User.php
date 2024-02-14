@@ -330,27 +330,31 @@ class User
         }
     }
 
-    // public function update()
-    // {
-    //     $pdo = Database::connect();
-    //     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    //     // Requête mysql pour insérer des données
-    //     $sql = 'UPDATE `pickups` SET `pickup_name` = :pickup_name, `address` = :address, `zip` = :zip, `city` = :city, `opening_hours` = :opening_hours WHERE `id_pickup` = :id_pickup';
-    //     $sth = $pdo->prepare($sql);
-    //     $sth->bindValue(':pickup_name', $this->getFirstname());
-    //     $sth->bindValue(':address', $this->getAdress());
-    //     $sth->bindValue(':zip', $this->getZip());
-    //     $sth->bindValue(':city', $this->getCity());
-    //     $sth->bindValue(':id_pickup', $this->getIdPickup(), PDO::PARAM_INT);
-    //     $sth->execute();
-    //     if ($sth->rowCount() <= 0) {
-    //         // Génération d'une exception renvoyant le message en paramètre au catch créé en amont et arrêt du traitement.
-    //         throw new Exception('Erreur lors de la mise à jour');
-    //     } else {
-    //         // Retourne true dans le cas contraire (tout s'est bien passé)
-    //         return true;
-    //     }
-    // }
+    public function update()
+    {
+        $pdo = Database::connect();
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        // Requête mysql pour insérer des données
+        $sql = 'UPDATE `users`
+                SET
+                `firstname` = :firstname,
+                `lastname` = :lastname,                
+                `id_pickup` = :id_pickup
+                WHERE `id_user` = :id_user';        
+        $sth = $pdo->prepare($sql);
+        $sth->bindValue(':firstname', $this->getFirstname());
+        $sth->bindValue(':lastname', $this->getLastname());
+        $sth->bindValue(':id_pickup', $this->getIdPickup(), PDO::PARAM_INT);
+        $sth->bindValue(':id_user', $this->getIdUser(), PDO::PARAM_INT);
+        $sth->execute();
+        if ($sth->rowCount() <= 0) {
+            // Génération d'une exception renvoyant le message en paramètre au catch créé en amont et arrêt du traitement.
+            throw new Exception('Erreur lors de la mise à jour');
+        } else {
+            // Retourne true dans le cas contraire (tout s'est bien passé)
+            return true;
+        }
+    }
 
         public function updateProducer()
     {

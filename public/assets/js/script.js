@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 //             // Envoyer les données au serveur via une requête AJAX
 //             let xhr = new XMLHttpRequest();
-//             xhr.open('POST', '/../../../controllers/catalog-ctrl.php', true);
+//             xhr.open('POST', '/controllers/catalog-ctrl.php', true);
 //             xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 //             xhr.onreadystatechange = function () {
 //                 if (xhr.readyState == 4 && xhr.status == 200) {

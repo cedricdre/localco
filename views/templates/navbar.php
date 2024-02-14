@@ -53,7 +53,7 @@
                     <a class="nav-link" href="/controllers/pickups-ctrl.php">Lieu de retrait</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/controllers/producers-ctrl.php">Les Producteurs</a>
+                    <a class="nav-link" href="/controllers/producers/producers-ctrl.php">Les Producteurs</a>
                 </li>
             </ul>
         </div>
@@ -80,7 +80,7 @@
                 <a class="nav-link" href="/controllers/pickups-ctrl.php">Lieu de retrait</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/controllers/producers-ctrl.php">Les Producteurs</a>
+                <a class="nav-link" href="/controllers/producers/producers-ctrl.php">Les Producteurs</a>
             </li>
 
             <?php
