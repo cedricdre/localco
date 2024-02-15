@@ -121,17 +121,16 @@
                         </a>
                         <div class="card-footer border-0 bg-transparent pb-3">
                             <div class="input-group">
-                                <select class="form-select rounded-start-5 border-warning" id="inputSelectQte">
+                                <select class="form-select rounded-start-5 border-warning" id="inputSelectQte<?=$product->id_product?>">
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
                                 </select>
-                                <button class="btn btn-warning add-to-cart-btn" 
-                                    type="button" 
-                                    data-product-id="<?= $product->id_product ?>"
-                                    data-product-name="<?= $product->product_name ?>"
-                                    data-product-price="<?= $prix_ttc ?>">Ajouter au panier
-                                </button>
+                                <button class="btn btn-warning addBasket" type="button" data-productid="<?=$product->id_product?>">Ajouter au panier</button>
                             </div>
                             <!-- <div>
                                 <button class="btn w-100 btn-sm btn-warning " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottomPrice" aria-controls="offcanvasBottomPrice">Ajouter au panier</button>
@@ -188,31 +187,3 @@
 
     </div>
 </section><!-- FIN section Catalogue -->
-
-
-
-
-<!-- nomdediv.addEventListener('click', () => {
-    fetch('ajaxGetDate.php')
-    .then((response) => {
-        return response.json();
-    })
-    .then((data) => {
-        data;
-    })
-})
-
-//php  ajaxGetDate.php
-json_encode('text') -->
-
-<!-- let myForm = new FormData();
-myForm.append('email', email.value)
-
-option {
-    body: myForm,
-    method: 'POST'
-}
-
-fetch('ajaxGetDate.php', option) -->
-
-

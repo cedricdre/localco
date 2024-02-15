@@ -110,5 +110,6 @@
     <!-- Annimation AOS -->
     <script src="/public/assets/js/aos.js"></script>
     <script src="/public/assets/js/script.js"></script>
+    <script src="/public/assets/js/basket.js"></script>
 </body>
 </html>

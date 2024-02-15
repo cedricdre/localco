@@ -15,13 +15,18 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-6">
+            <?php
+            if (isset($_COOKIE['basket'])) {
+                foreach ($datas as $data) {
+            ?>
                 <div class="border-bottom border-1 border-success py-3">
                     <div class="row g-0 align-items-center justify-content-between">
                         <div class="col-5">
-                            <p class="fw-bold mb-0">Nom du produit</p>
+                            <p class="fw-bold mb-0">Nom du produit <?= $data->productId ?></p>
                         </div>
                         <div class="col-2">
                         <select class="form-select rounded-5" id="inputSelectQte">
+                            <option value="<?= $data->quantity ?>"><?= $data->quantity ?></option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -35,46 +40,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="border-bottom border-1 border-success py-3">
-                    <div class="row g-0 align-items-center justify-content-between">
-                        <div class="col-5">
-                            <p class="fw-bold mb-0">Nom du produit</p>
-                        </div>
-                        <div class="col-2">
-                        <select class="form-select rounded-5" id="inputSelectQte">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                        </select>
-                        </div>
-                        <div class="col-2">
-                            <p class="fw-bolder mb-0">0,00 €</p>
-                        </div>
-                        <div class="col-1">
-                            <a href="" class="text-danger"><i class="bi bi-trash3-fill"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="border-bottom border-1 border-success py-3">
-                    <div class="row g-0 align-items-center justify-content-between">
-                        <div class="col-5">
-                            <p class="fw-bold mb-0">Nom du produit</p>
-                        </div>
-                        <div class="col-2">
-                        <select class="form-select rounded-5" id="inputSelectQte">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                        </select>
-                        </div>
-                        <div class="col-2">
-                            <p class="fw-bolder mb-0">0,00 €</p>
-                        </div>
-                        <div class="col-1">
-                            <a href="" class="text-danger"><i class="bi bi-trash3-fill"></i></a>
-                        </div>
-                    </div>
-                </div>
+            <?php
+                }
+            } else {
+                // Le cookie 'basket' n'est pas défini
+            }
+            ?>
             </div>
             <div class="col-lg-3">
                 <div class="border border-1 border-success t p-4">

@@ -1,6 +1,11 @@
 <?php
 session_start();
 
+if (isset($_COOKIE['basket'])) {
+    $datas = json_decode($_COOKIE['basket']);
+} else {
+    $datas = [];
+}
 
 require_once __DIR__ . '/regex.php';
 require_once __DIR__ . '/constants.php';
