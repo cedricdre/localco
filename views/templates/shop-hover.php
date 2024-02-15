@@ -1,7 +1,7 @@
     <!-- Offcanvas PANIER -->
     <div class="offcanvas offcanvas-end text-success" tabindex="-1" id="offcanvasBasket" aria-labelledby="offcanvasBasketLabel">
         <div class="offcanvas-header">
-            <p class="offcanvas-title" id="offcanvasBasketLabel"><i class="bi bi-bag-fill fs-4 me-2"></i><span class="fs-4 title-lilita me-2">Mon panier</span>2 produit(s)</p>
+            <p class="offcanvas-title" id="offcanvasBasketLabel"><i class="bi bi-bag-fill fs-4 me-2"></i><span class="fs-4 title-lilita me-2">Mon panier</span><?= count($datas) ?> produit(s)</p>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">

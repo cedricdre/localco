@@ -1,5 +1,5 @@
 <?php
-session_start();
+require_once __DIR__ . '/../config/init.php';
 
 $title = 'Abonnez-vous aux frais';
 

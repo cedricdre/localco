@@ -4,12 +4,15 @@
             <img src="/public/assets/img/logo-localco.svg" alt="Logo Localco" height="35">
         </a>
         <div class="d-flex align-items-center order-lg-3">
-            <a class="nav-link link-success fs-4 mx-1 position-relative" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBasket" aria-controls="offcanvasBasket"><i class="bi bi-bag-fill"></i>
-                <!-- A afficher quand un article dans le panier -->
-                <span class="position-absolute top-0 start-100 translate-middle-x p-2 bg-danger border border-light rounded-circle">
+            <a class="nav-link link-success fs-3 mx-1 position-relative" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBasket" aria-controls="offcanvasBasket"><i class="bi bi-bag-fill"></i>
+            <?php
+            if (isset($_COOKIE['basket'])) { ?>
+                <span id="pointBasket" class="position-absolute top-0 start-100 translate-middle-x p-2 bg-danger border border-light rounded-circle">
                     <span class="visually-hidden">Article dans le panier</span>
                 </span>
             </a>
+            <?php
+            } ?>
             <?php
             if (empty($_SESSION['user'])) { ?>
                 <a class="btn btn-outline-success btn-sm ms-2 d-none d-lg-block" href="/controllers/login/sign-in-ctrl.php"><i class="bi bi-person-fill me-1"></i>Connexion</a>

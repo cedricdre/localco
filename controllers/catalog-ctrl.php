@@ -10,8 +10,6 @@ try {
     $types = Type::getAll();
     $producers = User::getAllbyProducer();
 
-    d($datas);
-
     $selectedType = intval(filter_input(INPUT_GET, 'type', FILTER_SANITIZE_NUMBER_INT));
     $selectedCertif = filter_input(INPUT_GET, 'certification', FILTER_SANITIZE_SPECIAL_CHARS);
     $selectedProducer = intval(filter_input(INPUT_GET, 'producer', FILTER_SANITIZE_NUMBER_INT));

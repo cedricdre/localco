@@ -13,42 +13,20 @@ document.querySelectorAll('.addBasket').forEach(function(button) {
                 body: formData,
             };
 
-
-
             fetch('/controllers/ajaxAddBasket.php', options)
                 .then(function(response) {
                     return response.json();
                 })
                 .then(function(data) {
-                    console.log(data);
+                    if (data) {
+                        // Afficher la modal 
+                        const modal = new bootstrap.Modal(document.getElementById('basketModal'));
+                        modal.show();
+                        // // Activer la span avec le point rouge du panier
+                        // const redDotSpan = document.getElementById('pointBasket');
+                        // redDotSpan.classList.remove('d-none');
+                    }
                 })
-
-
 
     });
 });
-
-
-
-// nomdediv.addEventListener('click', () => {
-//     fetch('ajaxGetDate.php')
-//     .then((response) => {
-//         return response.json();
-//     })
-//     .then((data) => {
-//         data;
-//     })
-// })
-
-//php  ajaxGetDate.php
-// json_encode('text')
-
-// let myForm = new FormData();
-// myForm.append('email', email.value)
-
-// option {
-//     body: myForm,
-//     method: 'POST'
-// }
-
-// fetch('ajaxGetDate.php', option)

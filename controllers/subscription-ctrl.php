@@ -1,5 +1,5 @@
 <?php
-session_start();
+require_once __DIR__ . '/../config/init.php';
 
 // include VIEWS
 include __DIR__.'/../views/templates/header.php';
