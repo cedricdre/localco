@@ -519,7 +519,24 @@ class User
     //     }
     // }
 
-
+    public static function getUserPickup(int $id): object|false
+    {
+        $pdo = Database::connect();
+        $sql = 'SELECT
+                `pickups`.`pickup_name`
+                FROM `users`
+                INNER JOIN `pickups` ON `users`.`id_pickup` = `pickups`.`id_pickup`
+                WHERE `id_user` = :id_user';
+        $sth = $pdo->prepare($sql);
+        $sth->bindValue(':id_user', $id, PDO::PARAM_INT);
+        $sth->execute();
+        $result = $sth->fetch(PDO::FETCH_OBJ);
+        if (!$result) {
+            throw new Exception('Erreur lors de la récupération du point de retrait');
+        } else {
+            return $result;
+        }
+    }
     
 
 

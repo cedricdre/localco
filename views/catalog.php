@@ -85,13 +85,7 @@
                 <!-- Card produit -->
                 <?php
                 foreach($products as $product){ 
-                    $product_price = $product->product_price;
-                    $product_tva = $product->product_tva;
-                    // Calculer la TVA
-                    $tva = $product_price * ($product_tva / 100);
-                    // Calculer le prix TTC
-                    $prix_ttc = $product_price + $tva;
-                    $prix_ttc = number_format($prix_ttc, 2, '.', ' ');
+                    $prix_ttc = CalculatePrice::TVA($product);
                     ?>
                 <div class="col-6 col-md-4 col-lg-3">
                     <div class="card rounded-3 h-100 bg-card">
