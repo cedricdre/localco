@@ -685,4 +685,21 @@ class Product
         $result = $sth->fetchAll(PDO::FETCH_OBJ);
         return $result;
     }
+
+    public static function getBasket(int $id): array
+    {
+        $pdo = Database::connect();
+        // Requête mysql pour sélectionner toutes les valeurs dans la table `categories`
+        $sql = 'SELECT * FROM `products`
+                INNER JOIN `types` ON `products`.`id_type` = `types`.`id_type`
+                INNER JOIN `users` ON `products`.`id_user` = `users`.`id_user`
+                WHERE `products`.`id_product` = :id_product';
+
+        $sth = $pdo->prepare($sql);
+        $sth->bindValue(':id_product', $id, PDO::PARAM_INT);
+        $sth->execute();
+        // Retourne un tableau associatif de la table categories
+        $result = $sth->fetchAll(PDO::FETCH_OBJ);
+        return $result;
+    }
 }

@@ -132,6 +132,18 @@ try {
                 $to = __DIR__ . '/../../../public/uploads/product-sheet/' .$picturename.'.'.$extension;
                 $picture = $picturename. '.' . $extension;
                 move_uploaded_file($from, $to);
+
+                // $image = imagecreatefromjpeg($to);
+                // $widthOrigninal = imagesx($image);
+                // $heightOrigninal = imagesy($image);
+                // $ratio = $heightOrigninal / $widthOrigninal;
+                // $width = 800;
+                // $height = $width * $ratio;
+                // $mode = IMG_BICUBIC;
+
+                // $resempledObject = imagescale($image,$width, $height, $mode);
+                // imagejpeg($resempledObject, $to, 80);
+
             } catch (\Throwable $th) {
                 $error['picture'] = $th->getMessage();
             }

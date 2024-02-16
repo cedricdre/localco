@@ -1,11 +1,24 @@
 <?php
 require_once __DIR__ . '/../../config/init.php';
-require_once __DIR__ . '/../../models/Basket.php';
+require_once __DIR__ . '/../../models/Product.php';
 
 try {
     $title = 'Panier';
 
-    // $basketUser = Basket::getAllbyBasket();
+    if (isset($_COOKIE['basket'])) {
+
+        $datas = json_decode($_COOKIE['basket']);
+
+        foreach ($datas as $item) {
+            $id = $item->productId;
+            $quantity = $item->quantity;
+            $products = Product::getBasket($id);
+            $productID[$id] = $products;
+        }
+    }
+    
+
+    // dd($productID);
 
 } catch (\Throwable $th) {
     $error = $th->getMessage();

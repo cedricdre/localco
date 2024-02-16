@@ -17,23 +17,26 @@
             <div class="col-lg-6">
             <?php
             if (isset($_COOKIE['basket'])) {
-                foreach ($datas as $data) {
+                foreach ($productID as $products) {
+
+                    foreach ($products as $data) {
+                    
             ?>
                 <div class="border-bottom border-1 border-success py-3">
                     <div class="row g-0 align-items-center justify-content-between">
                         <div class="col-5">
-                            <p class="fw-bold mb-0">Nom du produit <?= $data->productId ?></p>
+                            <p class="fw-bold mb-0"><?= $data->product_name ?> </p>
                         </div>
                         <div class="col-2">
                         <select class="form-select rounded-5" id="inputSelectQte">
-                            <option value="<?= $data->quantity ?>"><?= $data->quantity ?></option>
+                            <option value="<?= $quantity ?>"><?= $quantity ?></option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
                         </select>
                         </div>
                         <div class="col-2">
-                            <p class="fw-bolder mb-0">0,00 €</p>
+                            <p class="fw-bolder mb-0"><?= $data->product_price ?> €</p>
                         </div>
                         <div class="col-1">
                             <a href="" class="text-danger"><i class="bi bi-trash3-fill"></i></a>
@@ -41,6 +44,7 @@
                     </div>
                 </div>
             <?php
+            }
                 }
             } else {
                 // Le cookie 'basket' n'est pas défini
