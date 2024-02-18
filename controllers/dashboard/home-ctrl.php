@@ -3,6 +3,8 @@ require_once __DIR__ . '/../../models/Pickup.php';
 require_once __DIR__ . '/../../models/Type.php';
 require_once __DIR__ . '/../../models/Product.php';
 
+SessionAuth::admin();
+
 try {
     $title = 'Accueil';
 

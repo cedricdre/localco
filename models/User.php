@@ -523,7 +523,8 @@ class User
     {
         $pdo = Database::connect();
         $sql = 'SELECT
-                `pickups`.`pickup_name`
+                `pickups`.`pickup_name`,
+                `users`.`id_pickup`
                 FROM `users`
                 INNER JOIN `pickups` ON `users`.`id_pickup` = `pickups`.`id_pickup`
                 WHERE `id_user` = :id_user';

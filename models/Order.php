@@ -90,25 +90,12 @@ class Order
     public function insert(): bool
     {
         $pdo = Database::connect();
-        $sql = 'INSERT INTO `orders` (
-            `status`,
-            `withdrawDate`,
-            `id_user`,
-            `id_pickup`
-        ) VALUES (
-            :status,
-            :withdrawDate,
-            :created_at,
-            :id_user,
-            :id_pickup
-        )';
-        
+        $sql = 'INSERT INTO `orders` (`status`,`withdrawDate`,`id_user`,`id_pickup`) VALUES (:status, :withdrawDate, :id_user, :id_pickup)';
         $sth = $pdo->prepare($sql);
-        $sth->bindValue(':status', $this->getStatus());
+        $sth->bindValue(':status', $this->getStatus(), PDO::PARAM_INT);
         $sth->bindValue(':withdrawDate', $this->getWithdrawDate());
         $sth->bindValue(':id_user', $this->getIdUser(), PDO::PARAM_INT);
         $sth->bindValue(':id_pickup', $this->getIdPickup(), PDO::PARAM_INT);
-        
         $sth->execute();
         if ($sth->rowCount() <= 0) {
             throw new Exception('Erreur lors de l\'enregistrement');
@@ -117,5 +104,26 @@ class Order
         }
     }
 
+    public static function getAll(int $id): array
+    {
+        $pdo = Database::connect();
+        $sql = 'SELECT * FROM `orders`
+                WHERE 1 = 1';
+
+        if ($id) {
+            $sql .= ' AND `orders`.`id_user` = :id_user';
+        }
+
+        $sql .= ' ORDER by `id_order` DESC';
+
+        $sth = $pdo->prepare($sql);
+        if (!is_null($id)) {
+            $sth->bindValue(':id_user', $id, PDO::PARAM_INT);
+        }
+        $sth->execute();
+        // Retourne un tableau associatif de la table categories
+        $result = $sth->fetchAll(PDO::FETCH_OBJ);
+        return $result;
+    }
 
 }

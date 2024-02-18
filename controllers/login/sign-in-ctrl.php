@@ -25,7 +25,6 @@ try {
 
             if (!$user) {
                 $errors['email'] = 'Identifiant ou mot de passe incorrect. Veuillez réessayer.';
-                $message = 'Identifiant ou mot de passe incorrect. Veuillez réessayer.';
             } else {
 
                 $passwordHash = $user->password;
@@ -38,7 +37,6 @@ try {
                     die;
                 } else {
                     $errors['email'] = 'Identifiant ou mot de passe incorrect. Veuillez réessayer.';
-                    $message = 'Identifiant ou mot de passe incorrect. Veuillez réessayer.';
                 }
                 
             }

@@ -43,6 +43,8 @@ try {
             $withdrawDate = $withdrawDateObj->format('Y-m-d');
         }
 
+        // dd($pickup->id_pickup);
+
         if (empty($error)) {
             try {
                 $pdo = Database::connect();
@@ -52,29 +54,29 @@ try {
                 $order->setStatus($status);
                 $order->setWithdrawDate($withdrawDate);
                 $order->setIdUser($id_user);
-                $order->setIdPickup($pickup->pickup_name);
-
+                $order->setIdPickup($pickup->id_pickup);
+    
                 $isOrder = $order->insert();
                 if(!$isOrder){
                     throw new Exception("Échec de l'opération d'insertion dans la base de données !");
                 }
                 $id_order = $pdo->lastInsertId();
 
+                // dd($id_order);
                 $orderLine = new OrderLine();
 
-                if (isset($_COOKIE['basket'])) {
-                    foreach ($productID as $productData) {
-                        $product = $productData['product'][0];
-                        $quantity = $productData['quantity'];
-                        $prix_ttc = CalculatePrice::TVA($product);
+                foreach ($productID as $productData) {
+                    $product = $productData['product'][0];
+                    $quantity = $productData['quantity'];
+                    $prix_ttc = CalculatePrice::TVA($product);
+                    $prix_ttc = str_replace(',', '.', $prix_ttc);
 
-                        $orderLine->setLineName($product->product_name);
-                        $orderLine->setLinePrice($prix_ttc);
-                        $orderLine->setQuantity($quantity);
-                        $orderLine->setIdOrder($id_order);
+                    $orderLine->setLineName($product->product_name);
+                    $orderLine->setLinePrice($prix_ttc);
+                    $orderLine->setQuantity($quantity);
+                    $orderLine->setIdOrder($id_order);
 
-                        $isOrderLine = $orderLine->insert();
-                    }
+                    $isOrderLine = $orderLine->insert();
                 }
 
                 if(!$isOrderLine){
@@ -83,14 +85,12 @@ try {
                 $pdo->commit();
 
                 // vérifier si la requête d'insertion a réussi
-                // if ($isClient == true && $isRent  == true) {
-                //     $error['bd'] = "<div class='alert alert-success' role='alert'>Votre demande de réservation a été enregistrée !</div>";
-                // } else {
-                //     $error['bd'] = "<div class='alert alert-danger' role='alert'><i class='bi bi-exclamation-triangle-fill'></i> Échec de votre demande de réservation a été enregistrée !</div>";
-                // }
+                if ($isOrder == true && $isOrderLine  == true) {
+                    unset($_COOKIE['basket']);
+                }
 
             } catch (\Throwable $th) {
-                $pdo->rollBack();
+                // $pdo->rollBack();
                 $error['bd'] = $th->getMessage();
             }
         }

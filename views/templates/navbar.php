@@ -10,9 +10,10 @@
                 <span id="pointBasket" class="position-absolute top-0 start-100 translate-middle-x p-2 bg-danger border border-light rounded-circle">
                     <span class="visually-hidden">Article dans le panier</span>
                 </span>
-            </a>
-            <?php
+                <?php
             } ?>
+            </a>
+            
             <?php
             if (empty($_SESSION['user'])) { ?>
                 <a class="btn btn-outline-success btn-sm ms-2 d-none d-lg-block" href="/controllers/login/sign-in-ctrl.php"><i class="bi bi-person-fill me-1"></i>Connexion</a>
@@ -26,7 +27,7 @@
                         <li><a class="dropdown-item" href="/controllers/dashboard-users/home-ctrl.php"><i class="bi bi-person-fill me-1"></i>Mon compte</a></li>
                         <?php
                         if (!empty($_SESSION['user']) && $_SESSION['user']->admin == 1) { ?>
-                            <li><a class="dropdown-item" href="/controllers/dashboard/home-ctrl.php"><i class="bi bi-gear-fill me-1"></i>dashboard</a></li>
+                            <li><a class="dropdown-item" href="/controllers/dashboard/home-ctrl.php"><i class="bi bi-gear-fill me-1"></i>Dashboard</a></li>
                         <?php
                         } ?>
                         <li>

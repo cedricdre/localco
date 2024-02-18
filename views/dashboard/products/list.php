@@ -63,7 +63,7 @@
                         } ?>                
                     </th>
                     <td class="text-end">
-                        <a class="btn btn-sm btn-outline-secondary me-2" href="/controllers/dashboard/products/update-ctrl.php?idpickup=<?=$product->id_product?>" role="button"><i class="bi bi-pencil-fill"></i></a>
+                        <a class="btn btn-sm btn-outline-secondary mb-1" href="/controllers/dashboard/products/update-ctrl.php?idpickup=<?=$product->id_product?>" role="button"><i class="bi bi-pencil-fill"></i></a>
                         <a class="btn btn-sm btn-outline-danger" href="/controllers/dashboard/products/list-ctrl.php?idproductarchive=<?=$product->id_product?>" role="button"><i class="bi bi-archive-fill"></i></a>
                     </td>
                 </tr>

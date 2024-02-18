@@ -62,10 +62,6 @@
                             <input class="form-control mb-1" type="date" id="withdrawDate" name="withdrawDate" required>
                             <small class="form-text text-danger"><?= $error['withdrawDate'] ?? '' ?></small>
                         </div>
-                        <!-- <a class="btn btn-success rounded-5 icon-link icon-link-hover my-2 me-2" href="/controllers/baskets-ctrl.php">
-                            Commander
-                            <i class="bi bi-chevron-right mb-2"></i>
-                        </a> -->
                         <button type="submit" class="btn btn-success rounded-5 icon-link icon-link-hover mt-3 me-2">
                             Commander
                             <i class="bi bi-check-lg mb-2"></i>

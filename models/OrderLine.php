@@ -20,7 +20,7 @@ class OrderLine
         $this->setLineName($line_name);
         $this->setLinePrice($line_price);
         $this->setQuantity($quantity);
-        $this->setQuantity($id_order);
+        $this->setIdOrder($id_order);
     }
 
     // Methods SET GET
@@ -77,7 +77,7 @@ class OrderLine
     public function insert(): bool
     {
         $pdo = Database::connect();
-        $sql = 'INSERT INTO `orders-line` (
+        $sql = 'INSERT INTO `orders_line` (
             `line_name`,
             `line_price`,
             `quantity`,
