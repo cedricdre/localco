@@ -13,9 +13,8 @@
                     <th scope="col">Nom</th>
                     <th scope="col">Type</th>
                     <th scope="col">Producteur</th>
-                    <th scope="col">Poids</th>
-                    <th scope="col">Prix HT</th>
-                    <th scope="col">Prix TVA</th>
+                    <!-- <th scope="col">Prix HT</th>
+                    <th scope="col">Prix TVA</th> -->
                     <th scope="col">Prix TTC</th>
                     <th scope="col">En ligne</th>
                     <th scope="col">A valider</th>
@@ -25,22 +24,15 @@
             <tbody>
                 <?php
                 foreach($products as $product){ 
-                    $product_price = $product->product_price;
-                    $product_tva = $product->product_tva;
-                    // Calculer la TVA
-                    $tva = $product_price * ($product_tva / 100);
-                    // Calculer le prix TTC
-                    $prix_ttc = $product_price + $tva;
-                    $prix_ttc = number_format($prix_ttc, 2, '.', ' ');
+                    $prix_ttc = CalculatePrice::TVA($product);
                     ?>
                 <tr>
                     <th scope="row"><img src="<?= '/public/uploads/product-sheet/' . $product->picture ?>" class="object-fit-cover img-thumbnail" width="60"></th>
-                    <th scope="row"><?=$product->product_name?></th>
+                    <th scope="row"><?=$product->product_name?> <br> <span class="fw-light"><?=$product->weight?> <?=$product->weight_unit?></span></th>
                     <th scope="row"><?=$product->type_name?></th>
                     <th scope="row"><?=$product->company_name?></th>
-                    <th scope="row"><?=$product->weight?> <?=$product->weight_unit?></th>
-                    <th scope="row"><?=$product_price?> <sup>€</sup></th>
-                    <th scope="row"><?=$tva?> <sup>€</sup> <br><sup><?=$product_tva?>%</sup></th>
+                    <!-- <th scope="row"><?=$product_price?> <sup>€</sup></th>
+                    <th scope="row"><?=$tva?> <sup>€</sup> <br><sup><?=$product_tva?>%</sup></th> -->
                     <th scope="row"><?=$prix_ttc?> <sup>€</sup></th>
                     <th scope="row">
                         <?php
@@ -63,8 +55,8 @@
                         } ?>                
                     </th>
                     <td class="text-end">
-                        <a class="btn btn-sm btn-outline-secondary mb-1" href="/controllers/dashboard/products/update-ctrl.php?idpickup=<?=$product->id_product?>" role="button"><i class="bi bi-pencil-fill"></i></a>
-                        <a class="btn btn-sm btn-outline-danger" href="/controllers/dashboard/products/list-ctrl.php?idproductarchive=<?=$product->id_product?>" role="button"><i class="bi bi-archive-fill"></i></a>
+                        <a class="btn btn-sm btn-outline-secondary my-1" href="/controllers/dashboard/products/update-ctrl.php?idpickup=<?=$product->id_product?>" role="button"><i class="bi bi-pencil-fill"></i></a>
+                        <a class="btn btn-sm btn-outline-danger my-1" href="/controllers/dashboard/products/list-ctrl.php?idproductarchive=<?=$product->id_product?>" role="button"><i class="bi bi-archive-fill"></i></a>
                     </td>
                 </tr>
                 <?php

@@ -2,6 +2,7 @@
 require_once __DIR__ . '/../../models/Pickup.php';
 require_once __DIR__ . '/../../models/Type.php';
 require_once __DIR__ . '/../../models/Product.php';
+require_once __DIR__ . '/../../models/Order.php';
 
 SessionAuth::admin();
 
@@ -10,7 +11,25 @@ try {
 
     $pickups = Pickup::getAll();
     $types = Type::getAll();
-    // $products = Product::getAll(); A revoir pour compter les produits à valider 
+    $ordersPrepare = Order::getAllProcessing($status = 1);
+    $ordersReady = Order::getAllProcessing($status = 2);
+
+    $products = Product::getAll(); 
+    $nullCount = 0;
+    foreach ($products as $product) {
+        if ($product->valid_at === NULL) {
+            $nullCount++;
+        }
+    }
+
+    $onlineCount = 0;
+    foreach ($products as $product) {
+        if ($product->online === 1) {
+            $onlineCount++;
+        }
+    }
+
+    
 
 } catch (\Throwable $th) {
     $error = $th->getMessage();

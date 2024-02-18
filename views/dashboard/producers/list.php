@@ -22,7 +22,7 @@
                 foreach($producers as $producer){ ?>
                 <tr>
                     <th scope="row"><?=$producer->company_name?></th>
-                    <th scope="row"><img src="/public/uploads/producers/<?=$producer->picture?>" class="img-thumbnail" width="500" alt="..."></th>
+                    <th scope="row"><img src="/public/uploads/producers/<?=$producer->company_picture?>" class="img-thumbnail" width="80" alt="..."></th>
                     <th scope="row"><?=$producer->lastname?> <?=$producer->firstname?></th>
                     <th scope="row"><a href="mailto:<?=$producer->email?>"><?=$producer->email?></a></th>
                     <th scope="row"><a href="tel:+33<?=$producer->phone?>"><?=$producer->phone?></a></th>
