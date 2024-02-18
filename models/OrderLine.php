@@ -103,5 +103,28 @@ class OrderLine
         }
     }
 
+    public static function getAll(int $id): array
+    {
+        $pdo = Database::connect();
+        $sql = 'SELECT * FROM `orders_line`
+                INNER JOIN `orders` ON `orders_line`.`id_order` = `orders`.`id_order`
+                WHERE 1 = 1';
+
+        if ($id) {
+            $sql .= ' AND `orders_line`.`id_order` = :id_order';
+        }
+
+        $sql .= ' ORDER by `id_order_line`';
+
+        $sth = $pdo->prepare($sql);
+        if (!is_null($id)) {
+            $sth->bindValue(':id_order', $id, PDO::PARAM_INT);
+        }
+        $sth->execute();
+        // Retourne un tableau associatif de la table categories
+        $result = $sth->fetchAll(PDO::FETCH_OBJ);
+        return $result;
+    }
+
 }
 ?>

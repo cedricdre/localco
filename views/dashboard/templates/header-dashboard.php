@@ -56,13 +56,17 @@
                                 </a>
                                 <div class="collapse" id="collapseExample">
                                     <div class="card rounded-0 border-0">
-                                        <a class="nav-link d-flex align-items-center gap-2" href="#">
+                                        <a class="nav-link d-flex align-items-center gap-2" href="/controllers/dashboard/orders/list-ctrl.php">
                                             <i class="bi bi-cart-fill"></i>
-                                            Commandes à traiter
+                                            Commandes à préparer
                                         </a>
-                                        <a class="nav-link d-flex align-items-center gap-2" href="#">
+                                        <a class="nav-link d-flex align-items-center gap-2" href="/controllers/dashboard/orders/list-ready-ctrl.php">
                                             <i class="bi bi-cart-fill"></i>
                                             Commandes à retirer
+                                        </a>
+                                        <a class="nav-link d-flex align-items-center gap-2" href="/controllers/dashboard/orders/list-delivered-ctrl.php">
+                                            <i class="bi bi-cart-fill"></i>
+                                            Commandes traitées
                                         </a>
                                     </div>
                                 </div>

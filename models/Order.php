@@ -126,4 +126,73 @@ class Order
         return $result;
     }
 
+    public static function getAllProcessing(int $status): array
+    {
+        $pdo = Database::connect();
+        $sql = 'SELECT
+                `orders`.`id_order`,
+                `orders`.`status`,
+                `orders`.`withdrawDate`,
+                `orders`.`created_at`,
+                `orders`.`id_user`,
+                `orders`.`id_pickup`,
+                `pickups`.`pickup_name`,
+                `users`.`firstname`, 
+                `users`.`lastname` 
+                FROM `orders`
+                INNER JOIN `users` ON `users`.`id_user` = `orders`.`id_user`
+                INNER JOIN `pickups` ON `pickups`.`id_pickup` = `orders`.`id_pickup`
+                WHERE 1 = 1';
+
+        if ($status === 1) {
+            $sql .= ' AND `orders`.`status` = 1';
+        } 
+        if ($status === 2) {
+            $sql .= ' AND `orders`.`status` = 2';
+        }
+        if ($status === 3) {
+            $sql .= ' AND `orders`.`status` = 3';
+        }
+
+        $sql .= ' ORDER by `id_order` DESC';
+
+        $sth = $pdo->query($sql);
+        $result = $sth->fetchAll(PDO::FETCH_OBJ);
+        return $result;
+    }
+
+    public static function validPrepare(int $id): int|false
+    {
+        $pdo = Database::connect();
+        // Requête mysql pour sélectionner toutes les valeurs dans la table `vehicles`
+        $sql = 'UPDATE `orders` SET `status` = 2 WHERE `id_order` = :id_order';
+        $sth = $pdo->prepare($sql);
+        $sth->bindValue(':id_order', $id, PDO::PARAM_INT);
+        $sth->execute();
+        if ($sth->rowCount() <= 0) {
+            // Génération d'une exception renvoyant le message en paramètre au catch créé en amont et arrêt du traitement.
+            throw new Exception('Erreur lors de la validation');
+        } else {
+            // Retourne true dans le cas contraire (tout s'est bien passé)
+            return true;
+        }
+    }
+
+    public static function validReady(int $id): int|false
+    {
+        $pdo = Database::connect();
+        // Requête mysql pour sélectionner toutes les valeurs dans la table `vehicles`
+        $sql = 'UPDATE `orders` SET `status` = 3 WHERE `id_order` = :id_order';
+        $sth = $pdo->prepare($sql);
+        $sth->bindValue(':id_order', $id, PDO::PARAM_INT);
+        $sth->execute();
+        if ($sth->rowCount() <= 0) {
+            // Génération d'une exception renvoyant le message en paramètre au catch créé en amont et arrêt du traitement.
+            throw new Exception('Erreur lors de la validation');
+        } else {
+            // Retourne true dans le cas contraire (tout s'est bien passé)
+            return true;
+        }
+    }
+
 }

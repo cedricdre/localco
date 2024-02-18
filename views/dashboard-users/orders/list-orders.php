@@ -12,54 +12,55 @@
             <h4 class="title-lilita">Mes commandes</h4>
         </div>
         <div class="row justify-content-center">
-            <div class="col-lg-6">
+            <div class="col-lg-8">
                 <div class="table-responsive">
                     <table class="table table-striped align-middle" id="table-producer-products">
                         <thead>
                             <tr>
                                 <th scope="col">N° Commande</th>
-                                <th scope="col">Date</th>
+                                <th scope="col">Date de commande</th>
                                 <th scope="col">statut</th>
+                                <th scope="col">Date de retrait</th>
                                 <th scope="col">Prix total TTC</th>
                                 <th scope="col">Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
-                            foreach($orders as $order){ ?>
+                            foreach($orders as $order){
+                                $total = 0;
+                                $ordersLines = OrderLine::getAll($order->id_order);
+                                foreach ($ordersLines as $line) {
+                                    $priceCalculQty = $line->quantity * $line->line_price;
+                                    $total += $priceCalculQty;
+                                }
+                                ?>
                             <tr>
                                 <th scope="row"><?=$order->id_order?></th>
-                                <th><?=$order->created_at?></th>
+                                <th><?=date('d/m/Y', strtotime($order->created_at))?></th>
                                 <th>
                                     <?php
-                                        if ($product->status == 1) { ?>
+                                        if ($order->status == 1) { ?>
                                             <span class="badge rounded-pill text-bg-warning">En préparation...</span>
                                     <?php
                                     } ?>
                                     <?php
-                                        if ($product->status == 2) { ?>
+                                        if ($order->status == 2) { ?>
                                             <span class="badge rounded-pill text-bg-success"><i class="bi bi-link me-1"></i>À retirer</span>
                                     <?php
                                     } ?>
                                     <?php
-                                        if ($product->status == 3) { ?>
+                                        if ($order->status == 3) { ?>
                                             <span class="badge rounded-pill text-bg-secondary"><i class="bi bi-link me-1"></i>Retiré</span>
                                     <?php
                                     } ?>
                                 </th>
-                                <th><?=$order->created_at?></th>
-                                <th><a class="btn btn-outline-success btn-sm" href="/controllers/dashboard-users/products/update-ctrl.php?idproduct=<?=$product->id_product?>" role="button"><i class="bi bi-pencil-fill me-2"></i>Modifier</a></th>
+                                <th><?=date('d/m/Y', strtotime($order->withdrawDate))?></th>
+                                <th><?= $total ?> <sup>€</sup></th>
+                                <th><a class="btn btn-outline-success btn-sm" href="/controllers/dashboard-users/orders-line/list-ctrl.php?idorder=<?=$order->id_order?>" role="button">Consulter</a></th>
                             </tr>
                             <?php
                             } ?>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>30 janv. 2024</td>
-                                <td><span class="badge rounded-pill text-bg-warning">En préparation...</span></td>
-                                <td>0,00 <sup>€</sup></td>
-                                <th scope="row"><a class="btn btn-outline-success btn-sm" href="#" role="button">Consulter</a></th>
-                            </tr>
-
                         </tbody>
                     </table>
                 </div>
