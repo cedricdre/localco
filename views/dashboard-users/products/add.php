@@ -7,10 +7,10 @@
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="/controllers/dashboard-users/home-ctrl.php">Tableau de bord</a></li>
                     <li class="breadcrumb-item"><a href="/controllers/dashboard-users/products/list-ctrl.php">Mes produits</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Ajouter ou modifier un produit</li>
+                    <li class="breadcrumb-item active" aria-current="page"><?= $title ?></li>
                 </ol>
             </nav>
-            <h4 class="title-lilita">Ajouter ou Modifier un produit</h4>
+            <h4 class="title-lilita"><?= $title ?></h4>
         </div>
         <div class="row justify-content-center">
             <div class="col-lg-6">

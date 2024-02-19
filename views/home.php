@@ -20,7 +20,7 @@
                 </div>
             </div>
             <div class="col-12 col-lg-6 col-xl-5">
-                <img src="/public/assets/img/cover.png" class="img-fluid" alt="Femme avec pannier de légumes">
+                <img src="/public/assets/img/cover.webp" class="img-fluid" alt="Jeune femme jardinier tablier chapeau tenant panier plein legumes tomates pres son oeil souriant">
             </div>
         </div>
     </div>

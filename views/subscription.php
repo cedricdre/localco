@@ -9,7 +9,7 @@
                 </div>
             </div>
             <div class="d-none d-lg-block col-lg-6 col-xl-5">
-                <img src="/public/assets/img/cover.png" class="img-fluid" alt="This zooms-in really well and smooth">
+                <img src="/public/assets/img/cover.webp" class="img-fluid" alt="Femme avec panier de légumes et fruits">
             </div>
         </div>
     </div>
@@ -31,10 +31,10 @@
                         </div>
                     </div>
                     <div class="col-12 col-lg-6 d-none d-lg-block" data-aos="fade-up">
-                        <img src="/public/assets/img/abonnement1.png" class="img-fluid" alt="Homme fermier avec pannier de légumes">
+                        <img src="/public/assets/img/sub-homme-1.webp" class="img-fluid" alt="Homme jardinier tablier chapeau tenant panier plein legumes tomates pres son oeil souriant">
                     </div>
                     <div class="col-12 col-lg-6 d-none d-lg-block" data-aos="fade-up">
-                        <img src="/public/assets/img/abonnement2.png" class="img-fluid" alt="Femme avec pannier de légumes">
+                        <img src="/public/assets/img/sub-femme-1.webp" class="img-fluid" alt="Jeune femme jardinier tablier chapeau tenant panier plein legumes">
                     </div>
                     <div class="col-12 col-lg-6">
                         <div>
@@ -57,10 +57,10 @@
                         </div>
                     </div>
                     <div class="col-12 col-lg-6 d-none d-lg-block" data-aos="fade-up">
-                        <img src="/public/assets/img/abonnement1.png" class="img-fluid" alt="Homme fermier avec pannier de légumes">
+                        <img src="/public/assets/img/sub-femme-2.webp" class="img-fluid" alt="Jeune femme jardinier tablier chapeau tenant panier plein legumes tomates pres son oeil souriant">
                     </div>
                     <div class="col-12 col-lg-6 d-none d-lg-block" data-aos="fade-up">
-                        <img src="/public/assets/img/abonnement2.png" class="img-fluid" alt="Femme avec pannier de légumes">
+                        <img src="/public/assets/img/sub-femme-1.webp" class="img-fluid" alt="Jeune femme jardinier tablier chapeau tenant panier plein legumes">
                     </div>
                     <div class="col-12 col-lg-6">
                         <div>

@@ -21,7 +21,7 @@
             <?php
             } else { ?>
                 <div class="dropdown">
-                    <button class="btn btn-outline-success btn-sm ms-2 d-none d-lg-block dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <button class="btn btn-outline-success btn-sm ms-2 d-none d-lg-block dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Mon compte">
                         <i class="bi bi-sun-fill me-1"></i><?= $_SESSION['user']->firstname ?>
                     </button>
                     <ul class="dropdown-menu dropdown-menu-end">
@@ -39,7 +39,7 @@
                 </div>
             <?php
             } ?>
-            <button class="btn btn-outline-primary d-lg-none px-2 py-1 ms-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#menuOffcanvas" aria-controls="menuOffcanvas">
+            <button class="btn btn-outline-primary d-lg-none px-2 py-1 ms-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#menuOffcanvas" aria-controls="menuOffcanvas" aria-label="Menu">
             <i class="bi bi-list h5"></i>
             </button>
         </div>

@@ -356,6 +356,28 @@ class User
         }
     }
 
+    public function updatePassword()
+    {
+        $pdo = Database::connect();
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        // Requête mysql pour insérer des données
+        $sql = 'UPDATE `users`
+                SET
+                `password` = :password
+                WHERE `id_user` = :id_user';        
+        $sth = $pdo->prepare($sql);
+        $sth->bindValue(':password', $this->getPassword());
+        $sth->bindValue(':id_user', $this->getIdUser(), PDO::PARAM_INT);
+        $sth->execute();
+        if ($sth->rowCount() <= 0) {
+            // Génération d'une exception renvoyant le message en paramètre au catch créé en amont et arrêt du traitement.
+            throw new Exception('Erreur lors de la mise à jour');
+        } else {
+            // Retourne true dans le cas contraire (tout s'est bien passé)
+            return true;
+        }
+    }
+
         public function updateProducer()
     {
         $pdo = Database::connect();

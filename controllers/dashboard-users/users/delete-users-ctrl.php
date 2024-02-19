@@ -4,25 +4,28 @@ require_once __DIR__ . '/../../../models/User.php';
 
 try {
 
+    $title = 'Suppression du compte';
+
     $id_user = $_SESSION['user']->id_user;
     $user = User::get($id_user);
 
     if ($_SERVER["REQUEST_METHOD"] == 'POST') {
 
         $password = filter_input(INPUT_POST, 'password', FILTER_DEFAULT);
-        $hashPassword = password_hash($password, PASSWORD_DEFAULT);
 
         $passwordHash = $user->password;
 
-        $isAuth = password_verify($hashPassword, $passwordHash);
+        $isAuth = password_verify($password, $passwordHash);
 
         if ($isAuth) {
-            $isDelete = Product::delete($id_user);
-            header('location: /controllers/home-ctrl.php');
+            $isDelete = User::delete($id_user);
+            unset($_SESSION['user']);
+            header('location: /');
             die;
         } else {
             $errors['password'] = 'Mot de passe incorrect. Veuillez réessayer.';
         }
+
     }
 
 
@@ -33,4 +36,8 @@ try {
     include __DIR__ . '/../../../views/dashboard/templates/footer-dashboard.php';
     die;
 }
+include __DIR__.'/../../../views/templates/header.php';
+include __DIR__.'/../../../views/dashboard-users/users/delete-users.php';
+include __DIR__.'/../../../views/templates/shop-hover.php';
+include __DIR__.'/../../../views/templates/footer.php';
 

@@ -87,13 +87,13 @@
             <img src="/public/assets/img/logo-localco-white.svg" class="my-5" height="50" alt="Logo Localco blanc">
             <!-- Sociaux pour affichage mobil -->
             <div class="nav justify-content-center mb-5 fs-2 d-lg-none">
-                <a class="link-light mx-2" href="#"><i class="bi bi-facebook"></i></a>
-                <a class="link-light mx-2" href="#"><i class="bi bi-twitter-x"></i></a>
-                <a class="link-light mx-2" href="#"><i class="bi bi-instagram"></i></a>
+                <a class="link-light mx-2" href="https://www.facebook.com/" aria-label="Lien accès facebook"><i class="bi bi-facebook"></i></a>
+                <a class="link-light mx-2" href="https://twitter.com/?lang=fr" aria-label="Lien accès twitter"><i class="bi bi-twitter-x"></i></a>
+                <a class="link-light mx-2" href="https://www.instagram.com/" aria-label="Lien accès instagram"><i class="bi bi-instagram"></i></a>
             </div>
             <ul class="nav justify-content-center legal-foot">
                 <li class="nav-item">
-                    <a class="nav-link link-light active">© 2023 Localco</a>
+                    <p class="nav-link link-light active">© 2023 Localco</p>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link link-light" href="/controllers/mentions-legales-ctrl.php">Mentions Légales</a>
@@ -103,8 +103,6 @@
     </div>
 </footer><!-- FIN footer -->
 
-    <!-- script mot de passe -->
-    <script src="/public/assets/js/script-mdp.js"></script>
     <!-- JS Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <!-- Annimation AOS -->

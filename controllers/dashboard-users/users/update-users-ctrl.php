@@ -4,7 +4,7 @@ require_once __DIR__ . '/../../../models/User.php';
 require_once __DIR__ . '/../../../models/Pickup.php';
 
 try {
-    $title = 'Modification utilisateur';
+    $title = 'Informations personnelles';
     $listPickups = Pickup::getAll();
 
     $id_user = $_SESSION['user']->id_user;

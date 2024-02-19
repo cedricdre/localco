@@ -6,10 +6,11 @@
             <nav aria-label="breadcrumb mb-5">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="/controllers/dashboard-users/home-ctrl.php">Tableau de bord</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Informations personnelles</li>
+                    <li class="breadcrumb-item active" aria-current="page"><?= $title ?></li>
                 </ol>
             </nav>
-            <h4 class="title-lilita">Modifier vos informations personnelles</h4>
+            <h4 class="title-lilita">Modifier mes informations personnelles</h4>
+            <a class="btn btn-sm btn-outline-primary m-1" href="/controllers/dashboard-users/users/update-password-users-ctrl.php" role="button">Modifier mon mot de passe</a>
         </div>
         <div class="row justify-content-center">
             <div class="col-lg-6">
@@ -49,28 +50,6 @@
                             </select>
                             <div class="form-text text-danger"><?= $error['categories'] ?? '' ?></div>
                         </div>
-
-                        <!-- <h5 class="title-lilita text-center my-3">Changer votre mot de passe</h5>
-                        <div class="col-xl-6">
-                            <div class="mb-3">
-                            <label for="password" class="form-label">Nouveau mot de passe</label>
-                            <input type="password" class="form-control" id="password" name="password" placeholder="Entrez un mot de passe" pattern="<?= REGEX_PASSWORD ?>" value="<?= $passwordHash ?? '' ?>">
-                            <small class="form-text text-danger"><?= $error['password'] ?? '' ?></small>
-                            </div>
-                        </div>
-                        <div class="col-xl-6 text-truncate">
-                            <div class="mb-3">
-                            <label for="passwordConfirm" class="form-label">Confirmation du mot de passe</label>
-                            <input type="password" class="form-control" id="passwordConfirm" name="passwordConfirm" placeholder="Confirmez votre mot de passe" pattern="<?= REGEX_PASSWORD ?>" value="<?= $passwordHash ?? '' ?>">
-                            <small class="form-text text-danger"><?= $error['passwordConfirm'] ?? '' ?></small>
-                            </div>
-                        </div>
-                        <small id="pwdSecurity" class="d-none"><span class="badge bg-danger">Mot de passe Faible</span> Doit contenir au moins 8 caractères : une minuscule, une majuscule, un chiffre et un caractère spécial.</small>
-                        <small id="pwdSecurityLow" class="d-none"><span class="badge bg-danger">Mot de passe Faible</span> Ajouter au moins un chiffre.</small>
-                        <small id="pwdSecurityMedium" class="d-none"><span class="badge bg-warning">Mot de passe Moyen</span> ajouter au moins un caractère spécial.</small>
-                        <small id="pwdSecurityStrong" class="d-none"><span class="badge bg-success">Mot de passe Fort</span></small>
-                        <small id="pwdMessageError" class="form-text d-none text-danger">Merci de renseigner 2 mots de passe identique</small> -->
-
                         <div class="d-grid mt-3">
                             <button type="submit" class="btn btn-lg btn-success mb-3">Je valide</button>
                         </div>
@@ -79,9 +58,8 @@
                 </form>
                 <div class="mt-5">
                     <div class="text-center">
-                        <button type="button" class="btn btn-outline-danger mb-3" data-bs-toggle="modal" data-bs-target="#exampleModal">Supprimer mon compte</button>
+                        <a href="/controllers/dashboard-users/users/delete-users-ctrl.php" type="button" class="btn btn-sm btn-outline-danger mb-3">Supprimer mon compte</a>
                         <!-- <p><a class="btn btn-outline-danger" href="/controllers/dashboard-users/users/delete-users-ctrl.php" role="button">Supprimer mon compte</a></p> -->
-                        <p class="small">Nous sommes navrés de vous voir partir. Après la confirmation de la suppression de votre compte, vous n’aurez plus accès à votre espace et vos commandes.</p>
                     </div>
                 </div>
             </div>
@@ -99,6 +77,8 @@
             </div>
             <div class="modal-body">
                 <div class="mb-3">
+                <p class="small">Nous sommes navrés de vous voir partir. Après la confirmation de la suppression de votre compte, vous n’aurez plus accès à votre espace et vos commandes.</p>
+
                     <label for="password" class="form-label">Entrez votre mot de passe pour supprimer votre compte</label>
                     <input type="password" class="form-control" id="password" name="password" placeholder="Votre mot de passe" required>
                     <div class="form-text text-danger"><?= $errors['password'] ?? '' ?></div>
@@ -106,7 +86,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
-                <a href="/controllers/dashboard-users/users/delete-users-ctrl.php" type="button" class="btn btn-primary">Je supprime mon compte</a>
+                <a href="/controllers/dashboard-users/users/delete-users-ctrl.php?id=<?= $user->id_user ?>" type="button" class="btn btn-primary">Je supprime mon compte</a>
             </div>
         </div>
     </div>

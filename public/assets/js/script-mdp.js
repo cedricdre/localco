@@ -1,31 +1,36 @@
 /////////////////////// Mot de passe identique USER
 
 // Mes Sélécteurs
-const inputPassword = document.getElementById('password');
-const inputPasswordConfirm = document.getElementById('passwordConfirm');
-const pwdMessageError = document.getElementById('pwdMessageError');
+const passwordProducer = document.getElementById('password');
+const passwordConfirmProducer = document.getElementById('passwordConfirm');
+const pwdMessageErrorProducer = document.getElementById('pwdMessageError');
 
 // Fonction fléchée vérif mot de passe identique USER
-const updatePasswords = () => {
-    inputPassword.classList.remove('border-danger', 'border-success', 'border-2')
-    inputPasswordConfirm.classList.remove('border-danger', 'border-success', 'border-2')
-    pwdMessageError.classList.add('d-none');
-    if(inputPassword.value == '', inputPasswordConfirm.value == ''){
+const updatePasswordsProducer = () => {
+    passwordProducer.classList.remove('border-danger', 'border-success', 'border-2')
+    passwordConfirmProducer.classList.remove('border-danger', 'border-success', 'border-2')
+    pwdMessageErrorProducer.classList.add('d-none');
+    if(passwordProducer.value == '', passwordConfirmProducer.value == ''){
         return
     }
-    if (inputPassword.value === inputPasswordConfirm.value) {
-        inputPassword.classList.add('border-success', 'border-2')
-        inputPasswordConfirm.classList.add('border-success', 'border-2')
+    if (passwordProducer.value === passwordConfirmProducer.value) {
+        passwordProducer.classList.add('border-success', 'border-2')
+        passwordConfirmProducer.classList.add('border-success', 'border-2')
     } else {
-        inputPassword.classList.add('border-danger', 'border-2')
-        inputPasswordConfirm.classList.add('border-danger', 'border-2')
-        pwdMessageError.classList.remove('d-none');
+        passwordProducer.classList.add('border-danger', 'border-2')
+        passwordConfirmProducer.classList.add('border-danger', 'border-2')
+        pwdMessageErrorProducer.classList.remove('d-none');
     }
 };
 
 // Resultat
-inputPassword.addEventListener('input', updatePasswords);
-inputPasswordConfirm.addEventListener('input', updatePasswords);
+passwordProducer.addEventListener('input', updatePasswordsProducer);
+passwordConfirmProducer.addEventListener('input', updatePasswordsProducer);
+
+
+
+
+
 
 // /////////////////////// Force du mot de passe USER
 
