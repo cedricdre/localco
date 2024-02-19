@@ -41,23 +41,23 @@
                                 <th>
                                     <?php
                                         if ($order->status == 1) { ?>
-                                            <span class="badge rounded-pill text-bg-warning">En préparation...</span>
+                                            <span class="badge rounded-pill text-bg-warning">En préparation ...</span>
                                     <?php
                                     } ?>
                                     <?php
                                         if ($order->status == 2) { ?>
-                                            <span class="badge rounded-pill text-bg-success"><i class="bi bi-link me-1"></i>À retirer</span>
+                                            <span class="badge rounded-pill text-bg-success"><i class="bi bi-caret-right-fill me-1"></i>À retirer</span>
                                     <?php
                                     } ?>
                                     <?php
                                         if ($order->status == 3) { ?>
-                                            <span class="badge rounded-pill text-bg-secondary"><i class="bi bi-link me-1"></i>Retiré</span>
+                                            <span class="badge rounded-pill text-bg-secondary"><i class="bi bi-check me-1"></i>Retiré</span>
                                     <?php
                                     } ?>
                                 </th>
                                 <th><?=date('d/m/Y', strtotime($order->withdrawDate))?></th>
                                 <th><?= $total ?> <sup>€</sup></th>
-                                <th><a class="btn btn-outline-success btn-sm" href="/controllers/dashboard-users/orders-line/list-ctrl.php?idorder=<?=$order->id_order?>" role="button">Consulter</a></th>
+                                <th><a class="btn btn-outline-success btn-sm" href="/controllers/dashboard-users/orders-line/list-ctrl.php?idorder=<?=$order->id_order?>" role="button" aria-label="Consulter">Consulter</a></th>
                             </tr>
                             <?php
                             } ?>

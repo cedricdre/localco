@@ -29,7 +29,7 @@
                     <div class="border-bottom border-1 border-success py-2">
                         <div class="row g-0 align-items-center justify-content-between">
                             <div class="col-6">
-                            <p class="fw-bold mb-0"><?= $quantity ?> x <?= $product->product_name ?></p>
+                            <p class="fw-bold mb-0"><?= $quantity ?> x <a href="/controllers/product-sheet-ctrl.php?idproduct=<?= $product->id_product ?>"><?= $product->product_name ?></a></p>
                             <p class="fw-light small mb-0"><?=$product->weight?> <?=$product->weight_unit?></p>
                             </div>
                             <div class="col-2">
@@ -88,3 +88,5 @@
         </div>
     </div>
 </section>
+
+<script src="/public/assets/js/withdraw-date.js"></script>
