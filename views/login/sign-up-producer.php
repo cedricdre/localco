@@ -91,7 +91,7 @@
                                 </div> -->
                                 <div class="col-12 form-check mb-2">
                                     <input type="checkbox" class="form-check-input" id="privacyPolicy" name="privacyPolicy" required>
-                                    <label for="privacyPolicy">J'accepte la <a href="#" target="_blank">Politique de confidentialité</a>*</label>
+                                    <label for="privacyPolicy">J'accepte la <a href="/controllers/privacy-policy-ctrl.php" target="_blank">Politique de confidentialité</a>*</label>
                                 </div>
                                 <button type="submit" class="btn btn-success w-100">Inscription</button>
                                 <small class="text-center">*Champs obligatoires</small>

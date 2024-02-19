@@ -65,7 +65,7 @@
                                         </div>
                                         <div class="col-12 mb-3 form-check">
                                             <input type="checkbox" class="form-check-input" id="privacyPolicy" name="privacyPolicy" required>
-                                            <label for="privacyPolicy">J'accepte la <a href="#" target="_blank">Politique de confidentialité</a>*</label>
+                                            <label for="privacyPolicy">J'accepte la <a href="/controllers/privacy-policy-ctrl.php" target="_blank">Politique de confidentialité</a>*</label>
                                             <small class="form-text text-danger"><?= $error['privacyPolicy'] ?? '' ?></small>
                                         </div>
                                         <button type="submit" class="btn btn-success w-100">Inscription</button>

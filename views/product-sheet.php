@@ -36,9 +36,22 @@
 
                 <div class="row">
                     <div class="col-lg-7 col-xl-8">
-                        <div class="d-grid mb-4">
-                            <button class="btn btn-warning btn-lg" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottomPrice" aria-controls="offcanvasBottomPrice">Ajouter au panier</button>
+
+                        <div class="row g-2 mb-4">
+                            <div class="col-3">
+                            <select class="form-select rounded-5 border-warning" id="inputSelectQte<?=$product->id_product?>">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                            </div>
+                            <div class="col-9">
+                            <button class="btn btn-warning addBasket w-100" type="button" data-productid="<?=$product->id_product?>">Ajouter au panier<i class="ms-1 bi bi-bag-fill"></i></button>
+                            </div>
                         </div>
+
                         <h5>Description</h5>
                         <p><?=$product->description?></p>
                         <h5>Origine</h5>
@@ -183,6 +196,21 @@
                     </div>
                 </div>
             </div><!-- FIN offcanvas choix quantité -->
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="basketModal" tabindex="-1" aria-labelledby="basketModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                <div class="modal-header bg-success-subtle">
+                    <h5 class="modal-title fw-bold" id="basketModalLabel"><i class="bi bi-bag-fill me-2"></i>Panier</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body border-0">
+                    <h5>Le produit a été ajouté au panier ! <i class="bi bi-emoji-smile-fill"></i></h5>
+                </div>
+                </div>
+            </div>
         </div>
 
     </div>

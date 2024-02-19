@@ -54,7 +54,7 @@
                     <ul class="nav flex-column">
                         <li class="nav-item mb-2"><a href="/controllers/catalog-ctrl.php" class="nav-link p-0 text-light">Catalogue</a></li>
                         <li class="nav-item mb-2"><a href="/controllers/subscription-ctrl.php" class="nav-link p-0 text-light">Abonnement</a></li>
-                        <li class="nav-item mb-2"><a href="/controllers/producers-ctrl.php" class="nav-link p-0 text-light">Les Producteurs</a></li>
+                        <li class="nav-item mb-2"><a href="/controllers/producers/producers-ctrl.php" class="nav-link p-0 text-light">Les Producteurs</a></li>
                         <li class="nav-item mb-2"><a href="/controllers/pickups-ctrl.php" class="nav-link p-0 text-light">Lieu de retrait</a></li>
                     </ul>
                 </div>
@@ -62,7 +62,7 @@
                     <h5 class="fw-bold mb-3">Compte</h5>
                     <ul class="nav flex-column">
                         <li class="nav-item mb-2"><a href="/controllers/login/sign-in-ctrl.php" class="nav-link p-0 text-light">Gérer mon compte</a></li>
-                        <li class="nav-item mb-2"><a href="/controllers/login/sign-in-ctrl.php" class="nav-link p-0 text-light">Gérer mon abonnement</a></li>
+                        <li class="nav-item mb-2"><a href="/controllers/dashboard-users/home-ctrl.php" class="nav-link p-0 text-light">Gérer mon abonnement</a></li>
                     </ul>
                 </div>
                 <div class="col text-light">
@@ -96,7 +96,7 @@
                     <a class="nav-link link-light active">© 2023 Localco</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link link-light" href="#">Mentions Légales</a>
+                    <a class="nav-link link-light" href="/controllers/mentions-legales-ctrl.php">Mentions Légales</a>
                 </li>
             </ul>
         </div>

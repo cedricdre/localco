@@ -65,12 +65,12 @@
                         ?>
                     </select>
                     </div>
-                    <div class="form-check">
+                    <!-- <div class="form-check">
                         <input class="form-check-input" type="checkbox" value="1" id="flexCheckDefault">
                         <label class="form-check-label" for="flexCheckDefault">
                             Afficher seulement les produits BIO (A faire !)
                         </label>
-                    </div>  
+                    </div>   -->
                     <button type="submit" class="btn btn-success rounded-5 icon-link icon-link-hover my-5 me-2">
                         Valider
                         <i class="bi bi-chevron-right mb-2"></i>
@@ -114,21 +114,20 @@
                         </div>
                         </a>
                         <div class="card-footer border-0 bg-transparent pb-3">
-                            <div class="input-group">
-                                <select class="form-select rounded-start-5 border-warning" id="inputSelectQte<?=$product->id_product?>">
+                            <div class="row g-2">
+                                <div class="col-md-5">
+                                <select class="form-select rounded-5 border-warning" id="inputSelectQte<?=$product->id_product?>">
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
                                     <option value="4">4</option>
                                     <option value="5">5</option>
-                                    <option value="6">6</option>
-                                    <option value="7">7</option>
                                 </select>
-                                <button class="btn btn-warning addBasket" type="button" data-productid="<?=$product->id_product?>">Ajouter au panier</button>
+                                </div>
+                                <div class="col-md-7">
+                                <button class="btn btn-warning addBasket w-100" type="button" data-productid="<?=$product->id_product?>">Panier<i class="ms-1 bi bi-bag-fill"></i></button>
+                                </div>
                             </div>
-                            <!-- <div>
-                                <button class="btn w-100 btn-sm btn-warning " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottomPrice" aria-controls="offcanvasBottomPrice">Ajouter au panier</button>
-                            </div> -->
                         </div>
                     </div>
                 </div>
