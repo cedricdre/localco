@@ -7,8 +7,11 @@ require_once __DIR__ . '/../../models/OrderLine.php';
 
 try {
     $title = 'Panier';
-    $id_user = $_SESSION['user']->id_user;
-    $pickup = User::getUserPickup($id_user);
+
+    if (!empty($_SESSION['user'])) {
+        $id_user = $_SESSION['user']->id_user;
+        $pickup = User::getUserPickup($id_user);
+    }
 
     $total = 0;
 

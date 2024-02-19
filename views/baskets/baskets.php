@@ -70,7 +70,7 @@
                     <?php
                     } else { ?>
                         <a class="btn btn-success rounded-5 icon-link icon-link-hover my-2 me-2" href="/controllers/login/sign-in-ctrl.php">
-                        Connectez-vous
+                        Connectez-vous pour commander
                         <i class="bi bi-chevron-right mb-2"></i>
                     </a>
                     <?php
