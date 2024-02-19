@@ -87,6 +87,7 @@ try {
                 // vérifier si la requête d'insertion a réussi
                 if ($isOrder == true && $isOrderLine  == true) {
                     unset($_COOKIE['basket']);
+                    setcookie('basket', '', time() - 86400, "/");
                 }
 
             } catch (\Throwable $th) {

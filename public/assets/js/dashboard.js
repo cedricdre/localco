@@ -11,24 +11,22 @@
 
 
 function changeTheme() {
-  // Sélection de l'élément <html> par son id
-  var htmlElement = document.getElementById('htmlElement');
 
-  // Récupération de la valeur sélectionnée dans le sélecteur
-  var selectedTheme = document.getElementById('themeSelector').value;
+  let htmlElement = document.getElementById('htmlElement');
 
-  // Mise à jour de la valeur de l'attribut data-bs-theme
+  let selectedTheme = document.getElementById('themeSelector').value;
+
   htmlElement.setAttribute('data-bs-theme', selectedTheme);
 
-  // Sauvegarde du choix de l'utilisateur dans le LocalStorage
+  // Sauvegarde LocalStorage
   localStorage.setItem('selectedTheme', selectedTheme);
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-  var htmlElement = document.getElementById('htmlElement');
-  var selectedTheme = localStorage.getItem('selectedTheme');
+  let htmlElement = document.getElementById('htmlElement');
+  let selectedTheme = localStorage.getItem('selectedTheme');
 
-  // Vérifiez si un thème a été enregistré dans le LocalStorage
+  // Vérifiez si thème enregistré dans LocalStorage
   if (selectedTheme) {
     // Appliquez le thème enregistré
     htmlElement.setAttribute('data-bs-theme', selectedTheme);
