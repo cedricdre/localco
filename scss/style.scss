@@ -35,20 +35,12 @@ $spacers: (
 }
 $form-label-margin-bottom: .25rem;
 
-$pagination-bg: $success;
+// $pagination-bg: $success;
 
 
 // Typo
 .title-lilita {
     font-family: 'Lilita One', sans-serif;
-}
-
-.body-img {
-    background-image: url('../img/fond-test.jpg');
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-attachment: fixed;
-    background-size: cover;
 }
 
 /* Enlève la bordure au clic */
@@ -243,10 +235,10 @@ transform: scale(1.3);
     color: #fff;
 }
 .login-page-cover-img1 {
-    background-image: url('../img/pomme-off.jpg');
+    background-image: url('../img/cover-pomme.webp');
 }
 .login-page-cover-img2 {
-    background-image: url('../img/legumes-hiver.jpg');
+    background-image: url('../img/cover-legumes-hiver.webp');
 }
 .login-page-cover-img3 {
     background-image: url('../img/salade-off.jpg');

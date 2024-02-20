@@ -15,7 +15,7 @@
                 </div>
             </div>
             <div class="col-xl-6">
-                <img src="/public/assets/img/legumes-hiver.jpg" class="img-baner-shop object-fit-cover" alt="photo Localco de légumes d'hiver">
+                <img src="/public/assets/img/legumes-hiver.webp" class="img-baner-shop object-fit-cover" alt="photo Localco de légumes d'hiver">
             </div>
         </div>
     </div>

@@ -27,36 +27,36 @@
 </section>
 <!-- section "Comment ça fonctionne ?" -->
 <section class="my-6 text-center">
-    <div class="container">
+    <div class="container mb-lg-5">
         <h2 class="title-lilita fs-1">Comment ça fonctionne</h2>
         <p class="text-danger fs-4 fw-bold mb-4">Simple comme bonjour</p>
-        <div class="row g-4" data-aos="fade-up">
+        <div class="row g-2 g-lg-4" data-aos="fade-up">
             <div class="col-6 col-lg-3">
                 <div>
-                <img src="/public/assets/img/picto3.webp" class="img-fluid px-lg-5 mb-3 my-lg-3" alt="picto de ...">
-                    <h5 class="fw-bold"><span class="text-danger fs-3 fw-bolder">1. </span>Je commande</h5>
-                    <p>Je choisis mon lieu de retrait et sélectionne mes produits.</p>
+                <img src="/public/assets/img/picto1.webp" class="img-fluid px-3 px-md-6 mb-3 my-lg-4" alt="picto avec chiffre 1 avec fraises">
+                    <h4 class="fw-bold"><span class="text-danger fs-3 fw-bolder">. </span>Je commande</h4>
+                    <p class="fs-5">Je choisis mon lieu de retrait et sélectionne mes produits.</p>
                 </div>
             </div>
             <div class="col-6 col-lg-3">
                 <div>
-                <img src="/public/assets/img/picto4.webp" class="img-fluid px-lg-5 mb-3 my-lg-3" alt="picto de ...">
-                    <h5 class="fw-bold"><span class="text-danger fs-3 fw-bolder">2. </span>La récolte</h5>
-                    <p>Nos producteurs récoltent les produits.</p>
+                <img src="/public/assets/img/picto2.webp" class="img-fluid px-3 px-md-6 mb-3 my-lg-4" alt="picto avec chiffre 2 avec pommes de terre">
+                    <h4 class="fw-bold"><span class="text-danger fs-3 fw-bolder">. </span>La récolte</h4>
+                    <p class="fs-5">Nos producteurs récoltent les produits.</p>
                 </div>
             </div>
             <div class="col-6 col-lg-3">
                 <div>
-                <img src="/public/assets/img/picto3.webp" class="img-fluid px-lg-5 mb-3 my-lg-3" alt="picto de ...">
-                    <h5 class="fw-bold"><span class="text-danger fs-3 fw-bolder">3. </span>Le transport et la préparation</h5>
-                    <p>Nous préparons vos commandes !</p>
+                <img src="/public/assets/img/picto3.webp" class="img-fluid px-3 px-md-6 mb-3 my-lg-4" alt="picto avec chiffre 3 avec tomates">
+                    <h4 class="fw-bold"><span class="text-danger fs-3 fw-bolder">. </span>La préparation</h4>
+                    <p class="fs-5">Nous préparons avec soins vos commandes !</p>
                 </div>
             </div>
             <div class="col-6 col-lg-3">
                 <div>
-                    <img src="/public/assets/img/picto4.webp" class="img-fluid px-lg-5 mb-3 my-lg-3" alt="picto de ...">
-                    <h5 class="fw-bold"><span class="text-danger fs-3 fw-bolder">4. </span>Le retrait</h5>
-                    <p>Vous récupérez votre commande en point retrait !</p>
+                    <img src="/public/assets/img/picto4.webp" class="img-fluid px-3 px-md-6 mb-3 my-lg-4" alt="picto avec chiffre 4 avec brocolis">
+                    <h4 class="fw-bold"><span class="text-danger fs-3 fw-bolder">. </span>Le retrait</h4>
+                    <p class="fs-5">Vous récupérez votre commande en point retrait !</p>
                 </div>
             </div>
         </div>
