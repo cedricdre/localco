@@ -63,35 +63,6 @@
                 <?php
                 } ?>
 
-
-
-
-            <!-- offcanvas choix quantité -->
-            <div class="offcanvas offcanvas-bottom" data-bs-scroll="true" tabindex="-1" id="offcanvasBottomPrice" aria-labelledby="offcanvasBottomPriceLabel">
-                <div class="offcanvas-header">
-                    <h5 class="offcanvas-title fw-bolder" id="offcanvasBottomLabel"></h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                </div>
-                <div class="offcanvas-body text-success">
-                    <h5 class="text-center mb-4 fw-bolder">Nom du produit</h5>
-                    <div class="row g-3 align-items-center justify-content-center">
-                        <div class="col-auto">
-                            <label for="inputQte" class="col-form-label">Choisir une quantité</label>
-                        </div>
-                        <div class="col-auto">
-                            <input type="number" value="1" min="1" max="10" id="inputQte" class="form-control border-success" aria-describedby="passwordHelpInline">
-                        </div>
-                        <div class="col-auto">
-                            <h5 class="m-0 fw-bolder">0,00 <sup>€</sup></h5>
-                        </div>
-                        <div class="col-12 col-lg-auto">
-                            <div class="d-grid">
-                                <button class="btn btn-warning rounded-5" type="button">Ajouter au panier</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div><!-- FIN offcanvas choix quantité -->
         </div>
 
     </div>

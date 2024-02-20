@@ -192,12 +192,12 @@
                             <p class="small fw-light opacity-75"><?=$product->company_name?></p>
                             <h6 class="card-title fs-5 fw-bolder mb-0"><?=$prix_ttc?> <sup>€</sup></h6>
                         </div>
-                        </a>
                         <div class="card-footer border-0 bg-transparent pb-3">
-                            <div class="d-grid">
-                                <button class="btn btn-sm btn-warning " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottomPrice" aria-controls="offcanvasBottomPrice">Ajouter au panier</button>
+                            <div>
+                                <button class="btn w-100 btn-sm btn-warning " type="button">Voir la fiche produit</button>
                             </div>
                         </div>
+                        </a>
                     </div>
                 </div>
                 <?php

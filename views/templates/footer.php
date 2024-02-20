@@ -44,7 +44,7 @@
                 <div class="col text-light">
                     <h5 class="fw-bold mb-3">À propos</h5>
                     <ul class="nav flex-column">
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">Le Projet</a></li>
+                        <li class="nav-item mb-2"><a href="/controllers/project-ctrl.php" class="nav-link p-0 text-light">Le Projet</a></li>
                         <!-- <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">Le Blog</a></li> -->
                         <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">Support client</a></li>
                     </ul>

@@ -15,7 +15,7 @@
     <div class="container">
         <div class="row justify-content-center">
         <?php if ($_SERVER['REQUEST_METHOD'] != 'POST' || !empty($error)) { ?>
-            <div class="col-lg-6">
+            <div class="col-lg-6 mb-3">
                 <?php
                 if (isset($_COOKIE['basket'])) {
                     foreach ($productID as $productData) {
@@ -42,10 +42,14 @@
                     </div>
                 <?php
                     }
-                } else {
-                    // Le cookie 'basket' n'est pas défini
-                }
-                ?>
+                } else { ?>
+                    <h5 class="fw-bold">Votre panier est vide</h5>
+                    <a class="btn btn-outline-success icon-link icon-link-hover mb-3" href="/controllers/catalog-ctrl.php">
+                            Commencer mon marché
+                            <i class="bi bi-chevron-right mb-2"></i>
+                    </a>
+                <?php
+                } ?>
             </div>
             <div class="col-lg-3">
                 <div class="border border-1 border-success p-4">
@@ -79,9 +83,12 @@
             </div>
             <?php } else { ?>
             <div class="col-lg-6">
-                <img src="/public/assets/img/tomato.svg" height="150" alt="tomate souriante">
-                <h2 class="title-lilita my-4">Commande confirmée !</h2>
-                <a href="/controllers/dashboard-users/home-ctrl.php" type="button" class="btn btn-outline-success mb-2">Accéder à mon compte</a>
+                <div class="text-center">
+                    <img src="/public/assets/img/tomato.svg" height="150" alt="tomate souriante">
+                    <h2 class="title-lilita my-4">Commande confirmée !</h2>
+                    <h5>Nous tenons à vous remercier pour votre confiance. Nous vous tiendrons informé de l'avancement de votre commande et vous enverrons une notification dès qu'elle sera prête.</h5>
+                    <a href="/controllers/dashboard-users/home-ctrl.php" type="button" class="btn btn-outline-success mb-2">Accéder à mon compte</a>
+                </div>
             </div>                
             <?php  } ?>
             

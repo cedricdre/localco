@@ -46,7 +46,7 @@
         <div class="collapse navbar-collapse order-lg-2 justify-content-end" id="navbarNav">
             <ul class="navbar-nav text-center">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Le Projet</a>
+                    <a class="nav-link" href="/controllers/project-ctrl.php">Le Projet</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/controllers/catalog-ctrl.php">Catalogue</a>
@@ -73,7 +73,7 @@
     <div class="offcanvas-body">
         <ul id="offcanvasMenu" class="navbar-nav mb-4">
             <li class="nav-item">
-                <a class="nav-link" href="#">Le Projet</a>
+                <a class="nav-link" href="/controllers/project-ctrl.php">Le Projet</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/controllers/catalog-ctrl.php">Catalogue</a>
