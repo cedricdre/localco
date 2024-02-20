@@ -100,7 +100,7 @@
                         <?php } else { ?>
                         <img src="/public/assets/img/tomato.svg" class="mt-4" height="150" alt="tomate souriante">
                         <h2 class="title-lilita my-3">Inscription confirmée !</h2>
-                        <a href="/controllers/login/login-ctrl.php" type="button" id="submitLogin" class="btn btn-outline-success mb-2">J'accède à mon compte.</a>
+                        <a href="/controllers/home-ctrl.php" type="button" id="submitLogin" class="btn btn-outline-success mb-2">J'accède à mon compte.</a>
                         <?php  } ?>
                     </div>
                 </div>

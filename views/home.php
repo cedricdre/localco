@@ -33,28 +33,28 @@
         <div class="row g-4" data-aos="fade-up">
             <div class="col-6 col-lg-3">
                 <div>
-                    <img src="/public/assets/img/picto-off.svg" class="img-fluid p-lg-5 mb-3 mb-lg-0" alt="picto de ...">
+                <img src="/public/assets/img/picto3.webp" class="img-fluid px-lg-5 mb-3 my-lg-3" alt="picto de ...">
                     <h5 class="fw-bold"><span class="text-danger fs-3 fw-bolder">1. </span>Je commande</h5>
                     <p>Je choisis mon lieu de retrait et sélectionne mes produits.</p>
                 </div>
             </div>
             <div class="col-6 col-lg-3">
                 <div>
-                    <img src="/public/assets/img/picto-off.svg" class="img-fluid p-lg-5 mb-3 mb-lg-0" alt="picto de ...">
+                <img src="/public/assets/img/picto4.webp" class="img-fluid px-lg-5 mb-3 my-lg-3" alt="picto de ...">
                     <h5 class="fw-bold"><span class="text-danger fs-3 fw-bolder">2. </span>La récolte</h5>
                     <p>Nos producteurs récoltent les produits.</p>
                 </div>
             </div>
             <div class="col-6 col-lg-3">
                 <div>
-                    <img src="/public/assets/img/picto-off.svg" class="img-fluid p-lg-5 mb-3 mb-lg-0" alt="picto de ...">
+                <img src="/public/assets/img/picto3.webp" class="img-fluid px-lg-5 mb-3 my-lg-3" alt="picto de ...">
                     <h5 class="fw-bold"><span class="text-danger fs-3 fw-bolder">3. </span>Le transport et la préparation</h5>
                     <p>Nous préparons vos commandes !</p>
                 </div>
             </div>
             <div class="col-6 col-lg-3">
                 <div>
-                    <img src="/public/assets/img/picto-off.svg" class="img-fluid p-lg-5 mb-3 mb-lg-0" alt="picto de ...">
+                    <img src="/public/assets/img/picto4.webp" class="img-fluid px-lg-5 mb-3 my-lg-3" alt="picto de ...">
                     <h5 class="fw-bold"><span class="text-danger fs-3 fw-bolder">4. </span>Le retrait</h5>
                     <p>Vous récupérez votre commande en point retrait !</p>
                 </div>

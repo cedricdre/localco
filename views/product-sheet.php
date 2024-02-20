@@ -21,6 +21,11 @@
                     <?php
                     } ?>
                     <?php
+                        if (isset($average_rating)) { ?>
+                        <h5 class="ms-2 mb-0"><i class="bi bi-star-fill text-warning me-1"></i><?=$ratingProduct?>/5</h5>
+                        <?php
+                        } ?>
+                    <?php
                     $product_price = $product->product_price;
                     $product_tva = $product->product_tva;
                     // Calculer la TVA
@@ -98,29 +103,60 @@
             </div>
         </div>
 
+        <div class="py-5">
+            <div class="row">
+            <h2 class="text-center title-lilita fs-1 mb-4"><span class="bg-warning p-1">Avis</span> Clients</h2>
+                <div class="col-lg-5">
+                    <?php
+                    if (empty($_SESSION['user'])) { ?>
+                        <a class="btn btn-outline-success" href="/controllers/login/sign-in-ctrl.php"><i class="bi bi-person-fill me-1"></i>Connectez-vous pour écrire un avis</a>
+                    <?php
+                    } else { ?>
+                    <form method="post">
+                        <div class="mb-3">
+                            <label for="score" class="form-label">Évaluer ce produit</label>
+                            <select class="form-select w-50" id="score" name="score" aria-label="Default select example" required>
+                                <option value="">Note</option>
+                                <?php
+                                foreach (NOTES as $note) { ?>
+                                    <option value="<?= $note ?>" <?= (isset($score) && $score == $note) ? 'selected' : '' ?>><?= $note ?></option>
+                                <?php }
+                                ?>
+                            </select>
+                            <small class="form-text text-danger"><?= $error['score'] ?? '' ?></small>
+                        </div>
+                        <div class="mb-3">
+                            <label for="comment" class="form-label">Partagez votre opinion avec les autres clients</label>
+                            <textarea class="form-control" id="comment" name="comment" rows="4" maxlength="1000" placeholder="Entrez votre texte"><?= $comment ?? '' ?></textarea>
+                            <small class="form-text text-danger"><?= $error['comment'] ?? '' ?></small>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Envoyer</button>
+                    </form>
+                    <?php }
+                    ?>
+                </div>
+                <div class="col-lg-7">
+                <?php
+                if (isset($reviews) && count($reviews) > 0) {
+                    foreach ($reviews as $review) { ?>
+                        <p class="h5 fw-bold"><?=$review->firstname?></p>
+                        <p><i class="bi bi-star-fill me-2"></i><?=$review->rating?>/5</p>
+                        <p class="border-bottom border-1 border-warning pb-3"><?=$review->comment?></p>
+                <?php
+                    }
+                } else { ?>
+                    <p>Aucun avis n'est disponible pour le moment</p>
+                <?php
+                } ?>
+                </div>                            
+            </div>                            
+        </div>
+
+
         <!-- A découvrir également -->
         <div class="py-6 mt-lg-3">
             <div class="row g-3">
                 <h2 class="text-center title-lilita fs-1 mb-4">À <span class="bg-warning p-1">découvrir</span> également</h2>
-
-                <!-- Card produit -->
-                <!-- <div class="col-6 col-md-4 col-lg-3">
-                    <div class="card rounded-3 h-100">
-                        <img src="/public/assets/img/pomme-off.jpg" class="img-cover-card-product object-fit-cover rounded-3" alt="Photo de Shelley Pauls">
-                        <div class="card-body text-success text-center pb-0">
-                            <h5 class="fw-bolder mb-1 fs-6"><a href="" class="link-success text-decoration-none">Nom du produit <span class="badge rounded-pill text-bg-success">BIO</span></a></h5>
-                            <p class="small fw-light opacity-75 mb-0">500g</p>
-                            <p class="small fw-light opacity-75">Nom du producteur</p>
-                            <h6 class="card-title fs-5 fw-bolder mb-0">0,00 <sup>€</sup></h6>
-                        </div>
-                        <div class="card-footer border-0 bg-transparent pb-3">
-                            <div class="d-grid">
-                                <button class="btn btn-sm btn-warning rounded-5" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottomPrice" aria-controls="offcanvasBottomPrice">Ajouter au panier</button>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
-
                 <?php
                 foreach($products as $product){ 
                     $product_price = $product->product_price;
@@ -171,7 +207,7 @@
 
 
             <!-- offcanvas choix quantité -->
-            <div class="offcanvas offcanvas-bottom" data-bs-scroll="true" tabindex="-1" id="offcanvasBottomPrice" aria-labelledby="offcanvasBottomPriceLabel">
+            <!-- <div class="offcanvas offcanvas-bottom" data-bs-scroll="true" tabindex="-1" id="offcanvasBottomPrice" aria-labelledby="offcanvasBottomPriceLabel">
                 <div class="offcanvas-header">
                     <h5 class="offcanvas-title fw-bolder" id="offcanvasBottomLabel"></h5>
                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -195,7 +231,7 @@
                         </div>
                     </div>
                 </div>
-            </div><!-- FIN offcanvas choix quantité -->
+            </div>FIN offcanvas choix quantité -->
         </div>
 
         <!-- Modal -->

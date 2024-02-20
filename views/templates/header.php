@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Localco - <?= $title ?? 'Abonnez-vous aux frais' ?></title>
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <link rel="icon" href="/favicon.png" type="image/png">
     <meta name="description" content="Abonnez-vous aux frais et explorez une nouvelle manière de consomer des produits frais de saison, tout en soutenant les producteurs locaux.">
     <meta name="author" content="Localco">
     <!-- Typo -->

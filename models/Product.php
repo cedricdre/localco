@@ -495,7 +495,7 @@ class Product
             `types`.`type_name` LIKE :search
             )";
 
-        $sql .= ' ORDER by `products`.`updated_at` DESC';
+        $sql .= ' ORDER by `products`.`product_name`';
         $sql .= " LIMIT $offset, " . NB_RESULTS_PAGE . ";";
 
         $sth = $pdo->prepare($sql);

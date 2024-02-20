@@ -29,4 +29,12 @@ define('SUCCESS', 1);
 
 define('NB_RESULTS_PAGE', 12);
 
+define('NOTES', [
+    '1', 
+    '2', 
+    '3',
+    '4',
+    '5'
+]);
+
 ?>

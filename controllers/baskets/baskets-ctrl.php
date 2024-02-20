@@ -94,7 +94,7 @@ try {
                 }
 
             } catch (\Throwable $th) {
-                // $pdo->rollBack();
+                $pdo->rollBack();
                 $error['bd'] = $th->getMessage();
             }
         }

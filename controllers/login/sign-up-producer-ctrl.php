@@ -176,9 +176,9 @@ try {
 
             $user->insert();
 
-            // Si la méthode a retourné "true", alors on redirige vers la liste
+            // // Si la méthode a retourné "true", alors on redirige vers la liste
             // if ($result) {
-            //     header('location: /controllers/dashboard/list-ctrl.php');
+            //     header('location: /');
             //     die;
             // }
         }

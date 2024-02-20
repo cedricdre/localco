@@ -104,7 +104,6 @@ try {
             // if ($isInsert) {
             //     $to = $email;
             //     $subject = 'Sujet';
-            //     $jwt = JWT::set(); // base64encode
             //     $message = 'le lien à cliquer';
             //     mail($to, $subject, $message);
             //     // message : de confirmation à mettre dans la vie
