@@ -1,6 +1,6 @@
 <?php
 // REGEX Formulaire d'inscription
-define('REGEX_NAME', "^[A-Za-zéèêëàâäôöûüç' ]+$");
+define('REGEX_NAME', "^[A-Za-zéèêëàâäôöûüç'0-9 ]+$");
 define('REGEX_PASSWORD', '^(?=.*[A-Z])(?=.*\d).{8,}$');
 define('REGEX_POSTAL_CODE', '^[0-9]{5}$');
 define('REGEX_SIRET', '^[0-9]{14}$');

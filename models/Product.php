@@ -489,6 +489,7 @@ class Product
             $sql .= " AND `users`.`id_user` = :id_user";
         }
 
+
         $sql .= " AND (
             `products`.`product_name` LIKE :search OR
             `users`.`company_name` LIKE :search OR
@@ -500,13 +501,14 @@ class Product
 
         $sth = $pdo->prepare($sql);
         $sth->bindValue(':search', '%' . $search . '%', PDO::PARAM_STR);
-        if (!is_null($id_type)) {
+
+        if ($id_type) {
             $sth->bindValue(':id_type', $id_type, PDO::PARAM_INT);
         }
-        if (!is_null($certification)) {
+        if ($certification) {
             $sth->bindValue(':certification', $certification, PDO::PARAM_STR);
         }
-        if (!is_null($producer)) {
+        if ($producer) {
             $sth->bindValue(':id_user', $producer, PDO::PARAM_INT);
         }
 
@@ -611,13 +613,13 @@ class Product
 
         $sth = $pdo->prepare($sql);
         $sth->bindValue(':search', '%' . $search . '%', PDO::PARAM_STR);
-        if (!is_null($id_type)) {
+        if ($id_type) {
             $sth->bindValue(':id_type', $id_type, PDO::PARAM_INT);
         }
-        if (!is_null($certification)) {
+        if ($certification) {
             $sth->bindValue(':certification', $certification, PDO::PARAM_STR);
         }
-        if (!is_null($producer)) {
+        if ($producer) {
             $sth->bindValue(':id_user', $producer, PDO::PARAM_INT);
         }
         $sth->execute();
