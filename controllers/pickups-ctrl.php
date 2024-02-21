@@ -3,7 +3,7 @@ require_once __DIR__ . '/../config/init.php';
 require_once __DIR__ . '/../models/Pickup.php';
 
 try {
-    $title = 'Lieu de retrait';
+    $title = 'Lieux de retrait';
 
     $pickups = Pickup::getAll();
 

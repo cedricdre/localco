@@ -55,7 +55,7 @@
                     <a class="nav-link" href="/controllers/subscription-ctrl.php">Abonnement</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/controllers/pickups-ctrl.php">Lieu de retrait</a>
+                    <a class="nav-link" href="/controllers/pickups-ctrl.php">Lieux de retrait</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/controllers/producers/producers-ctrl.php">Les Producteurs</a>
@@ -82,7 +82,7 @@
                 <a class="nav-link" href="/controllers/subscription-ctrl.php">Abonnement</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/controllers/pickups-ctrl.php">Lieu de retrait</a>
+                <a class="nav-link" href="/controllers/pickups-ctrl.php">Lieux de retrait</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/controllers/producers/producers-ctrl.php">Les Producteurs</a>
