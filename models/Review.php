@@ -129,6 +129,7 @@ class Review
         // Requête mysql pour sélectionner toutes les valeurs dans la table `categories`
         $sql = 'SELECT
                 `reviews`.`comment`,
+                `reviews`.`id_user`,
                 `reviews`.`rating`,
                 `users`.`firstname`,
                 `products`.`id_product`

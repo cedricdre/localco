@@ -75,9 +75,9 @@
                 <div class="col text-light">
                     <h5 class="fw-bold mb-3">Réseaux sociaux</h5>
                     <ul class="nav">
-                        <li class="nav-item"><a class="link-light mx-2 fs-4" href="#"><i class="bi bi-facebook"></i></a></li>
-                        <li class="nav-item"><a class="link-light mx-2 fs-4" href="#"><i class="bi bi-twitter-x"></i></a></li>
-                        <li class="nav-item"><a class="link-light mx-2 fs-4" href="#"><i class="bi bi-instagram"></i></a></li>
+                        <li class="nav-item"><a class="link-light mx-2 fs-4" href="https://www.facebook.com/" target="_blank"><i class="bi bi-facebook"></i></a></li>
+                        <li class="nav-item"><a class="link-light mx-2 fs-4" href="https://twitter.com/?lang=fr" target="_blank"><i class="bi bi-twitter-x"></i></a></li>
+                        <li class="nav-item"><a class="link-light mx-2 fs-4" href="https://www.instagram.com/" target="_blank"><i class="bi bi-instagram"></i></a></li>
                     </ul>
                 </div>
             </div>

@@ -31,6 +31,17 @@ try {
         }
     }
 
+    $noComment = false;
+
+    foreach ($reviews as $review) {
+        if ($review->id_user == $id_user) {
+            $noComment = true;
+        }
+    }
+
+    // dd($noComment);
+
+
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         

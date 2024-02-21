@@ -5,10 +5,10 @@
             <div class="col-12 col-lg-5">
                 <?php
                 if ($product->picture != null) { ?>
-                    <img src="<?= '/public/uploads/product-sheet/' . $product->picture ?>" class="img-fluid rounded-3 mb-4" alt="<?=$product->product_name?>">
+                    <img src="<?= '/public/uploads/product-sheet/' . $product->picture ?>" class="img-product-sheet object-fit-cover rounded-3 mb-4" alt="<?=$product->product_name?>">
                 <?php
                 } else { ?>
-                    <img src="/public/assets/img/img-off.jpg" class="img-fluid rounded-3 mb-4" alt="Photo de Localco">
+                    <img src="/public/assets/img/img-off.jpg" class="img-product-sheet object-fit-cover rounded-3 mb-4" alt="Photo de Localco">
                 <?php
                 } ?>
             </div>
@@ -111,6 +111,14 @@
                     if (empty($_SESSION['user'])) { ?>
                         <a class="btn btn-outline-success" href="/controllers/login/sign-in-ctrl.php"><i class="bi bi-person-fill me-1"></i>Connectez-vous pour écrire un avis</a>
                     <?php
+                    } else if ($noComment) { ?>
+                    <div class="card bg-success-subtle rounded-3 border-0">
+                    <div class="card-body p-4">
+                        <h5 class="fw-bold">Vous avez déjà donné votre <span class="bg-warning p-1">avis</span> sur ce produit !</h5>
+                        <p class="mb-0">Le producteur <span class="fw-bold"> <?=$product->company_name?></span> vous remercie !</p>
+                    </div>
+                    </div>
+                    <?php
                     } else { ?>
                     <form method="post">
                         <div class="mb-3">
@@ -144,7 +152,8 @@
                         <p class="border-bottom border-1 border-warning pb-3"><?=$review->comment?></p>
                 <?php
                     }
-                } else { ?>
+                }
+                else { ?>
                     <p>Aucun avis n'est disponible pour le moment</p>
                 <?php
                 } ?>
@@ -202,36 +211,6 @@
                 </div>
                 <?php
                 } ?>
-
-
-
-
-            <!-- offcanvas choix quantité -->
-            <!-- <div class="offcanvas offcanvas-bottom" data-bs-scroll="true" tabindex="-1" id="offcanvasBottomPrice" aria-labelledby="offcanvasBottomPriceLabel">
-                <div class="offcanvas-header">
-                    <h5 class="offcanvas-title fw-bolder" id="offcanvasBottomLabel"></h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                </div>
-                <div class="offcanvas-body text-success">
-                    <h5 class="text-center mb-4 fw-bolder">Nom du produit</h5>
-                    <div class="row g-3 align-items-center justify-content-center">
-                        <div class="col-auto">
-                            <label for="inputQte" class="col-form-label">Choisir une quantité</label>
-                        </div>
-                        <div class="col-auto">
-                            <input type="number" value="1" min="1" max="10" id="inputQte" class="form-control border-success" aria-describedby="passwordHelpInline">
-                        </div>
-                        <div class="col-auto">
-                            <h5 class="m-0 fw-bolder">0,00 <sup>€</sup></h5>
-                        </div>
-                        <div class="col-12 col-lg-auto">
-                            <div class="d-grid">
-                                <button class="btn btn-warning rounded-5" type="button">Ajouter au panier</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>FIN offcanvas choix quantité -->
         </div>
 
         <!-- Modal -->
