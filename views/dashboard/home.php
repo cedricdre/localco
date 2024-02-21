@@ -46,10 +46,16 @@
         </div>
         <div class="col-md-5">
             <div class="card text-bg-success mb-4">
-                <div class="card-header">Produits</div>
+                <div class="card-header"><i class="bi bi-list-ul me-2"></i>Produits</div>
                 <div class="card-body">
                     <h5 class="card-title"><span class="badge text-bg-light"><?= $nullCount ?></span> Produits à valider <a class="btn btn-sm btn-outline-light ms-2" href="/controllers/dashboard/products/list-ctrl.php" role="button">Consulter la liste</a></h5>
                     <p class="card-text">Total de produits en ligne : <span class="fw-bold"><?= $onlineCount ?></span> </p>
+                </div>
+            </div>
+            <div class="card text-bg-warning mb-4">
+                <div class="card-header"><i class="bi bi-chat-left-quote-fill me-2"></i>Avis Clients</div>
+                <div class="card-body">
+                    <h5 class="card-title"><span class="badge text-bg-light"><?= $nullCountReview ?></span> Avis à valider <a class="btn btn-sm btn-outline-dark ms-2" href="/controllers/dashboard/reviews/list-ctrl.php" role="button">Consulter la liste</a></h5>
                 </div>
             </div>
         </div>
@@ -59,7 +65,7 @@
         <div class="col-md-3">
             <div class="card mb-4">
                 <div class="card-body">
-                    <h5 class="card-title mb-3"><i class="bi bi-people text-primary me-2"></i>? Producteurs</h5>
+                    <h5 class="card-title mb-3"><i class="bi bi-people text-primary me-2"></i><?= count($producers) ?> Producteurs</h5>
                     <a class="btn btn-sm btn-outline-secondary" href="/controllers/dashboard/producers/list-ctrl.php" role="button">Consulter la liste</a>
                 </div>
             </div>

@@ -3,6 +3,8 @@ require_once __DIR__ . '/../../models/Pickup.php';
 require_once __DIR__ . '/../../models/Type.php';
 require_once __DIR__ . '/../../models/Product.php';
 require_once __DIR__ . '/../../models/Order.php';
+require_once __DIR__ . '/../../models/Review.php';
+require_once __DIR__ . '/../../models/User.php';
 
 SessionAuth::admin();
 
@@ -29,7 +31,16 @@ try {
         }
     }
 
-    
+    $reviews = Review::getAll(); 
+    $nullCountReview = 0;
+    foreach ($reviews as $review) {
+        if ($review->valid_at === NULL) {
+            $nullCountReview++;
+        }
+    }
+
+    $producers = User::getAllbyProducer(); 
+
 
 } catch (\Throwable $th) {
     $error = $th->getMessage();

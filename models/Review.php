@@ -99,6 +99,30 @@ class Review
         }
     }
 
+    public static function getAll(): array
+    {
+        $pdo = Database::connect();
+        // Requête mysql pour sélectionner toutes les valeurs dans la table `categories`
+        $sql = 'SELECT
+                `reviews`.`id_review`,
+                `reviews`.`comment`,
+                `reviews`.`rating`,
+                `reviews`.`created_at`,
+                `reviews`.`valid_at`,
+                `users`.`firstname`,
+                `users`.`lastname`,
+                `products`.`product_name`
+                FROM `reviews`
+                INNER JOIN `users` ON `reviews`.`id_user` = `users`.`id_user`
+                INNER JOIN `products` ON `reviews`.`id_product` = `products`.`id_product`
+                ORDER BY `reviews`.`id_review` DESC;';
+
+        $sth = $pdo->query($sql);
+        // Retourne un tableau associatif de la table categories
+        $result = $sth->fetchAll(PDO::FETCH_OBJ);
+        return $result;
+    }
+
     public static function getAllByProduct(int $idProduct): array
     {
         $pdo = Database::connect();
@@ -111,7 +135,7 @@ class Review
                 FROM `reviews`
                 INNER JOIN `users` ON `reviews`.`id_user` = `users`.`id_user`
                 INNER JOIN `products` ON `reviews`.`id_product` = `products`.`id_product`
-                WHERE `reviews`.`id_product` = :id_product
+                WHERE `reviews`.`id_product` = :id_product AND `reviews`.`valid_at` IS NOT NULL
                 ORDER BY `reviews`.`id_review` DESC;';
 
         $sth = $pdo->prepare($sql);
@@ -128,7 +152,7 @@ class Review
         // Requête mysql pour sélectionner toutes les valeurs dans la table `categories`
         $sql = 'SELECT `id_product`, AVG(rating) AS average_rating
                 FROM `reviews`
-                WHERE `id_product` = :id_product
+                WHERE `id_product` = :id_product AND `reviews`.`valid_at` IS NOT NULL
                 GROUP BY `id_product`;';
 
         $sth = $pdo->prepare($sql);
@@ -137,6 +161,38 @@ class Review
         // Retourne un tableau associatif de la table categories
         $result = $sth->fetchAll(PDO::FETCH_OBJ);
         return $result;
+    }
+
+    public static function valid(int $id): int|false
+    {
+        $pdo = Database::connect();
+        // Requête mysql pour sélectionner toutes les valeurs dans la table `vehicles`
+        $sql = 'UPDATE `reviews` SET `valid_at` = NOW() WHERE `id_review` = :id_review';
+        $sth = $pdo->prepare($sql);
+        $sth->bindValue(':id_review', $id, PDO::PARAM_INT);
+        $sth->execute();
+        if ($sth->rowCount() <= 0) {
+            // Génération d'une exception renvoyant le message en paramètre au catch créé en amont et arrêt du traitement.
+            throw new Exception('Erreur lors de la validation');
+        } else {
+            // Retourne true dans le cas contraire (tout s'est bien passé)
+            return true;
+        }
+    }
+
+    public static function delete($id): bool
+    {
+        $pdo = Database::connect();
+        $sql = 'DELETE FROM `reviews` WHERE `id_review` = :id_review';
+        $sth = $pdo->prepare($sql);
+        $sth->bindValue(':id_review', $id, PDO::PARAM_INT);
+        $sth->execute();
+        if ($sth->rowCount() <= 0) {
+            // Génération d'une exception renvoyant le message en paramètre au catch créé en amont et arrêt du traitement.
+            throw new Exception('Erreur lors de la suppression');
+        } else {
+            return true;
+        }
     }
 
 }
