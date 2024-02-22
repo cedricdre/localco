@@ -5,7 +5,7 @@
             <div class="col-xl-6">
                 <div class="p-5 p-lg-6">
                     <h2 class="title-lilita fs-1 mb-4">Fruits, légumes, fromages...</h2>
-                    <h5 class="mb-4">Choisissez parmi plus une grande sélection de produits et faites toutes vos courses, en direct de petites fermes situées à moins de 30km</h5>
+                    <h5 class="mb-4">Choisissez parmi une vaste sélection de produits et effectuez toutes vos courses en direct, provenant de petites fermes situées à moins de 30 km.</h5>
                     <div>
                         <a class="btn btn-success icon-link icon-link-hover my-1" href="/controllers/catalog-ctrl.php">
                             Commencer mon marché
