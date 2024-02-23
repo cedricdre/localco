@@ -5,7 +5,7 @@
             <div class="col-12 col-lg-6 col-xl-7">
                 <div class="px-2 px-lg-0 text-center text-lg-start">
                     <h1 class="d-none">Localco</h1>
-                    <h3 class="fs-1 fw-bolder mb-4 lh-base">Explorez une nouvelle façon de consommer des <span class="text-bg-warning fw-bolder p-1">produits de saison !</span></h3>
+                    <h3 class="fs-1 fw-bolder mb-4 lh-base">Explorez une nouvelle façon de consommer des <span class="text-bg-warning fw-bolder p-1">produits de saison!</span></h3>
                     <p class="mb-4 fs-4 d-none d-lg-block">Avec <span class="title-lilita fs-2">Localco</span> soutenez les producteurs locaux</p>
                     <div>
                         <a class="btn btn-light icon-link icon-link-hover my-2 me-2" href="/controllers/project-ctrl.php">

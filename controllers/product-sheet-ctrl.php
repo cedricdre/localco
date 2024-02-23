@@ -31,6 +31,7 @@ try {
         }
     }
 
+    if (!empty($_SESSION['user'])) {
     $noComment = false;
 
     foreach ($reviews as $review) {
@@ -38,8 +39,9 @@ try {
             $noComment = true;
         }
     }
+    }
 
-    // dd($noComment);
+
 
 
 
