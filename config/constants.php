@@ -1,7 +1,5 @@
 <?php
-define('DSN', 'mysql:dbname=localco;host=localhost');
-define('USER', 'cedric_localco');
-define('PASSWORD', 'rNHJCWWHqZ]bQj)]');
+
 
 define('CERTIFICATIONS', [
     'AOP',
